@@ -6,11 +6,10 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 12:51:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/07/13 23:37:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/07/14 01:24:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <iostream>
 
 int main(int argc, char **argv)
