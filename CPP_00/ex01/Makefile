@@ -6,7 +6,7 @@
 #    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/07/17 17:57:09 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/07/17 18:22:37 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 #               VARIABLES               #
 # ##################################### #
 
-NAME		=	
+NAME		=	phonebook
 
 UNAME		=	$(shell uname)
 
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	includes/
+HEADER		=	phonebook.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	
+SRC_FILES	=	main.cpp
 
 SRCS	=	$(SRC_FILES)
 

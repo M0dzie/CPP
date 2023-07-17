@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/07/17 18:20:29 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/07/17 18:22:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int main(int argc, char **argv)
-{
-	(void) argc;
-	(void) argv;
-	std::cout << "UwU" << std::endl;
-	return (0);
-}
+#endif
