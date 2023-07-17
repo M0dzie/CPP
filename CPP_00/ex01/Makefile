@@ -6,7 +6,7 @@
 #    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/07/13 02:29:27 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/07/17 17:57:09 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,7 @@ RM 			= 	rm -rf
 #                 PATHS                 #
 # ##################################### #
 
-SRCS_PATH	=	sources/
-
-OBJS_DIRS	=	$(SRCS_PATH).objs/
+OBJS_DIRS	=	.objs/
 
 
 # ##################################### #
@@ -47,7 +45,7 @@ OBJS_DIRS	=	$(SRCS_PATH).objs/
 
 SRC_FILES	=	
 
-SRCS	=	$(addprefix $(SRCS_PATH), $(SRC_FILES))
+SRCS	=	$(SRC_FILES)
 
 
 # ##################################### #
