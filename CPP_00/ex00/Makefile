@@ -6,7 +6,7 @@
 #    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/18 12:46:19 by thmeyer           #+#    #+#              #
-#    Updated: 2023/05/18 12:53:34 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/07/17 15:03:14 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,7 @@ RM 			= 	rm -rf
 #                 PATHS                 #
 # ##################################### #
 
-SRCS_PATH	=	sources/
-
-OBJS_DIRS	=	$(SRCS_PATH).objs/
+OBJS_DIRS	=	.objs/
 
 
 # ##################################### #
@@ -45,7 +43,7 @@ OBJS_DIRS	=	$(SRCS_PATH).objs/
 
 SRC_FILES	=	megaphone.cpp
 
-SRCS	=	$(addprefix $(SRCS_PATH), $(SRC_FILES))
+SRCS	=	$(SRC_FILES)
 
 
 # ##################################### #
