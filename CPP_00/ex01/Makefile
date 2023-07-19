@@ -6,7 +6,7 @@
 #    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/07/17 18:22:37 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/07/19 21:47:35 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,11 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	phonebook.hpp
+HEADER		=	PhoneBook.hpp
 
 MAKEFILE	=	Makefile
 
-CC			=	c++
+CC			=	g++
 CFLAGS 		= 	-Wall -Wextra -Werror
 CPPFLAGS	=	-std=c++98
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp	PhoneBook.cpp
 
 SRCS	=	$(SRC_FILES)
 
