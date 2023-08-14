@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:36:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 00:21:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 00:22:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ Contact::Contact()
 	std::cin >> phoneNumber;
 	std::cout << "Darkest secret : ";
 	std::cin >> darkestSecret;
-	std::cout << "Thanks for your information !" << std::endl;
+	std::cout << "Contact created !" << std::endl;
 }
