@@ -1,4 +1,4 @@
-#include "player.hpp"
+#include "Player.hpp"
 
 int main(int argc, char **argv)
 {
