@@ -1,13 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   Class.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/19 21:39:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/14 22:34:29 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/08/14 22:35:21 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/08/14 23:35:48 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef CLASS_HPP
+# define CLASS_HPP
+# include <iostream>
+# include <string>
+
+class Class
+{
+	public:
+
+	private:
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	int phoneNumber;
+	std::string darkestSecret;
+};
+
+#endif

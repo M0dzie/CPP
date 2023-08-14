@@ -6,23 +6,20 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/07/19 23:28:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/14 23:49:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 # include <iostream>
+# include <string>
 
 class PhoneBook
 {
-public:
-	int foo;
+	public:
 
-	void bar(void);
-	
-	PhoneBook(void);
-	~PhoneBook(void);
+	private:
 };
 
 #endif
