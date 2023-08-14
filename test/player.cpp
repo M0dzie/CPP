@@ -1,5 +1,28 @@
 #include "Player.hpp"
 
+Player::Player()
+{
+	life = 100;
+	mana = 100;
+	weapon = "Shit weapon";
+	weaponDamage = 10;
+	std::cout << "Classic constructor called !" << std::endl;
+}
+
+Player::Player(std::string nameWeapon, int weaponDeal)
+{
+	life = 100;
+	mana = 100;
+	weapon = nameWeapon;
+	weaponDamage = weaponDeal;
+	std::cout << "Specific constructor called !" << std::endl;
+}
+
+Player::~Player()
+{
+	std::cout << "Destructor called !" << std::endl;
+}
+
 void Player::takeDamage(int nbDeal)
 {
 	life -= nbDeal;
@@ -27,7 +50,7 @@ void Player::switchWeapon(std::string nameOfWeapon, int newWeaponDamage)
 	weaponDamage = newWeaponDamage;
 }
 
-bool Player::isAlive()
+bool Player::isAlive() const
 {
 	return life > 0;
 }

@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	Player david, goliath;
+	Player david, goliath("Dat sword", 20);
 
 	goliath.attack(david);
 	david.drinkHealthPotion(20);
