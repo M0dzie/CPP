@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:36:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 00:22:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 17:45:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ Contact::Contact()
 	std::cout << "Darkest secret : ";
 	std::cin >> darkestSecret;
 	std::cout << "Contact created !" << std::endl;
+}
+
+Contact::~Contact()
+{
+	std::cout << "Keep it in memory somewhere" << std::endl;
 }
