@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 22:30:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 22:32:45 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void search(PhoneBook &phoneBook, int &i)
 {
 	for (int j = 0; j < i; j++)
 	{
-		std::cout << phoneBook.list[j].firstName.substr(0, 10);
-		if (phoneBook.list[j].firstName.size() > 10)
+		std::cout << phoneBook.list[j].firstName.substr(0, 9);
+		if (phoneBook.list[j].firstName.size() > 9)
 			std::cout << ".";
 		std::cout << "|"; 
 	}
@@ -58,7 +58,7 @@ int main(void)
 			search(phoneBook, i);
 		if (cmd == "test")
 			for (int j = 0; j < 8; j++)
-				std::cout << phoneBook.list[j].firstName.substr(0, 10) << std::endl;
+				std::cout << phoneBook.list[j].firstName << std::endl;
 		std::cin >> cmd;
 	}
 	return 0;
