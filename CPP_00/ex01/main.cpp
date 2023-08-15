@@ -6,16 +6,19 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 23:30:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 00:13:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static void add(PhoneBook &phoneBook, int &i)
+static void add(PhoneBook &phoneBook, int &i, int &finish)
 {
 	if (i > 7)
+	{
 		i = 0;
+		finish = 1;
+	}
 	std::cout << "Please complete the following information :" << std::endl;
 	std::cout << "First name : ";
 	std::cin >> phoneBook.list[i].firstName;
@@ -28,30 +31,35 @@ static void add(PhoneBook &phoneBook, int &i)
 	std::cout << "Darkest secret : ";
 	std::cin >> phoneBook.list[i].darkestSecret;
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
+	if (!finish)
+		phoneBook.size = i + 1;
 	i += 1;
 }
 
-static void displaySearch(std::string contact, int margin, int pipe)
+static void displaySearch(std::string display, int margin, int pipe)
 {
-	if (contact.size() > 10)
+	if (margin < 0)
+		margin *= -1;
+	if (display.size() > 10)
 	{
-		std::cout << contact.substr(0, 9);
+		std::cout << display.substr(0, 9);
 		std::cout << ".";
 	}
 	else
-		std::cout << std::setw(margin) << contact;
+		std::cout << std::setw(margin) << display;
 	if (pipe)
 		std::cout << "|"; 
 }
 
-static void search(PhoneBook &phoneBook, int &i)
+static void search(PhoneBook &phoneBook)
 {
-	for (int j = 0; j < i; j++)
+	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
+	for (int i = 0; i < phoneBook.size; i++)
 	{
-		std::cout << std::setw(9) << j << "|";
-		displaySearch(phoneBook.list[j].firstName, 10 - phoneBook.list[j].firstName.size(), 1);
-		displaySearch(phoneBook.list[j].lastName, 10 - phoneBook.list[j].lastName.size(), 1);
-		displaySearch(phoneBook.list[j].nickname, 10 - phoneBook.list[j].nickname.size(), 0);
+		std::cout << std::setw(9) << i << "|";
+		displaySearch(phoneBook.list[i].firstName, 10 - phoneBook.list[i].firstName.size(), 1);
+		displaySearch(phoneBook.list[i].lastName, 10 - phoneBook.list[i].lastName.size(), 1);
+		displaySearch(phoneBook.list[i].nickname, 10 - phoneBook.list[i].nickname.size(), 0);
 		std::cout << std::endl;
 	}
 }
@@ -59,6 +67,7 @@ static void search(PhoneBook &phoneBook, int &i)
 int main(void)
 {
 	int i = 0;
+	int finish = 0;
 	PhoneBook phoneBook;
 	std::string cmd;
 
@@ -66,9 +75,9 @@ int main(void)
 	while (cmd != "EXIT")
 	{
 		if (cmd == "ADD")
-			add(phoneBook, i);
+			add(phoneBook, i, finish);
 		if (cmd == "SEARCH")
-			search(phoneBook, i);
+			search(phoneBook);
 		std::cin >> cmd;
 	}
 	return 0;
