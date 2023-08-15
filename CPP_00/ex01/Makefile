@@ -6,7 +6,7 @@
 #    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/15 23:32:44 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/16 00:42:14 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp PhoneBook.cpp
 
 SRCS	=	$(SRC_FILES)
 

@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 00:13:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 00:46:36 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,32 @@ static void add(PhoneBook &phoneBook, int &i, int &finish)
 	i += 1;
 }
 
-static void displaySearch(std::string display, int margin, int pipe)
+static void displaySearch(std::string display, int pipe)
 {
-	if (margin < 0)
-		margin *= -1;
 	if (display.size() > 10)
 	{
 		std::cout << display.substr(0, 9);
 		std::cout << ".";
 	}
 	else
-		std::cout << std::setw(margin) << display;
+		std::cout << std::setw(11 - display.size()) << display;
 	if (pipe)
 		std::cout << "|"; 
 }
+
+// static void displayChoice()
+// {
+// }
 
 static void search(PhoneBook &phoneBook)
 {
 	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
 	for (int i = 0; i < phoneBook.size; i++)
 	{
-		std::cout << std::setw(9) << i << "|";
-		displaySearch(phoneBook.list[i].firstName, 10 - phoneBook.list[i].firstName.size(), 1);
-		displaySearch(phoneBook.list[i].lastName, 10 - phoneBook.list[i].lastName.size(), 1);
-		displaySearch(phoneBook.list[i].nickname, 10 - phoneBook.list[i].nickname.size(), 0);
+		std::cout << std::setw(10) << i << "|";
+		displaySearch(phoneBook.list[i].firstName, 1);
+		displaySearch(phoneBook.list[i].lastName, 1);
+		displaySearch(phoneBook.list[i].nickname, 0);
 		std::cout << std::endl;
 	}
 }
