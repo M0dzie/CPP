@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 22:32:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 23:30:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void add(PhoneBook &phoneBook, int &i)
 	std::cout << "Last name : ";
 	std::cin >> phoneBook.list[i].lastName;
 	std::cout << "nickname : ";
-	std::cin >> phoneBook.list[i].nickName;  
+	std::cin >> phoneBook.list[i].nickname;  
 	std::cout << "Phone number : ";
 	std::cin >> phoneBook.list[i].phoneNumber;
 	std::cout << "Darkest secret : ";
@@ -31,16 +31,29 @@ static void add(PhoneBook &phoneBook, int &i)
 	i += 1;
 }
 
+static void displaySearch(std::string contact, int margin, int pipe)
+{
+	if (contact.size() > 10)
+	{
+		std::cout << contact.substr(0, 9);
+		std::cout << ".";
+	}
+	else
+		std::cout << std::setw(margin) << contact;
+	if (pipe)
+		std::cout << "|"; 
+}
+
 static void search(PhoneBook &phoneBook, int &i)
 {
 	for (int j = 0; j < i; j++)
 	{
-		std::cout << phoneBook.list[j].firstName.substr(0, 9);
-		if (phoneBook.list[j].firstName.size() > 9)
-			std::cout << ".";
-		std::cout << "|"; 
+		std::cout << std::setw(9) << j << "|";
+		displaySearch(phoneBook.list[j].firstName, 10 - phoneBook.list[j].firstName.size(), 1);
+		displaySearch(phoneBook.list[j].lastName, 10 - phoneBook.list[j].lastName.size(), 1);
+		displaySearch(phoneBook.list[j].nickname, 10 - phoneBook.list[j].nickname.size(), 0);
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 }
 
 int main(void)
@@ -56,9 +69,6 @@ int main(void)
 			add(phoneBook, i);
 		if (cmd == "SEARCH")
 			search(phoneBook, i);
-		if (cmd == "test")
-			for (int j = 0; j < 8; j++)
-				std::cout << phoneBook.list[j].firstName << std::endl;
 		std::cin >> cmd;
 	}
 	return 0;
