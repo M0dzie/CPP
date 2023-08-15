@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 21:43:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 21:52:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ int main(void)
 			add(&phoneBook, &i);
 		if (cmd == "SEARCH")
 			search(&phoneBook, &i);
+		if (cmd == "test")
+			for (int i = 0; i < 8; i++)
+				std::cout << phoneBook.list[i].firstName << std::endl;
 		std::cin >> cmd;
 	}
 	return 0;

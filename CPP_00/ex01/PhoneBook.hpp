@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 21:40:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/15 21:46:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class PhoneBook
 	PhoneBook();
 	~PhoneBook();
 	Contact list[8];
-
-	private:
 };
 
 #endif
