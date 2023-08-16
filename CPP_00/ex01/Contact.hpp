@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:35:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/15 23:53:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 18:32:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 class Contact
 {
 	public:
+	std::string getFirstName();
+	std::string setFirstName();
+	
+	private:
 	std::string firstName;
 	std::string lastName;
 	std::string nickname;

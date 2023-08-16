@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+         #
+#    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/16 11:52:13 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/16 18:35:01 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp PhoneBook.cpp
+SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
 
 SRCS	=	$(SRC_FILES)
 

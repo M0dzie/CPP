@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 15:32:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 18:35:19 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ static int add(PhoneBook &phoneBook, int &i, int &finish)
 	std::cin >> tmp;
 	if (tmp.empty())
 		return 0;
-	phoneBook.list[i].firstName = tmp;
-	std::cout << "Last name : ";
-	std::cin >> phoneBook.list[i].lastName;
-	std::cout << "nickname : ";
-	std::cin >> phoneBook.list[i].nickname;  
-	std::cout << "Phone number : ";
-	std::cin >> phoneBook.list[i].phoneNumber;
-	std::cout << "Darkest secret : ";
-	std::cin >> phoneBook.list[i].darkestSecret;
+	// phoneBook.list[i].firstName = tmp;
+	// std::cout << "Last name : ";
+	// std::cin >> phoneBook.list[i].lastName;
+	// std::cout << "nickname : ";
+	// std::cin >> phoneBook.list[i].nickname;  
+	// std::cout << "Phone number : ";
+	// std::cin >> phoneBook.list[i].phoneNumber;
+	// std::cout << "Darkest secret : ";
+	// std::cin >> phoneBook.list[i].darkestSecret;
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
 	if (!finish)
 		phoneBook.size = i + 1;
@@ -68,21 +68,22 @@ static void displaySearch(std::string display, int pipe)
 
 static int search(PhoneBook &phoneBook)
 {
-	std::string index;
+	(void)phoneBook;
+	// std::string index;
 
-	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
-	for (int i = 0; i < phoneBook.size; i++)
-	{
-		std::cout << std::setw(10) << i << "|";
-		displaySearch(phoneBook.list[i].firstName, 1);
-		displaySearch(phoneBook.list[i].lastName, 1);
-		displaySearch(phoneBook.list[i].nickname, 0);
-		std::cout << std::endl;
-	}
-	std::cout << "Please enter the index to display contact information : ";
-	std::cin >> index;
-	if (index.empty())
-		return 0;
+	// std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
+	// for (int i = 0; i < phoneBook.size; i++)
+	// {
+	// 	std::cout << std::setw(10) << i << "|";
+	// 	displaySearch(phoneBook.list[i].firstName, 1);
+	// 	displaySearch(phoneBook.list[i].lastName, 1);
+	// 	displaySearch(phoneBook.list[i].nickname, 0);
+	// 	std::cout << std::endl;
+	// }
+	// std::cout << "Please enter the index to display contact information : ";
+	// std::cin >> index;
+	// if (index.empty())
+	// 	return 0;
 	return 1;
 }
 
