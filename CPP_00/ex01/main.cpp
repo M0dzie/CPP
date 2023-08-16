@@ -6,7 +6,7 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 13:54:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 15:32:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static void displaySearch(std::string display, int pipe)
 
 static int search(PhoneBook &phoneBook)
 {
+	std::string index;
+
 	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
 	for (int i = 0; i < phoneBook.size; i++)
 	{
@@ -77,6 +79,10 @@ static int search(PhoneBook &phoneBook)
 		displaySearch(phoneBook.list[i].nickname, 0);
 		std::cout << std::endl;
 	}
+	std::cout << "Please enter the index to display contact information : ";
+	std::cin >> index;
+	if (index.empty())
+		return 0;
 	return 1;
 }
 
