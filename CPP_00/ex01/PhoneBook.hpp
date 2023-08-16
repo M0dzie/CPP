@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 18:57:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:55:30 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,16 @@ class PhoneBook
 {
 	public:
 	PhoneBook();
-	int size;
+	void setSize(int i) {
+		size = i;
+	}
+	int getSize() {
+		return size;
+	}
 	Contact list[8];
+
+	private:
+	int size;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 19:50:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:56:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void add(PhoneBook &phoneBook, int &i, int &finish)
 	phoneBook.list[i].setDarkestSecret(var);
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
 	if (!finish)
-		phoneBook.size = i + 1;
+		phoneBook.setSize(i + 1);
 	i += 1;
 }
 
@@ -65,7 +65,7 @@ static void search(PhoneBook &phoneBook)
 	std::string index;
 
 	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
-	for (int i = 0; i < phoneBook.size; i++)
+	for (int i = 0; i < phoneBook.getSize(); i++)
 	{
 		std::cout << std::setw(10) << i << "|";
 		displaySearch(phoneBook.list[i].getFirstName(), 1);
