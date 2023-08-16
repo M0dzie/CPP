@@ -6,14 +6,15 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 00:46:36 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 12:21:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static void add(PhoneBook &phoneBook, int &i, int &finish)
+static int add(PhoneBook &phoneBook, int &i, int &finish)
 {
+	std::string tmp;
 	if (i > 7)
 	{
 		i = 0;
@@ -21,7 +22,11 @@ static void add(PhoneBook &phoneBook, int &i, int &finish)
 	}
 	std::cout << "Please complete the following information :" << std::endl;
 	std::cout << "First name : ";
-	std::cin >> phoneBook.list[i].firstName;
+	std::cin >> tmp;
+	if (tmp.size() == 0)
+		return 0;
+	// return le tmp de ma fonction dedans
+	phoneBook.list[i].firstName = tmp;
 	std::cout << "Last name : ";
 	std::cin >> phoneBook.list[i].lastName;
 	std::cout << "nickname : ";
@@ -34,6 +39,7 @@ static void add(PhoneBook &phoneBook, int &i, int &finish)
 	if (!finish)
 		phoneBook.size = i + 1;
 	i += 1;
+	return 1;
 }
 
 static void displaySearch(std::string display, int pipe)
@@ -44,7 +50,7 @@ static void displaySearch(std::string display, int pipe)
 		std::cout << ".";
 	}
 	else
-		std::cout << std::setw(11 - display.size()) << display;
+		std::cout << std::setw(10) << display;
 	if (pipe)
 		std::cout << "|"; 
 }
@@ -53,7 +59,7 @@ static void displaySearch(std::string display, int pipe)
 // {
 // }
 
-static void search(PhoneBook &phoneBook)
+static int search(PhoneBook &phoneBook)
 {
 	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
 	for (int i = 0; i < phoneBook.size; i++)
@@ -64,22 +70,26 @@ static void search(PhoneBook &phoneBook)
 		displaySearch(phoneBook.list[i].nickname, 0);
 		std::cout << std::endl;
 	}
+	return 1;
 }
 
 int main(void)
 {
 	int i = 0;
+	int work = 1;
 	int finish = 0;
-	PhoneBook phoneBook;
 	std::string cmd;
+	PhoneBook phoneBook;
 
 	std::cout << "Please enter one of the following command : ADD, SEARCH or EXIT" << std::endl;
 	while (cmd != "EXIT")
 	{
+		if (!work)
+			break;
 		if (cmd == "ADD")
-			add(phoneBook, i, finish);
+			work = add(phoneBook, i, finish);
 		if (cmd == "SEARCH")
-			search(phoneBook);
+			work = search(phoneBook);
 		std::cin >> cmd;
 	}
 	return 0;
