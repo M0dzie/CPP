@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 18:35:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:14:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,19 @@
 // 	return var;
 // }
 
-static int add(PhoneBook &phoneBook, int &i, int &finish)
+static void add(PhoneBook &phoneBook, int &i, int &finish)
 {
-	std::string tmp;
 	if (i > 7)
 	{
 		i = 0;
 		finish = 1;
 	}
 	std::cout << "Please complete the following information :" << std::endl;
+	std::string var;
+	std::cin >> var;
+	phoneBook.list[i].setFirstName(var);
+	std::cout << phoneBook.list[i].getFirstName() << std::endl;
 	// phoneBook.list[i].firstName = getVar("First name : ");
-	std::cout << "First name : ";
-	std::cin >> tmp;
-	if (tmp.empty())
-		return 0;
 	// phoneBook.list[i].firstName = tmp;
 	// std::cout << "Last name : ";
 	// std::cin >> phoneBook.list[i].lastName;
@@ -46,27 +45,26 @@ static int add(PhoneBook &phoneBook, int &i, int &finish)
 	if (!finish)
 		phoneBook.size = i + 1;
 	i += 1;
-	return 1;
 }
 
-static void displaySearch(std::string display, int pipe)
-{
-	if (display.size() > 10)
-	{
-		std::cout << display.substr(0, 9);
-		std::cout << ".";
-	}
-	else
-		std::cout << std::setw(10) << display;
-	if (pipe)
-		std::cout << "|"; 
-}
+// static void displaySearch(std::string display, int pipe)
+// {
+// 	if (display.size() > 10)
+// 	{
+// 		std::cout << display.substr(0, 9);
+// 		std::cout << ".";
+// 	}
+// 	else
+// 		std::cout << std::setw(10) << display;
+// 	if (pipe)
+// 		std::cout << "|"; 
+// }
 
 // static void displayChoice()
 // {
 // }
 
-static int search(PhoneBook &phoneBook)
+static void search(PhoneBook &phoneBook)
 {
 	(void)phoneBook;
 	// std::string index;
@@ -84,13 +82,11 @@ static int search(PhoneBook &phoneBook)
 	// std::cin >> index;
 	// if (index.empty())
 	// 	return 0;
-	return 1;
 }
 
 int main(void)
 {
 	int i = 0;
-	int work = 1;
 	int finish = 0;
 	std::string cmd;
 	PhoneBook phoneBook;
@@ -98,12 +94,12 @@ int main(void)
 	std::cout << "Please enter one of the following command : ADD, SEARCH or EXIT" << std::endl;
 	while (cmd != "EXIT")
 	{
-		if (!work)
+		if (std::cin.eof())
 			break;
 		if (cmd == "ADD")
-			work = add(phoneBook, i, finish);
+			add(phoneBook, i, finish);
 		if (cmd == "SEARCH")
-			work = search(phoneBook);
+			search(phoneBook);
 		std::cin >> cmd;
 	}
 	return 0;

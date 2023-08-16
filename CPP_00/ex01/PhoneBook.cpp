@@ -6,13 +6,12 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 18:09:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 18:48:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : size(0)
 {
-	size = 0;
 }
