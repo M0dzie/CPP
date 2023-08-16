@@ -3,62 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 19:14:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 19:50:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-// static std::string getVar(std::string var)
-// {
-// 	std::cout << var;
-// 	std::cin >> var;
-// 	return var;
-// }
-
 static void add(PhoneBook &phoneBook, int &i, int &finish)
 {
+	std::string var;
+
 	if (i > 7)
 	{
 		i = 0;
 		finish = 1;
 	}
 	std::cout << "Please complete the following information :" << std::endl;
-	std::string var;
+	std::cout << "First name : ";
 	std::cin >> var;
 	phoneBook.list[i].setFirstName(var);
-	std::cout << phoneBook.list[i].getFirstName() << std::endl;
-	// phoneBook.list[i].firstName = getVar("First name : ");
-	// phoneBook.list[i].firstName = tmp;
-	// std::cout << "Last name : ";
-	// std::cin >> phoneBook.list[i].lastName;
-	// std::cout << "nickname : ";
-	// std::cin >> phoneBook.list[i].nickname;  
-	// std::cout << "Phone number : ";
-	// std::cin >> phoneBook.list[i].phoneNumber;
-	// std::cout << "Darkest secret : ";
-	// std::cin >> phoneBook.list[i].darkestSecret;
+	std::cout << "Last name : ";
+	std::cin >> var;
+	phoneBook.list[i].setLastName(var);
+	std::cout << "Nickname : ";
+	std::cin >> var;
+	phoneBook.list[i].setNickname(var);
+	std::cout << "Phone number : ";
+	std::cin >> var;
+	phoneBook.list[i].setPhoneNumber(var);
+	std::cout << "Your darkest secret : ";
+	std::cin >> var;
+	phoneBook.list[i].setDarkestSecret(var);
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
 	if (!finish)
 		phoneBook.size = i + 1;
 	i += 1;
 }
 
-// static void displaySearch(std::string display, int pipe)
-// {
-// 	if (display.size() > 10)
-// 	{
-// 		std::cout << display.substr(0, 9);
-// 		std::cout << ".";
-// 	}
-// 	else
-// 		std::cout << std::setw(10) << display;
-// 	if (pipe)
-// 		std::cout << "|"; 
-// }
+static void displaySearch(std::string display, int pipe)
+{
+	if (display.size() > 10)
+	{
+		std::cout << display.substr(0, 9);
+		std::cout << ".";
+	}
+	else
+		std::cout << std::setw(10) << display;
+	if (pipe)
+		std::cout << "|"; 
+}
 
 // static void displayChoice()
 // {
@@ -66,22 +62,21 @@ static void add(PhoneBook &phoneBook, int &i, int &finish)
 
 static void search(PhoneBook &phoneBook)
 {
-	(void)phoneBook;
-	// std::string index;
+	std::string index;
 
-	// std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
-	// for (int i = 0; i < phoneBook.size; i++)
-	// {
-	// 	std::cout << std::setw(10) << i << "|";
-	// 	displaySearch(phoneBook.list[i].firstName, 1);
-	// 	displaySearch(phoneBook.list[i].lastName, 1);
-	// 	displaySearch(phoneBook.list[i].nickname, 0);
-	// 	std::cout << std::endl;
-	// }
-	// std::cout << "Please enter the index to display contact information : ";
-	// std::cin >> index;
-	// if (index.empty())
-	// 	return 0;
+	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
+	for (int i = 0; i < phoneBook.size; i++)
+	{
+		std::cout << std::setw(10) << i << "|";
+		displaySearch(phoneBook.list[i].getFirstName(), 1);
+		displaySearch(phoneBook.list[i].getLastName(), 1);
+		displaySearch(phoneBook.list[i].getNickname(), 0);
+		std::cout << std::endl;
+	}
+	std::cout << "Please enter the index to display contact information : ";
+	std::cin >> index;
+	if (index.empty())
+		return;
 }
 
 int main(void)
