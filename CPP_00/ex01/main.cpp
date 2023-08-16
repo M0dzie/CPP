@@ -6,11 +6,18 @@
 /*   By: thmeyer < thmeyer@student.42lyon.fr >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 12:21:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/16 13:54:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+// static std::string getVar(std::string var)
+// {
+// 	std::cout << var;
+// 	std::cin >> var;
+// 	return var;
+// }
 
 static int add(PhoneBook &phoneBook, int &i, int &finish)
 {
@@ -21,11 +28,11 @@ static int add(PhoneBook &phoneBook, int &i, int &finish)
 		finish = 1;
 	}
 	std::cout << "Please complete the following information :" << std::endl;
+	// phoneBook.list[i].firstName = getVar("First name : ");
 	std::cout << "First name : ";
 	std::cin >> tmp;
-	if (tmp.size() == 0)
+	if (tmp.empty())
 		return 0;
-	// return le tmp de ma fonction dedans
 	phoneBook.list[i].firstName = tmp;
 	std::cout << "Last name : ";
 	std::cin >> phoneBook.list[i].lastName;
