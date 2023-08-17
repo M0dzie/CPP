@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 14:54:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 15:18:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,21 @@ void PhoneBook::_search()
 	std::cout << " ------------------------------------------- " << std::endl;
 	std::cout << "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
 	std::cout << " ------------------------------------------- " << std::endl;
-	for (int i = 0; i < _getSize(); i++)
+	for (int j = 0; j < _getSize(); j++)
 	{
-		std::cout << "|" << std::setw(10) << i << "|";
-		_displaySearch(_list[i].getFirstName());
-		_displaySearch(_list[i].getLastName());
-		_displaySearch(_list[i].getNickname());
+		std::cout << "|" << std::setw(10) << j << "|";
+		_displaySearch(_list[j].getFirstName());
+		_displaySearch(_list[j].getLastName());
+		_displaySearch(_list[j].getNickname());
 		std::cout << std::endl << " ------------------------------------------- " << std::endl;
 	}
-	std::cout << std::endl << "Please enter the index to display contact information : ";
+	if (_getSize() == 0)
+		std::cout << "The PhoneBook is empty" << std::endl;
+	else
+	{
+		std::string index = _getVar("Please enter the index to display contact information : ");
+		std::cout << "Please enter a correct index [0-" << _getSize() - 1 << "]" << std::endl;
+	}
 }
 
 void PhoneBook::_phoneBookLoop()
