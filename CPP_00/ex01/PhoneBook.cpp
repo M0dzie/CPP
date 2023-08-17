@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 17:14:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 18:10:37 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 PhoneBook::PhoneBook() : _size(0)
 {
 	_phoneBookLoop();
-}
-
-void PhoneBook::_setSize(int i)
-{
-	_size = i;
-}
-
-int PhoneBook::_getSize() const
-{
-	return _size;
 }
 
 std::string PhoneBook::_getVar(std::string message)
@@ -53,7 +43,7 @@ void PhoneBook::_add(int &i, int &finish)
 	_list[i].setDarkestSecret(_getVar("Your darkest secret : "));
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
 	if (!finish)
-		_setSize(i + 1);
+		_size = i + 1;
 	i += 1;
 }
 
@@ -75,7 +65,7 @@ int PhoneBook::_displayIndex(std::string index)
 		if (!std::isdigit(index[i]) || index.size() > 1)
 			return 0;
 	int indexInt = std::atoi(index.c_str());
-	if (indexInt >= 0 && indexInt < _getSize())
+	if (indexInt >= 0 && indexInt < _size)
 	{
 		std::cout << "First name : " << _list[indexInt].getFirstName() << std::endl;
 		std::cout << "Last name : " << _list[indexInt].getLastName() << std::endl;
@@ -92,7 +82,7 @@ void PhoneBook::_search()
 	std::cout << " ------------------------------------------- " << std::endl;
 	std::cout << "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
 	std::cout << " ------------------------------------------- " << std::endl;
-	for (int j = 0; j < _getSize(); j++)
+	for (int j = 0; j < _size; j++)
 	{
 		std::cout << "|" << std::setw(10) << j << "|";
 		_displaySearch(_list[j].getFirstName());
@@ -100,13 +90,13 @@ void PhoneBook::_search()
 		_displaySearch(_list[j].getNickname());
 		std::cout << std::endl << " ------------------------------------------- " << std::endl;
 	}
-	if (_getSize() == 0)
+	if (_size == 0)
 		std::cout << "The PhoneBook is empty" << std::endl;
 	else
 	{
 		std::string index = _getVar("Please enter the index to display contact information : ");
 		if (!_displayIndex(index))
-			std::cout << "Please enter a correct index [0-" << _getSize() - 1 << "]" << std::endl;
+			std::cout << "Please enter a correct index [0-" << _size - 1 << "]" << std::endl;
 	}
 }
 
