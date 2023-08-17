@@ -6,37 +6,34 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 20:21:22 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 11:19:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-static void add(PhoneBook &phoneBook, int &i, int &finish)
+static std::string getVar(std::string type)
 {
 	std::string var;
 
+	std::cout << type;
+	std::cin >> var;
+	return var;
+}
+
+static void add(PhoneBook &phoneBook, int &i, int &finish)
+{
 	if (i > 7)
 	{
 		i = 0;
 		finish = 1;
 	}
 	std::cout << "Please complete the following information :" << std::endl;
-	std::cout << "First name : ";
-	std::cin >> var;
-	phoneBook.list[i].setFirstName(var);
-	std::cout << "Last name : ";
-	std::cin >> var;
-	phoneBook.list[i].setLastName(var);
-	std::cout << "Nickname : ";
-	std::cin >> var;
-	phoneBook.list[i].setNickname(var);
-	std::cout << "Phone number : ";
-	std::cin >> var;
-	phoneBook.list[i].setPhoneNumber(var);
-	std::cout << "Your darkest secret : ";
-	std::cin >> var;
-	phoneBook.list[i].setDarkestSecret(var);
+	phoneBook.list[i].setFirstName(getVar("First name : "));
+	phoneBook.list[i].setLastName(getVar("Last name : "));
+	phoneBook.list[i].setNickname(getVar("Nickname : "));
+	phoneBook.list[i].setPhoneNumber(getVar("Phone number : "));
+	phoneBook.list[i].setDarkestSecret(getVar("Your darkest secret : "));
 	std::cout << "\033[1;32mContact created ! ✓\033[0m" << std::endl;
 	if (!finish)
 		phoneBook.setSize(i + 1);
@@ -62,8 +59,6 @@ static void displaySearch(std::string display, int pipe)
 
 static void search(PhoneBook &phoneBook)
 {
-	// int index = -1;
-
 	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
 	for (int i = 0; i < phoneBook.getSize(); i++)
 	{

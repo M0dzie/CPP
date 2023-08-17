@@ -6,19 +6,17 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:35:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/16 19:44:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 10:30:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-# include <iostream>
 # include <string>
 
 class Contact
 {
 	public:
-	Contact();
 	void setFirstName(std::string var) {
 		firstName = var;
 	}
