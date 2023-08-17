@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/17 11:31:39 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/17 15:29:48 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADER		=	PhoneBook.hpp
 
 MAKEFILE	=	Makefile
 
-CC			=	g++
+CC			=	c++
 CFLAGS 		= 	-Wall -Wextra -Werror
 CPPFLAGS	=	-std=c++98
 

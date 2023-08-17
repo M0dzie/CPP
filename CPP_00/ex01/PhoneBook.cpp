@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 15:18:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 17:14:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,24 @@ void PhoneBook::_displaySearch(std::string display)
 	std::cout << "|"; 
 }
 
+int PhoneBook::_displayIndex(std::string index)
+{
+	for (int i = 0; index[i]; i++)
+		if (!std::isdigit(index[i]) || index.size() > 1)
+			return 0;
+	int indexInt = std::atoi(index.c_str());
+	if (indexInt >= 0 && indexInt < _getSize())
+	{
+		std::cout << "First name : " << _list[indexInt].getFirstName() << std::endl;
+		std::cout << "Last name : " << _list[indexInt].getLastName() << std::endl;
+		std::cout << "Nickname : " << _list[indexInt].getNickname() << std::endl;
+		std::cout << "Phone number : " << _list[indexInt].getPhoneNumber() << std::endl;
+		std::cout << "Darkest secret : " << _list[indexInt].getDarkestSecret() << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
 void PhoneBook::_search()
 {
 	std::cout << " ------------------------------------------- " << std::endl;
@@ -87,7 +105,8 @@ void PhoneBook::_search()
 	else
 	{
 		std::string index = _getVar("Please enter the index to display contact information : ");
-		std::cout << "Please enter a correct index [0-" << _getSize() - 1 << "]" << std::endl;
+		if (!_displayIndex(index))
+			std::cout << "Please enter a correct index [0-" << _getSize() - 1 << "]" << std::endl;
 	}
 }
 
