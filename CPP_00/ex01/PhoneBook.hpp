@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 13:04:02 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 14:51:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 # include <iomanip>
 # include <iostream>
+# include <stdlib.h>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -27,7 +28,7 @@ class PhoneBook
 	int _getSize() const;
 	void _setSize(int i);
 	void _phoneBookLoop();
-	void _displaySearch(std::string display, int pipe);
+	void _displaySearch(std::string display);
 	void _search();
 	void _add(int &i, int &finish);
 	std::string _getVar(std::string message);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 13:05:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 14:54:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void PhoneBook::_add(int &i, int &finish)
 	i += 1;
 }
 
-void PhoneBook::_displaySearch(std::string display, int pipe)
+void PhoneBook::_displaySearch(std::string display)
 {
 	if (display.size() > 10)
 	{
@@ -66,20 +66,21 @@ void PhoneBook::_displaySearch(std::string display, int pipe)
 	}
 	else
 		std::cout << std::setw(10) << display;
-	if (pipe)
-		std::cout << "|"; 
+	std::cout << "|"; 
 }
 
 void PhoneBook::_search()
 {
-	std::cout << "   INDEX  |FIRST NAME| LAST NAME| NICKNAME " << std::endl;
+	std::cout << " ------------------------------------------- " << std::endl;
+	std::cout << "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
+	std::cout << " ------------------------------------------- " << std::endl;
 	for (int i = 0; i < _getSize(); i++)
 	{
-		std::cout << std::setw(10) << i << "|";
-		_displaySearch(_list[i].getFirstName(), 1);
-		_displaySearch(_list[i].getLastName(), 1);
-		_displaySearch(_list[i].getNickname(), 0);
-		std::cout << std::endl;
+		std::cout << "|" << std::setw(10) << i << "|";
+		_displaySearch(_list[i].getFirstName());
+		_displaySearch(_list[i].getLastName());
+		_displaySearch(_list[i].getNickname());
+		std::cout << std::endl << " ------------------------------------------- " << std::endl;
 	}
 	std::cout << std::endl << "Please enter the index to display contact information : ";
 }
