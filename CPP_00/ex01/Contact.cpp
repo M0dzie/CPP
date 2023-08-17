@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:31:57 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 11:37:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 12:13:29 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,50 @@
 
 void Contact::setFirstName(std::string var)
 {
-	firstName = var;
+	_firstName = var;
 }
 
 void Contact::setLastName(std::string var)
 {
-	lastName = var;
+	_lastName = var;
 }
 
 void Contact::setNickname(std::string var)
 {
-	nickname = var;
+	_nickname = var;
 }
 
 void Contact::setPhoneNumber(std::string var)
 {
-	phoneNumber = var;
+	_phoneNumber = var;
 }
 
 void Contact::setDarkestSecret(std::string var)
 {
-	darkestSecret = var;
+	_darkestSecret = var;
 }
 
-std::string Contact::getFirstName()
+std::string Contact::getFirstName() const
 {
-	return firstName;
+	return _firstName;
 }
 
-std::string Contact::getLastName()
+std::string Contact::getLastName() const
 {
-	return lastName;
+	return _lastName;
 }
 
-std::string Contact::getNickname()
+std::string Contact::getNickname() const
 {
-	return nickname;
+	return _nickname;
 }
 
-std::string Contact::getPhoneNumber()
+std::string Contact::getPhoneNumber() const
 {
-	return phoneNumber;
+	return _phoneNumber;
 }
 
-std::string Contact::getDarkestSecret()
+std::string Contact::getDarkestSecret() const
 {
-	return darkestSecret;
+	return _darkestSecret;
 }

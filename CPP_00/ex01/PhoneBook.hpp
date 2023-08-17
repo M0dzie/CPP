@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 18:21:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 11:38:46 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 13:04:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ class PhoneBook
 {
 	public:
 	PhoneBook();
-	void setSize(int i);
-	int getSize();
-	Contact list[8];
 
 	private:
-	int size;
+	int _size;
+	Contact _list[8];
+	int _getSize() const;
+	void _setSize(int i);
+	void _phoneBookLoop();
+	void _displaySearch(std::string display, int pipe);
+	void _search();
+	void _add(int &i, int &finish);
+	std::string _getVar(std::string message);
 };
 
 #endif
