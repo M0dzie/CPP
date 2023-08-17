@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 02:24:20 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/17 15:29:48 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/17 17:41:08 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	PhoneBook.hpp
+HEADER		=	PhoneBook.hpp Contact.hpp
 
 MAKEFILE	=	Makefile
 

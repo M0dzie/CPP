@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 17:32:31 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/17 17:32:49 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/17 17:40:43 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	
+HEADER		=	Account.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	
+SRC_FILES	=	tests.cpp Account.cpp
 
 SRCS	=	$(SRC_FILES)
 
