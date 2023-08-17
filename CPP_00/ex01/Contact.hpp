@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:35:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 10:30:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 11:34:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,16 @@
 class Contact
 {
 	public:
-	void setFirstName(std::string var) {
-		firstName = var;
-	}
-	std::string getFirstName() {
-		return firstName;
-	}
-	void setLastName(std::string var) {
-		lastName = var;
-	}
-	std::string getLastName() {
-		return lastName;
-	}
-	void setNickname(std::string var) {
-		nickname = var;
-	}
-	std::string getNickname() {
-		return nickname;
-	}
-	void setPhoneNumber(std::string var) {
-		phoneNumber = var;
-	}
-	std::string getPhoneNumber() {
-		return phoneNumber;
-	}
-	void setDarkestSecret(std::string var) {
-		darkestSecret = var;
-	}
-	std::string getDarkestSecret() {
-		return darkestSecret;
-	}
+	void setFirstName(std::string var);
+	void setLastName(std::string var);
+	void setNickname(std::string var);
+	void setPhoneNumber(std::string var);
+	void setDarkestSecret(std::string var);
+	std::string getFirstName();
+	std::string getLastName();
+	std::string getNickname();
+	std::string getPhoneNumber();
+	std::string getDarkestSecret();
 
 	private:
 	std::string firstName;

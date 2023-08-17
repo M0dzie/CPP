@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:23:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/17 11:19:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/17 11:26:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static std::string getVar(std::string type)
 	std::string var;
 
 	std::cout << type;
+	if (!std::cin.eof())
+		return NULL;
 	std::cin >> var;
 	return var;
 }
