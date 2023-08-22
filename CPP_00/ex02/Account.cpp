@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:33:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/21 13:39:07 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/22 13:47:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <iostream>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -24,10 +25,14 @@ Account::Account() : _accountIndex(0), _amount(0), _nbDeposits(0), _nbWithdrawal
 Account::Account(int initial_deposit) : _accountIndex(0), _amount(0), _nbDeposits(0), _nbWithdrawals(0)
 {
 	(void)initial_deposit;
+	this->_accountIndex = _nbAccounts;
+	std::cout << "index:" << _accountIndex << ";amount:" << this->checkAmount() << ";created" << std::endl;
+	Account::_nbAccounts++;
 }
 
 Account::~Account()
 {
+	std::cout << "Destructor called !" << std::endl;
 }
 
 void Account::makeDeposit(int deposit)
@@ -57,22 +62,22 @@ void _displayTimeStamp()
 
 int Account::getNbAccounts()
 {
-	return 0;
+	return Account::_nbAccounts;
 }
 
 int Account::getTotalAmount()
 {
-	return 0;
+	return Account::_totalAmount;
 }
 
 int Account::getNbDeposits()
 {
-	return 0;
+	return Account::_totalNbDeposits;
 }
 
 int Account::getNbWithdrawals()
 {
-	return 0;
+	return Account::_totalNbWithdrawals;
 }
 
 void Account::displayAccountsInfos()
