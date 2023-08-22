@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:33:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/22 13:47:25 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/22 13:48:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Account::Account(int initial_deposit) : _accountIndex(0), _amount(0), _nbDeposit
 
 Account::~Account()
 {
-	std::cout << "Destructor called !" << std::endl;
+	std::cout << "index:" << _accountIndex << ";amount:" << this->checkAmount() << ";closed" << std::endl;
 }
 
 void Account::makeDeposit(int deposit)
