@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 00:41:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/21 13:33:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/22 13:24:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ std::string PhoneBook::_getVar(std::string message)
 {
 	std::string var;
 
-	std::cout << message;
-	std::cin >> var;
-	if (std::cin.eof())
-		std::exit(1);
+	while (var.empty() && !std::cin.eof())
+	{
+		std::cout << message;
+		getline(std::cin, var);
+		if (std::cin.eof())
+			std::exit(1);
+		if (var.empty())
+			std::cout << "A contact can't have empty field" << std::endl;
+	}
 	return var;
 }
 
@@ -107,14 +112,12 @@ void PhoneBook::_phoneBookLoop()
 	std::string cmd;
 	
 	std::cout << "Please enter one of the following command : ADD, SEARCH or EXIT" << std::endl;
-	while (cmd != "EXIT")
+	while (cmd != "EXIT" && !std::cin.eof())
 	{
-		if (std::cin.eof())
-			break;
+		getline(std::cin, cmd);
 		if (cmd == "ADD")
 			this->_add(i, finish);
-		if (cmd == "SEARCH")
+		else if (cmd == "SEARCH")
 			this->_search();
-		std::cin >> cmd;
 	}
 }
