@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 17:22:43 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/22 17:23:20 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/08/22 17:24:13 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/08/22 17:26:07 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main()
+class Zombie
 {
-}
+public:
+    Zombie();
+    ~Zombie();
+
+private:
+    /* data */
+};
+
+#endif
