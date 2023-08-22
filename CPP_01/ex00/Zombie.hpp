@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:24:13 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/22 17:28:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/22 17:42:24 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@
 class Zombie
 {
 public:
-    Zombie();
+    Zombie(std::string name);
     ~Zombie();
     void announce( void );
 
 private:
     std::string name;
 };
+
+void randomChump(std::string name);
 
 #endif
