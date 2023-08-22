@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 17:33:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/22 16:37:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/22 16:40:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ bool Account::makeWithdrawal(int withdrawal)
 		std::cout << ";withdrawal:refused" << std::endl;
 		return false;
 	}
+	Account::_totalAmount -= withdrawal;
 	this->_nbWithdrawals++;
 	Account::_totalNbWithdrawals++;
 	this->_amount -= withdrawal;
