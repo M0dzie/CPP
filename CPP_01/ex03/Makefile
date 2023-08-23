@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/23 18:11:58 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/23 18:12:02 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/23 19:08:47 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 #               VARIABLES               #
 # ##################################### #
 
-NAME		=	
+NAME		=	combat
 
 UNAME		=	$(shell uname)
 
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	
+HEADER		=	HumanA.hpp HumanB.hpp Weapon.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 SRCS	=	$(SRC_FILES)
 

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 18:12:05 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/23 20:31:07 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/08/23 19:07:08 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/08/23 19:24:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
 
-int main()
+Weapon::Weapon(std::string name)
 {
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
-    // Weapon club = Weapon("crude spiked club");
-    // HumanB jim("Jim");
-    // jim.setWeapon(club);
-    // jim.attack();
-    // club.setType("some other type of club");
-    // jim.attack();
-    return 0;
+    setType(name);
+}
+
+Weapon::~Weapon()
+{
+}
+
+std::string Weapon::getType() const
+{
+    return this->type;
+}
+
+void Weapon::setType(std::string name)
+{
+    this->type = name;
 }
