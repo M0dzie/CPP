@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:22:43 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/23 16:43:46 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/23 17:23:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main()
 {
-    zombieHorde(4, "Charles");
+    Zombie* horde = zombieHorde(5, "Charles");
+
+    delete [] horde;
     return 0;
 }
