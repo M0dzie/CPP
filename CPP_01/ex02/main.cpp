@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 17:37:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/23 17:42:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:04:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@ int main()
     std::string *stringPTR = &str;
     std::string &stringREF = str;
 
+    std::cout << "Memory address of the string variable : " << &str << std::endl << "Memory address held by stringPTR : " << &stringPTR
+    << std::endl << "Memory address held by stringREF : " << &stringREF << std::endl;
+    std::cout << "Value of the string variable : " << str << std::endl << "Value pointed to by stringPTR : " << *stringPTR << std::endl
+    << "Value pointed to by stringREF : " << stringREF << std::endl;
     return 0;
 }
