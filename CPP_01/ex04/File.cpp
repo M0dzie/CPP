@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:12:45 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 15:26:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 17:51:00 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,35 @@ void File::setStrings(std::string s1, std::string s2)
     this->_s2 = s2;
 }
 
-static std::string replace(std::string str, size_t pos)
+std::string File::replace(std::string str)
 {
-    (void)str;
-    (void)pos;
     std::string newStr;
 
+    for (int i = 0; str[i]; i++)
+    {
+        if (str.find(this->_s1) <= str.size())
+        {
+            newStr.append(this->_s2);
+            i += this->_s2.size();
+        }
+        else
+            newStr.append(newStr, i, 1);
+    }
     return newStr;
 }
 
 void File::createAndCopyFile()
 {
-    size_t pos = 0;
     std::string str;
     std::ifstream infile(this->_name.c_str());
     std::ofstream outfile(this->_replace.c_str());
 
     while (getline(infile, str))
     {
-        pos = str.find(this->_s1);
-        if (pos <= str.size())
+        if (str.find(this->_s1) <= str.size())
         {
-            str = replace(str, pos);
             std::cout << "found it !" << std::endl;
+            str = this->replace(str);
         }
         outfile << str << std::endl;
     }

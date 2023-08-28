@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:26:01 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 14:52:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 16:13:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int checkError(int argc, char **argv, File &file)
     file.setReplaceName();
     std::ifstream infile(file.getName().c_str());
     if (!infile.good())
-        return (std::cout << "First parameter is not a valid file" << std::endl, 1);
+        return (std::cout << "First parameter is not a valid file" << std::endl, infile.close(), 1);
+    infile.close();
     return 0;
 }
 
