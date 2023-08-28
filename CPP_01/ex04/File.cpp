@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:12:45 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 17:51:00 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 18:01:49 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,19 @@ void File::setStrings(std::string s1, std::string s2)
 
 std::string File::replace(std::string str)
 {
+    size_t pos = 0;
     std::string newStr;
 
-    for (int i = 0; str[i]; i++)
+    for (size_t i = 0; i < str.size(); i++)
     {
-        if (str.find(this->_s1) <= str.size())
+        pos = str.find(this->_s1, i);
+        if (pos == i)
         {
             newStr.append(this->_s2);
-            i += this->_s2.size();
+            i += this->_s2.size() - 1;
         }
         else
-            newStr.append(newStr, i, 1);
+            newStr.append(str, i, 1);
     }
     return newStr;
 }
