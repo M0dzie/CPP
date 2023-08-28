@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 19:08:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 10:58:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 12:23:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
     HumanB(std::string firstName);
     ~HumanB();
     void attack() const;
-    void setWeapon(Weapon weapon);
+    void setWeapon(Weapon &weapon);
 
 private:
     std::string name;
