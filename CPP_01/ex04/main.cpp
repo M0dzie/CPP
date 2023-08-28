@@ -6,18 +6,19 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:26:01 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 13:06:33 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:20:24 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "File.hpp"
 
-static int checkError(int argc, char **argv)
+static int checkError(int argc, char **argv, File &file)
 {
     if (argc != 4)
         return (std::cout << "Program must contain 3 parameters, in order : name of a file, and 2 strings" << std::endl, 1);
-    std::string filename = argv[1];
-    std::ifstream inFile(filename.c_str());
+    file.setName(argv[1]);
+    file.setReplaceName();
+    std::ifstream inFile(file.getName().c_str());
     if (!inFile.good())
         return (std::cout << "First parameter is not a valid file" << std::endl, 1);
     return 0;
@@ -25,9 +26,10 @@ static int checkError(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-    if (checkError(argc, argv))
+    File file;
+
+    if (checkError(argc, argv, file))
         return 1;
-    std::string filename = argv[1];
-    std::string replace = filename + ".replace";
+    std::cout << file.getName() << " and " << file.getReplaceName() << std::endl;
     return 0;
 }
