@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:26:01 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 14:37:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 14:52:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
     if (checkError(argc, argv, file))
         return 1;
+    file.setStrings(argv[2], argv[3]);
     file.createAndCopyFile();
-    // std::cout << file.getName() << " and " << file.getReplaceName() << std::endl;
     return 0;
 }
