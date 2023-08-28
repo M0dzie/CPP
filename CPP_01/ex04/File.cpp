@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   File.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 19:08:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 13:14:36 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/08/28 13:12:45 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/08/28 13:13:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "File.hpp"
 
-HumanB::HumanB(std::string firstName) : name(firstName) {}
+File::File() {}
 
-HumanB::~HumanB() {}
+File::~File() {}
 
-void HumanB::attack() const
+void File::setName(std::string name)
 {
-    std::cout << this->name << " attacks with their " << this->weaponB->getType() << std::endl;
-}
-
-void HumanB::setWeapon(Weapon &weapon)
-{
-    this->weaponB = &weapon;
+    
 }

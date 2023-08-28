@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 19:08:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 13:14:36 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/08/28 13:05:32 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/08/28 13:11:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef FILE_HPP
+# define FILE_HPP
+# include <iostream>
+# include <string>
+# include <fstream>
 
-HumanB::HumanB(std::string firstName) : name(firstName) {}
-
-HumanB::~HumanB() {}
-
-void HumanB::attack() const
+class File
 {
-    std::cout << this->name << " attacks with their " << this->weaponB->getType() << std::endl;
-}
+public:
+    File();
+    ~File();
+    void setName(std::string name);
+    void setReplaceName();
+    std::string getName() const;
+    std::string getReplaceName() const;
+    
+private:
+    std::string _name;
+    std::string _replace;
+};
 
-void HumanB::setWeapon(Weapon &weapon)
-{
-    this->weaponB = &weapon;
-}
+#endif

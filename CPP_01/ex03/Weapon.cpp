@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 19:07:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 11:07:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:14:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ Weapon::Weapon(std::string name)
     setType(name);
 }
 
-Weapon::~Weapon()
-{
-}
+Weapon::~Weapon() {}
 
 std::string const &Weapon::getType() const
 {

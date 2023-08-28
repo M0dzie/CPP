@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/28 12:25:38 by thmeyer           #+#    #+#              #
-#    Updated: 2023/08/28 12:39:09 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/08/28 13:09:02 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	
+HEADER		=	File.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp File.cpp
 
 SRCS	=	$(SRC_FILES)
 
