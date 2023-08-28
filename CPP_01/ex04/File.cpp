@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:12:45 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 18:01:49 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 18:03:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ std::string File::replace(std::string str)
     {
         pos = str.find(this->_s1, i);
         if (pos == i)
-        {
             newStr.append(this->_s2);
-            i += this->_s2.size() - 1;
-        }
         else
             newStr.append(str, i, 1);
     }
