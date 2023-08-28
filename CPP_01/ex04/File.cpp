@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:12:45 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/08/28 18:03:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/08/28 18:06:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,7 @@ void File::createAndCopyFile()
     while (getline(infile, str))
     {
         if (str.find(this->_s1) <= str.size())
-        {
-            std::cout << "found it !" << std::endl;
             str = this->replace(str);
-        }
         outfile << str << std::endl;
     }
     infile.close();
