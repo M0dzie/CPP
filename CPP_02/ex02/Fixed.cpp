@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:47:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 15:24:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 16:16:00 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,54 +49,90 @@ Fixed &Fixed::operator=(Fixed const &src)
     return *this;
 }
 
-bool Fixed::operator>(Fixed &src)
+bool Fixed::operator>(Fixed &src) const
 {
     return (this->getRawBits() > src.getRawBits());
 }
 
-bool Fixed::operator<(Fixed &src)
+bool Fixed::operator<(Fixed &src) const
 {
     return (this->getRawBits() < src.getRawBits());
 }
 
-bool Fixed::operator>=(Fixed &src)
+bool Fixed::operator>=(Fixed &src) const
 {
     return (this->getRawBits() >= src.getRawBits());
 }
 
-bool Fixed::operator<=(Fixed &src)
+bool Fixed::operator<=(Fixed &src) const
 {
     return (this->getRawBits() <= src.getRawBits());
 }
 
-bool Fixed::operator==(Fixed &src)
+bool Fixed::operator==(Fixed &src) const
 {
     return (this->getRawBits() == src.getRawBits());
 }
 
-bool Fixed::operator!=(Fixed &src)
+bool Fixed::operator!=(Fixed &src) const
 {
     return (this->getRawBits() != src.getRawBits());
 }
 
-float Fixed::operator+(Fixed &src)
+Fixed Fixed::operator+(Fixed const &src)
 {
-    return (this->toFloat() + src.toFloat());
+    Fixed result(this->toFloat() + src.toFloat());
+    
+    return result;
 }
 
-float Fixed::operator-(Fixed &src)
+Fixed Fixed::operator-(Fixed const &src)
 {
-    return (this->toFloat() - src.toFloat());
+    Fixed result(this->toFloat() - src.toFloat());
+    
+    return result;
 }
 
-float Fixed::operator*(Fixed &src)
+Fixed Fixed::operator*(Fixed const &src)
 {
-    return (this->toFloat() * src.toFloat());
+    Fixed result(this->toFloat() * src.toFloat());
+    
+    return result;
 }
 
-float Fixed::operator/(Fixed &src)
+Fixed Fixed::operator/(Fixed const &src)
 {
-    return (this->toFloat() / src.toFloat());
+    Fixed result(this->toFloat() / src.toFloat());
+    
+    return result;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed saved(this->toFloat());
+
+    ++*this;
+    return saved;
+}
+
+Fixed &Fixed::operator++(void)
+{
+    this->setRawBits(this->getRawBits() + 1);
+    return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed saved(this->toFloat());
+
+    --*this;
+    return saved;
+}
+
+Fixed &Fixed::operator--(void)
+{
+    this->setRawBits(this->getRawBits() - 1);
+    return *this;
 }
 
 std::ostream &operator<<(std::ostream &outPut, Fixed const &src)
