@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:30:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 18:35:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 19:22:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ public:
     Point(Point const &src);
     Point &operator=(Point const &);
     ~Point(void);
+    float getX(void) const;
+    float getY(void) const;
 
 private:
     Fixed const _x;
