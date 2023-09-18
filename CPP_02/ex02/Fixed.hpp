@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:47:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 15:06:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 15:24:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ public:
     bool operator<=(Fixed &src);
     bool operator==(Fixed &src);
     bool operator!=(Fixed &src);
+    float operator+(Fixed &src);
+    float operator-(Fixed &src);
+    float operator*(Fixed &src);
+    float operator/(Fixed &src);
 
     void setRawBits(int const raw);
     int getRawBits(void) const;

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:47:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 15:06:55 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 15:24:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,32 +51,52 @@ Fixed &Fixed::operator=(Fixed const &src)
 
 bool Fixed::operator>(Fixed &src)
 {
-    return (getRawBits() > src.getRawBits());
+    return (this->getRawBits() > src.getRawBits());
 }
 
 bool Fixed::operator<(Fixed &src)
 {
-    return (getRawBits() < src.getRawBits());
+    return (this->getRawBits() < src.getRawBits());
 }
 
 bool Fixed::operator>=(Fixed &src)
 {
-    return (getRawBits() >= src.getRawBits());
+    return (this->getRawBits() >= src.getRawBits());
 }
 
 bool Fixed::operator<=(Fixed &src)
 {
-    return (getRawBits() <= src.getRawBits());
+    return (this->getRawBits() <= src.getRawBits());
 }
 
 bool Fixed::operator==(Fixed &src)
 {
-    return (getRawBits() == src.getRawBits());
+    return (this->getRawBits() == src.getRawBits());
 }
 
 bool Fixed::operator!=(Fixed &src)
 {
-    return (getRawBits() != src.getRawBits());
+    return (this->getRawBits() != src.getRawBits());
+}
+
+float Fixed::operator+(Fixed &src)
+{
+    return (this->toFloat() + src.toFloat());
+}
+
+float Fixed::operator-(Fixed &src)
+{
+    return (this->toFloat() - src.toFloat());
+}
+
+float Fixed::operator*(Fixed &src)
+{
+    return (this->toFloat() * src.toFloat());
+}
+
+float Fixed::operator/(Fixed &src)
+{
+    return (this->toFloat() / src.toFloat());
 }
 
 std::ostream &operator<<(std::ostream &outPut, Fixed const &src)
