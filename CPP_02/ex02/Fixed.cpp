@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:47:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 13:48:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 15:06:55 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,36 @@ Fixed &Fixed::operator=(Fixed const &src)
     return *this;
 }
 
+bool Fixed::operator>(Fixed &src)
+{
+    return (getRawBits() > src.getRawBits());
+}
+
+bool Fixed::operator<(Fixed &src)
+{
+    return (getRawBits() < src.getRawBits());
+}
+
+bool Fixed::operator>=(Fixed &src)
+{
+    return (getRawBits() >= src.getRawBits());
+}
+
+bool Fixed::operator<=(Fixed &src)
+{
+    return (getRawBits() <= src.getRawBits());
+}
+
+bool Fixed::operator==(Fixed &src)
+{
+    return (getRawBits() == src.getRawBits());
+}
+
+bool Fixed::operator!=(Fixed &src)
+{
+    return (getRawBits() != src.getRawBits());
+}
+
 std::ostream &operator<<(std::ostream &outPut, Fixed const &src)
 {
     outPut << src.toFloat();
@@ -74,3 +104,31 @@ float Fixed::toFloat(void) const
 {
     return ((float)this->getRawBits() / (1 << Fixed::_nFractionalBits));
 }
+
+// int &Fixed::min(int &fixedPointNumbers1, int &fixedPointNumbers2)
+// {
+//     if (fixedPointNumbers1 <fixedPointNumbers2)
+//         return fixedPointNumbers1;
+//     return fixedPointNumbers2;
+// }
+
+// int const &Fixed::min(int const &fixedPointNumbers1, int const &fixedPointNumbers2)
+// {
+//     if (fixedPointNumbers1 <fixedPointNumbers2)
+//         return fixedPointNumbers1;
+//     return fixedPointNumbers2;
+// }
+
+// int &Fixed::max(int &fixedPointNumbers1, int &fixedPointNumbers2)
+// {
+//     if (fixedPointNumbers1 <fixedPointNumbers2)
+//         return fixedPointNumbers1;
+//     return fixedPointNumbers2;
+// }
+
+// int const &Fixed::max(int const &fixedPointNumbers1, int const &fixedPointNumbers2)
+// {
+//     if (fixedPointNumbers1 <fixedPointNumbers2)
+//         return fixedPointNumbers1;
+//     return fixedPointNumbers2;
+// }
