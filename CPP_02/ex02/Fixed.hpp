@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:47:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 16:13:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/18 16:35:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ public:
     ~Fixed();
 
     Fixed &operator=(Fixed const &src);
-    bool operator>(Fixed &src) const;
-    bool operator<(Fixed &src) const;
-    bool operator>=(Fixed &src) const;
-    bool operator<=(Fixed &src) const;
-    bool operator==(Fixed &src) const;
-    bool operator!=(Fixed &src) const;
+    bool operator>(Fixed const &src) const;
+    bool operator<(Fixed const &src) const;
+    bool operator>=(Fixed const &src) const;
+    bool operator<=(Fixed const &src) const;
+    bool operator==(Fixed const &src) const;
+    bool operator!=(Fixed const &src) const;
     Fixed operator+(Fixed const &src);
     Fixed operator-(Fixed const &src);
     Fixed operator*(Fixed const &src);
@@ -45,10 +45,10 @@ public:
     int toInt(void) const;
     float toFloat(void) const;
 
-    // static int &min(int &fixedPointNumbers1, int &fixedPointNumbers2);
-    // static int const &min(int const &fixedPointNumbers1, int const &fixedPointNumbers2);
-    // static int &max(int &fixedPointNumbers1, int &fixedPointNumbers2);
-    // static int const &max(int const &fixedPointNumbers1, int const &fixedPointNumbers2);
+    static Fixed &min(Fixed &left, Fixed &right);
+    static Fixed const &min(Fixed const &left, Fixed const &right);
+    static Fixed &max(Fixed &left, Fixed &right);
+    static Fixed const &max(Fixed const &left, Fixed const &right);
 
 private:
     int _fixedPointNumberValue;
