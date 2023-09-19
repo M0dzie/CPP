@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:37:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 11:09:37 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 13:23:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string>
 
+# define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define YELLOW "\033[0;33m"
@@ -36,6 +37,9 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	void setAttackDamage(unsigned int amount);
+	std::string getName();
+	int getAttackDamage();
 
 private:
 	std::string _name;
