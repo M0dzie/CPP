@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:24:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 10:18:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 10:27:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int main(void)
     std::cout << "Result : " << bsp(j, k, l, point3) << " | answer : 0" << std::endl;
     Point m(1, 0), n(5, 0), o(0, 3), point4(1, 1);
     std::cout << "Result : " << bsp(m, n, o, point4) << " | answer : 1" << std::endl;
-    Point r(10, 0), s(15, 20), t(10, 13), point5(12, 8);
+    Point r(10, 0), s(15, 20), t(10, 13), point5(11, 8);
     std::cout << "Result : " << bsp(r, s, t, point5) << " | answer : 1" << std::endl;
+    Point u(10, 0), v(15, 20), w(10, 13), point6(10, 0);
+    std::cout << "Result : " << bsp(u, v, w, point6) << " | answer : 0" << std::endl;
     return 0;
 }
