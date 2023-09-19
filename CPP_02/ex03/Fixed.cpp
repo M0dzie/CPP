@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:25:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/18 17:25:36 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 09:30:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,27 @@
 
 int const Fixed::_nFractionalBits = 8;
 
-Fixed::Fixed() : _fixedPointNumberValue(0)
-{
-    std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _fixedPointNumberValue(0) {}
 
 Fixed::Fixed(int const newInt)
 {
-    std::cout << "Int constructor called" << std::endl;
     this->setRawBits(newInt << Fixed::_nFractionalBits);
 }
 
 Fixed::Fixed(float const newFloat)
 {
-    std::cout << "Float constructor called" << std::endl;
     this->setRawBits(roundf(newFloat * (1 << Fixed::_nFractionalBits)));
 }
 
 Fixed::Fixed(Fixed const &src)
 {
-    std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 Fixed &Fixed::operator=(Fixed const &src)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
     this->setRawBits(src.getRawBits());
     return *this;
 }
