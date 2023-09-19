@@ -6,11 +6,13 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 13:33:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 16:54:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+int ClapTrap::alive(1);
 
 ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -46,6 +48,8 @@ void ClapTrap::attack(const std::string& target)
 		std::cout << BLACK << "ClapTrap " << this->_name << " can't attack... I mean, he's dead." << RESET << std::endl;
 		return;
 	}
+	if (!ClapTrap::alive)
+		return ;
 	if (this->_energyPoints < 1)
 	{
 		std::cout << BLACK << "ClapTrap " << this->_name << " doesn't have enough energy points to attack !" << RESET << std::endl;
@@ -58,22 +62,28 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if ((this->_hitPoints - amount) < 1)
-	{
-		if (this->_hitPoints < 0)
-		{
-			std::cout << RED << BOLD << "ClapTrap " << this->_name << " already died." << RESET << std::endl;
-			return ;
-		}
-		std::cout << RED << BOLD << "ClapTrap " << this->_name << " died." << RESET << std::endl;
+	if (!ClapTrap::alive)
 		return ;
-	}
 	this->_hitPoints -= amount;
+	if (this->_hitPoints < 0)
+		this->_hitPoints = 0;
 	std::cout << "ClapTrap " << this->_name << " lost " << amount << " points of health!" << std::endl;
+	if (this->_hitPoints < 1)
+	{
+		std::cout << RED << BOLD << "ClapTrap " << this->_name << " died." << RESET << std::endl;
+		ClapTrap::alive = 0;
+	}
+	else
+		std::cout << this->_name << " still have " << this->_hitPoints << "hp left!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_hitPoints < 1)
+	{
+		std::cout << BLACK << "ClapTrap " << this->_name << " is dead, leave him alone, he can't be repaired." << RESET << std::endl;
+		return;
+	}
 	if (this->_energyPoints < 1)
 	{
 		std::cout << BLACK << "ClapTrap " << this->_name << " doesn't have enough energy points to attack !" << RESET << std::endl;
@@ -97,4 +107,9 @@ std::string ClapTrap::getName()
 int ClapTrap::getAttackDamage()
 {
 	return this->_attackDamage;
+}
+
+int ClapTrap::getHitPoints()
+{
+	return this->_hitPoints;
 }
