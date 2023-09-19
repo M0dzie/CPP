@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:10:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 17:18:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@ int ClapTrap::alive(1);
 
 ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
-	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
+	std::cout << GREEN << "Default ClapTrap constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
-	std::cout << GREEN << BOLD << "Overloaded constructor called" << RESET << std::endl;
+	std::cout << GREEN << BOLD << "Overloaded ClapTrap constructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src)
 {
-	std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+	std::cout << BLUE << "Copy ClapTrap constructor called" << RESET << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << RED << "Destructor called" << RESET << std::endl;
+	std::cout << RED << "ClapTrap destructor called" << RESET << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &)
 {
-	std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+	std::cout << YELLOW << "Copy assignment ClapTrap operator called" << RESET << std::endl;
 	return *this;
 }
 
