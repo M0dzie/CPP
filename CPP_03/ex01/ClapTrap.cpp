@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:04:26 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/19 17:10:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int ClapTrap::alive(1);
 
-ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << GREEN << BOLD << "Overloaded constructor called" << RESET << std::endl;
 }
@@ -89,7 +89,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	if (this->_energyPoints < 1)
 	{
-		std::cout << BLACK << "ClapTrap " << this->_name << " doesn't have enough energy points to attack !" << RESET << std::endl;
+		std::cout << BLACK << "ClapTrap " << this->_name << " doesn't have enough energy points to repair !" << RESET << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
