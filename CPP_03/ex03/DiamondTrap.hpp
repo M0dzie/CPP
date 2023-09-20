@@ -6,11 +6,12 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:17:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 16:37:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 16:40:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 

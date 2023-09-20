@@ -6,21 +6,25 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 16:34:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 16:43:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
     std::cout << GRAY << "DiamondTrap default constructor called" << RESET << std::endl;
+    this->_name = "Unknown";
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
-    (void)name;
     std::cout << GRAY << BOLD << "DiamondTrap overloaded constructor called" << RESET << std::endl;
+    this->_name = name;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &rhs)
