@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:59:40 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 10:08:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 10:41:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ class ScavTrap: public ClapTrap
 public:
     ScavTrap();
     ScavTrap(ScavTrap const &src);
-    ~ScavTrap();
     ScavTrap &operator=(ScavTrap const &);
+    ~ScavTrap();
+    
+    void attack(std::string const &target);
+    void guardGate();
 
 private:
 };
