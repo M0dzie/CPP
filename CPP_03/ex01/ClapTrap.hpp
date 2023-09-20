@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 10:37:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 11:03:45 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/09/20 13:59:31 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/09/20 13:59:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,22 @@ class ClapTrap
 public:
     ClapTrap();
     ClapTrap(std::string name);
-    ClapTrap(ClapTrap const &src);
-    ClapTrap &operator=(ClapTrap const &);
+    ClapTrap(ClapTrap const &rhs);
+    ClapTrap &operator=(ClapTrap const &rhs);
     ~ClapTrap();
 
+	void setName(std::string name);
+	void setHitPoints(int hitPoints);
+	void setEnergyPoints(int energyPoints);
+	void setAttackDamage(unsigned int amount);
+	std::string getName();
+	int getHitPoints();
+	int getEnergyPoints();
+	int getAttackDamage();
+	
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	void setAttackDamage(unsigned int amount);
-	void setName(std::string name);
-	std::string getName();
-	int getAttackDamage();
-	int getHitPoints();
+	void beRepaired(unsigned int amount);	
 
 private:
 	std::string _name;
