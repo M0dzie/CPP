@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 13:36:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 14:39:00 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,22 +124,22 @@ void ClapTrap::setAttackDamage(unsigned int amount)
 	this->_attackDamage = amount;
 }
 
-std::string ClapTrap::getName()
+std::string ClapTrap::getName() const
 {
 	return this->_name;
 }
 
-int ClapTrap::getHitPoints()
+int ClapTrap::getHitPoints() const
 {
 	return this->_hitPoints;
 }
 
-int ClapTrap::getEnergyPoints()
+int ClapTrap::getEnergyPoints() const
 {
 	return this->_energyPoints;
 }
 
-int ClapTrap::getAttackDamage()
+int ClapTrap::getAttackDamage() const
 {
 	return this->_attackDamage;
 }
