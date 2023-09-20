@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 11:05:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 13:36:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,27 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 	std::cout << GREEN << BOLD << "Overloaded constructor called" << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &src)
+ClapTrap::ClapTrap(ClapTrap const &rhs)
 {
 	std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
-	*this = src;
+	*this = rhs;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << RED << "Destructor called" << RESET << std::endl;
+	std::cout << RED << "ClapTrap " << this->_name << " destructor called" << RESET << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap const &)
+ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
 {
-	std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+	if (this != &rhs)
+	{
+		std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
+		this->_name = rhs._name;
+		this->_hitPoints = rhs._hitPoints;
+		this->_energyPoints = rhs._energyPoints;
+		this->_attackDamage = rhs._attackDamage;
+	}
 	return *this;
 }
 
@@ -102,6 +109,16 @@ void ClapTrap::setName(std::string name)
 	this->_name = name;
 }
 
+void ClapTrap::setHitPoints(int hitPoints)
+{
+	this->_hitPoints = hitPoints;
+}
+
+void ClapTrap::setEnergyPoints(int energyPoints)
+{
+	this->_energyPoints = energyPoints;
+}
+
 void ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->_attackDamage = amount;
@@ -112,12 +129,17 @@ std::string ClapTrap::getName()
 	return this->_name;
 }
 
-int ClapTrap::getAttackDamage()
-{
-	return this->_attackDamage;
-}
-
 int ClapTrap::getHitPoints()
 {
 	return this->_hitPoints;
+}
+
+int ClapTrap::getEnergyPoints()
+{
+	return this->_energyPoints;
+}
+
+int ClapTrap::getAttackDamage()
+{
+	return this->_attackDamage;
 }

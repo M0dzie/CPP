@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:36:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:04:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 13:30:18 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int main(void)
     ClapTrap test(player1);
 
     player3 = player2;
+    std::cout << "Player3 name is : " << player3.getName() << std::endl;
+    std::cout << "test name is : " << test.getName() << std::endl;
     player1.setAttackDamage(4);
     player2.setAttackDamage(2);
 
