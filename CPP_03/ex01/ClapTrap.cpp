@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 11:04:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 12:17:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,31 +70,31 @@ void ClapTrap::takeDamage(unsigned int amount)
 	this->_hitPoints -= amount;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << "ClapTrap " << this->_name << " lost " << amount << " points of health!" << std::endl;
+	std::cout << this->_name << " lost " << amount << " points of health!" << std::endl;
 	if (this->_hitPoints < 1)
 	{
-		std::cout << RED << BOLD << "ClapTrap " << this->_name << " died." << RESET << std::endl;
+		std::cout << RED << BOLD << this->_name << " died." << RESET << std::endl;
 		ClapTrap::alive = 0;
 	}
 	else
-		std::cout << "ClapTrap " << this->_name << " still have " << this->_hitPoints << "hp left!" << std::endl;
+		std::cout << this->_name << " still have " << this->_hitPoints << "hp left!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitPoints < 1)
 	{
-		std::cout << BLACK << "ClapTrap " << this->_name << " is dead, leave him alone, he can't be repaired." << RESET << std::endl;
+		std::cout << BLACK << this->_name << " is dead, leave him alone, he can't be repaired." << RESET << std::endl;
 		return;
 	}
 	if (this->_energyPoints < 1)
 	{
-		std::cout << BLACK << "ClapTrap " << this->_name << " doesn't have enough energy points to repair !" << RESET << std::endl;
+		std::cout << BLACK << this->_name << " doesn't have enough energy points to repair !" << RESET << std::endl;
 		return ;
 	}
 	this->_energyPoints--;
 	this->_hitPoints += amount;
-	std::cout << "ClapTrap " << this->_name << " earned " << amount << " points of health!" << std::endl;
+	std::cout << this->_name << " earned " << amount << " points of health!" << std::endl;
 }
 
 void ClapTrap::setName(std::string name)
