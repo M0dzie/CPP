@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:10:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 11:05:06 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->_energyPoints--;
 	this->_hitPoints += amount;
 	std::cout << "ClapTrap " << this->_name << " earned " << amount << " points of health!" << std::endl;
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->_name = name;
 }
 
 void ClapTrap::setAttackDamage(unsigned int amount)
