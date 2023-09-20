@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:31 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 13:59:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 14:53:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,22 @@ public:
 	void setHitPoints(int hitPoints);
 	void setEnergyPoints(int energyPoints);
 	void setAttackDamage(unsigned int amount);
-	std::string getName();
-	int getHitPoints();
-	int getEnergyPoints();
-	int getAttackDamage();
+	std::string getName() const;
+	int getHitPoints() const;
+	int getEnergyPoints() const;
+	int getAttackDamage() const;
 	
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);	
 
-private:
+protected:
 	std::string _name;
 	int _hitPoints;
 	int _energyPoints;
 	int _attackDamage;
 
+private:
 	static int alive;
 };
 
