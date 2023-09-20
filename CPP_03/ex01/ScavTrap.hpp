@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:59:40 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 10:41:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 12:45:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class ScavTrap: public ClapTrap
 {
 public:
     ScavTrap();
+    ScavTrap(std::string name);
     ScavTrap(ScavTrap const &src);
     ScavTrap &operator=(ScavTrap const &);
     ~ScavTrap();

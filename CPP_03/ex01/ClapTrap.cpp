@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:39:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 12:17:53 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 12:51:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int ClapTrap::alive(1);
 
-ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
+ClapTrap::ClapTrap() : _name("Unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << "Default ClapTrap constructor called" << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << BOLD << "Overloaded ClapTrap constructor called" << RESET << std::endl;
 }
