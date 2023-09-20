@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:37:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 14:38:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 16:25:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define BLUE "\033[0;34m"
 # define PURPLE "\033[0;35m"
 # define CYAN "\033[0;36m"
+# define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
