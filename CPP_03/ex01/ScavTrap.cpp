@@ -6,22 +6,30 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:00:07 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:27:46 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 10:12:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {}
+ScavTrap::ScavTrap()
+{
+    std::cout << PURPLE << "Default ScavTrap constructor called" << RESET << std::endl;
+}
 
 ScavTrap::ScavTrap(ScavTrap const &src)
 {
+    std::cout << BLUE << "Copy ScavTrap constructor called" << RESET << std::endl;
     *this = src;
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap()
+{
+    std::cout << RED << "ScavTrap destructor called" << RESET << std::endl;
+}
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &)
 {
+    std::cout << YELLOW << "Copy assignment ScavTrap operator called" << RESET << std::endl;
     return *this;
 }

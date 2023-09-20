@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 16:59:40 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/19 17:25:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 10:08:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP_HPP
 # include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap: public ClapTrap
 {
 public:
     ScavTrap();
