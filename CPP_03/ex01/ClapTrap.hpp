@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:37:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 10:53:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 11:03:45 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ public:
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void setAttackDamage(unsigned int amount);
+	void setName(std::string name);
 	std::string getName();
 	int getAttackDamage();
 	int getHitPoints();
