@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 16:43:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/20 18:33:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
     this->_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
 {
     std::cout << GRAY << BOLD << "DiamondTrap overloaded constructor called" << RESET << std::endl;
     this->_name = name;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &rhs)
+DiamondTrap::DiamondTrap(DiamondTrap const &rhs) : FragTrap(rhs), ScavTrap(rhs)
 {
     std::cout << BLUE << "DiamondTrap copy constructor called" << RESET << std::endl;
     *this = rhs;
