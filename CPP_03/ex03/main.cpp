@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:36:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/21 13:19:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/21 15:23:12 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 
     test1.whoAmI();
     test2.whoAmI();
-
+    
     std::cout << "Abilities of " << test1.getDiamondName() << " : " << std::endl;
     std::cout << "Hit Points : " << test1.DiamondTrap::getHitPoints() << " and FragTrap Hit Points : "
     << test1.FragTrap::getHitPoints() << std::endl;

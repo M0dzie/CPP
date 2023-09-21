@@ -6,12 +6,13 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:41:39 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/20 17:24:02 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/21 15:30:37 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "ClapTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+# include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap
 {
@@ -26,3 +27,5 @@ public:
     
 private:
 };
+
+#endif
