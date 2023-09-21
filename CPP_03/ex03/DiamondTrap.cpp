@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/21 10:19:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/21 10:28:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,14 @@ std::string DiamondTrap::getDiamondName()
 void DiamondTrap::setDiamondName(std::string name)
 {
     this->DiamondTrap::_name = name;
+}
+
+void DiamondTrap::diamondAttack(std::string &target)
+{
+    ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI()
+{
+    std::cout << "DiamondTrap name is : " << this->getDiamondName() << " and ClapTrap name is : " << ClapTrap::getName() << std::endl;
 }
