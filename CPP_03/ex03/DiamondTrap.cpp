@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/21 10:28:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/21 14:51:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
     std::cout << GRAY << "DiamondTrap default constructor called" << RESET << std::endl;
-    this->DiamondTrap::_name = "Unknown";
+    this->_name = "Unknown";
     this->_hitPoints = FragTrap::_hitPoints;
     this->_energyPoints = ScavTrap::_energyPoints;
     this->_attackDamage = FragTrap::_attackDamage;
@@ -33,7 +33,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &rhs) : FragTrap(rhs), ScavTrap(rhs)
     std::cout << BLUE << "DiamondTrap copy constructor called" << RESET << std::endl;
     *this = rhs;
 }
-
+    
 DiamondTrap::~DiamondTrap()
 {
     std::cout << RED << "DiamondTrap " << this->DiamondTrap::_name << " destructor called" << RESET << std::endl;
@@ -51,7 +51,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &rhs)
     return *this;
 }
 
-std::string DiamondTrap::getDiamondName()
+std::string DiamondTrap::getDiamondName() const
 {
     return this->DiamondTrap::_name;
 }
@@ -61,12 +61,12 @@ void DiamondTrap::setDiamondName(std::string name)
     this->DiamondTrap::_name = name;
 }
 
-void DiamondTrap::diamondAttack(std::string &target)
+void DiamondTrap::diamondAttack(std::string const &target)
 {
     ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap name is : " << this->getDiamondName() << " and ClapTrap name is : " << ClapTrap::getName() << std::endl;
+    std::cout << "DiamondTrap name is : " << this->DiamondTrap::_name << " and ClapTrap name is : " << ClapTrap::_name << std::endl;
 }
