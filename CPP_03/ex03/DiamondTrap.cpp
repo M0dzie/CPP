@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/21 15:09:00 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/22 09:58:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
     std::cout << GRAY << "DiamondTrap default constructor called" << RESET << std::endl;
-    this->_name = "Unknown";
+    this->DiamondTrap::_name = "Unknown";
+    this->ClapTrap::_name = this->DiamondTrap::_name + "_clap_name";
     this->_hitPoints = FragTrap::_hitPoints;
     this->_energyPoints = ScavTrap::_energyPoints;
     this->_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)
 {
     std::cout << GRAY << BOLD << "DiamondTrap overloaded constructor called" << RESET << std::endl;
     this->ClapTrap::_name = name + "_clap_name";
     this->DiamondTrap::_name = name;
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &rhs) : FragTrap(rhs), ScavTrap(rhs)
+DiamondTrap::DiamondTrap(DiamondTrap const &rhs) : ClapTrap(rhs), FragTrap(rhs), ScavTrap(rhs)
 {
     std::cout << BLUE << "DiamondTrap copy constructor called" << RESET << std::endl;
     *this = rhs;
@@ -44,9 +48,13 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &rhs)
     if (this != &rhs)
     {
         std::cout << YELLOW << "DiamondTrap copy assignment operator called" << RESET << std::endl;
+        ClapTrap::operator=(rhs);
         FragTrap::operator=(rhs);
         ScavTrap::operator=(rhs);
         this->DiamondTrap::_name = rhs.DiamondTrap::_name;
+        this->_hitPoints = rhs._hitPoints;
+        this->_energyPoints = rhs._energyPoints;
+        this->_attackDamage = rhs._attackDamage;
     }
     return *this;
 }
