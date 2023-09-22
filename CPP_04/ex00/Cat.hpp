@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/22 10:17:04 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/22 11:18:16 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/09/22 11:19:16 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/09/22 11:21:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
+# include "Animal.hpp"
 
-int main (void)
+class Cat : public Animal
 {
-	Dog bark;
-	Cat meow;
+public:
+	Cat();
+	Cat(Cat const &rhs);
+	Cat &operator=(Cat const &rhs);
+	~Cat();
 
-	bark.makeSound();
-	meow.makeSound();
-	return 0;
-}
+private:
+};
+
+#endif
