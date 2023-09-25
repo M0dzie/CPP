@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/22 09:58:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/25 11:47:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &rhs)
 {
     if (this != &rhs)
     {
-        std::cout << YELLOW << "DiamondTrap copy assignment operator called" << RESET << std::endl;
         ClapTrap::operator=(rhs);
         FragTrap::operator=(rhs);
         ScavTrap::operator=(rhs);
+        std::cout << YELLOW << "DiamondTrap copy assignment operator called" << RESET << std::endl;
         this->DiamondTrap::_name = rhs.DiamondTrap::_name;
         this->_hitPoints = rhs._hitPoints;
         this->_energyPoints = rhs._energyPoints;
