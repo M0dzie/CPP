@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -13,13 +13,29 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongCat.hpp"
 
 int main (void)
 {
-	Dog bark;
-	Cat meow;
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	bark.makeSound();
-	meow.makeSound();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	WrongAnimal* test = new WrongCat();
+	std::cout << test->getType() << std::endl;
+	test->setType("Dog");
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
+
+	delete meta;
+	delete j;
+	delete i;
+	delete test;
 	return 0;
 }
