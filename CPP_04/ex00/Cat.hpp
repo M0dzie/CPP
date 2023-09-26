@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:19:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/22 11:21:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:29:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ public:
 	Cat();
 	Cat(Cat const &rhs);
 	Cat &operator=(Cat const &rhs);
-	~Cat();
+	virtual ~Cat();
+
+	virtual void makeSound() const;
 
 private:
 };

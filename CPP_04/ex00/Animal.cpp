@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:27:39 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/25 13:51:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:25:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,4 @@ std::string Animal::getType() const
 	return this->type;
 }
 
-void Animal::makeSound() const
-{
-	if (this->type == "Dog")
-		std::cout << "bark bark bark!" << std::endl;
-	else if (this->type == "Cat")
-		std::cout << "Meooowwwww!" << std::endl;
-}
+void Animal::makeSound() const {}
