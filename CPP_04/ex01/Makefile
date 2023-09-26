@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 10:18:23 by thmeyer           #+#    #+#              #
-#    Updated: 2023/09/25 13:46:55 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/09/26 09:52:50 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp
+HEADER		=	Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp Brain.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRC_FILES	=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 
 SRCS	=	$(SRC_FILES)
 
