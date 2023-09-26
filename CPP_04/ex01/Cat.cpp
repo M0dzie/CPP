@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:21:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 13:06:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:37:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ Cat::~Cat()
 {
 	std::cout << PURPLE << BOLD << "Cat destructor called" << RESET << std::endl;
 	delete _brain;
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "Meooowwwww!" << std::endl;
 }

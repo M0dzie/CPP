@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:25:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/25 13:43:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:37:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ public:
 	Animal();
 	Animal(Animal const &rhs);
 	Animal &operator=(Animal const &rhs);
-	~Animal();
+	virtual ~Animal();
 
 	std::string getType() const;
 	void setType(std::string animal);
 
-	void makeSound() const;
+	virtual void makeSound() const;
 
 protected:
 	std::string type;

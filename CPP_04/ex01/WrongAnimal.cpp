@@ -6,18 +6,18 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:49:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/25 13:55:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:41:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal")
+WrongAnimal::WrongAnimal() : type("Untyped")
 {
     std::cout << YELLOW << "WrongAnimal default constructor called" << RESET << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &rhs) : type("WrongAnimal")
+WrongAnimal::WrongAnimal(WrongAnimal const &rhs) : type("Untyped")
 {
     std::cout << "WrongAnimal copy constructor called" << std::endl;
     *this = rhs;
@@ -50,8 +50,5 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
-    if (this->type == "Dog")
-        std::cout << "bark bark bark!" << std::endl;
-    else if (this->type == "Cat")
-        std::cout << "Meooowwwww!" << std::endl;
+    std::cout << "WrongAnimal default sound" << std::endl;
 }
