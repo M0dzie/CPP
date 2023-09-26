@@ -30,6 +30,12 @@ int main (void)
 	WrongAnimal* test = new WrongCat();
 	std::cout << test->getType() << std::endl;
 	test->makeSound();
+	test->setType("Cat");
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
+	test->setType("Random");
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
 
 	delete meta;
 	delete j;
