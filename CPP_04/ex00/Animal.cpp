@@ -6,18 +6,18 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:27:39 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 13:25:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:37:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Animal")
+Animal::Animal() : type("Untyped")
 {
 	std::cout << BLACK << "Animal default constructor called" << RESET << std::endl;
 }
 
-Animal::Animal(Animal const &rhs) : type("Animal")
+Animal::Animal(Animal const &rhs) : type("Untyped")
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 	*this = rhs;

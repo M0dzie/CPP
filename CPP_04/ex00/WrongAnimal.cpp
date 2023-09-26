@@ -6,18 +6,18 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:49:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 13:30:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:38:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal")
+WrongAnimal::WrongAnimal() : type("Untyped")
 {
     std::cout << YELLOW << "WrongAnimal default constructor called" << RESET << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const &rhs) : type("WrongAnimal")
+WrongAnimal::WrongAnimal(WrongAnimal const &rhs) : type("Untyped")
 {
     std::cout << "WrongAnimal copy constructor called" << std::endl;
     *this = rhs;
