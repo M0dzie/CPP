@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:21:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 11:48:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:06:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ Cat::Cat() : Animal()
 {
 	std::cout << PURPLE << "Cat default constructor called" << RESET << std::endl;
 	this->type = "Cat";
+	this->_brain = new Brain();
 }
 
 Cat::Cat(Cat const &rhs) : Animal(rhs)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = "Cat";
+	this->_brain = new Brain();
 	*this = rhs;
 }
 
@@ -32,6 +34,7 @@ Cat &Cat::operator=(Cat const &rhs)
 		Animal::operator=(rhs);
 		std::cout << "Cat copy assignment operator called" << std::endl;
 		this->type = rhs.type;
+		this->_brain = rhs._brain;
 	}
 	return *this;
 }
