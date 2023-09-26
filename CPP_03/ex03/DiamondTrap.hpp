@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:17:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/22 09:21:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:50:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     std::string getDiamondName() const;
     void setDiamondName(std::string name);
     
-    void diamondAttack(std::string const &target);
+    void attack(std::string const &target);
     void whoAmI();
 
 private:

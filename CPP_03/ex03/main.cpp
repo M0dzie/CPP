@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:36:42 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/22 10:16:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:50:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int main(void)
     test1.whoAmI();
     test2.whoAmI();
 
-    test1.diamondAttack(test2.getDiamondName());
+    test1.attack(test2.getDiamondName());
     return 0;
 }

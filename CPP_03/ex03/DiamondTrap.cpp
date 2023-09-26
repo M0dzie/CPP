@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:22:49 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/25 12:03:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:50:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void DiamondTrap::setDiamondName(std::string name)
     this->DiamondTrap::_name = name;
 }
 
-void DiamondTrap::diamondAttack(std::string const &target)
+void DiamondTrap::attack(std::string const &target)
 {
     ScavTrap::attack(target);
 }
