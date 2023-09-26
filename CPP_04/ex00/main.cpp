@@ -28,7 +28,7 @@ int main (void)
 	meta->makeSound();
 
 	WrongAnimal* test = new WrongCat();
-	std::cout << test->getType() << std::endl;
+	std::cout << test->getType() << std::endl; 	
 	test->makeSound();
 	test->setType("Cat");
 	std::cout << test->getType() << std::endl;

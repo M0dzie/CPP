@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:27:39 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 13:37:26 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:33:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,7 @@ std::string Animal::getType() const
 	return this->type;
 }
 
-void Animal::makeSound() const {}
+void Animal::makeSound() const
+{
+	std::cout << "Animal default sound" << std::endl;
+}

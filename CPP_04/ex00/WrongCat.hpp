@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 13:21:25 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 13:34:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:32:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ public:
     WrongCat();
     WrongCat(WrongCat const &rhs);
     WrongCat &operator=(WrongCat const &rhs);
-    virtual ~WrongCat();
+    ~WrongCat();
 
-    virtual void makeSound() const;
+    void makeSound() const;
 
 private:
 };
