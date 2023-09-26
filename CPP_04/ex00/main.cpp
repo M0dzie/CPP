@@ -29,8 +29,6 @@ int main (void)
 
 	WrongAnimal* test = new WrongCat();
 	std::cout << test->getType() << std::endl;
-	test->setType("Dog");
-	std::cout << test->getType() << std::endl;
 	test->makeSound();
 
 	delete meta;
