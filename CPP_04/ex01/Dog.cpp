@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:08:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/26 14:39:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 14:44:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 Dog::Dog() : Animal()
 {
+	this->_brain = new Brain();
 	std::cout << GREEN << "Dog default constructor called" << RESET << std::endl;
 	this->type = "Dog";
-	this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const &rhs) : Animal(rhs)
 {
+	this->_brain = new Brain();
 	std::cout << "Dog copy constructor called" << std::endl;
 	this->type = "Dog";
-	this->_brain = new Brain();
 	*this = rhs;
 }
 
