@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:08:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/09/25 12:56:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/09/26 11:47:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ Dog &Dog::operator=(Dog const &rhs)
 Dog::~Dog()
 {
 	std::cout << GREEN << BOLD << "Dog destructor called" << RESET << std::endl;
+	delete _brain;
 }
