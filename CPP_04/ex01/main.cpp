@@ -49,11 +49,11 @@ int main (void)
 	cat.setBrainIdeas("Cat's first idea", 1);
 	cat.setBrainIdeas("Cat's last idea", 99);
 	Cat catCopy = cat;
+	std::cout << GRAY << BOLD << "CatCopy's brain" << RESET << std::endl;
 	std::cout << catCopy.getBrainIdeas(0) << std::endl;
 	std::cout << catCopy.getBrainIdeas(1) << std::endl;
 	std::cout << catCopy.getBrainIdeas(99) << std::endl;
 
-	std::cout << GRAY << BOLD << "CatCopy's brain" << RESET << std::endl;
 	catCopy.setBrainIdeas("CatCopy's ideas", 0);
 	catCopy.setBrainIdeas("CatCopy's first ideas", 1);
 	catCopy.setBrainIdeas("CatCopy's last ideas", 99);
