@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:21:10 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 10:44:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 15:05:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat &Cat::operator=(Cat const &rhs)
 		Animal::operator=(rhs);
 		std::cout << "Cat copy assignment operator called" << std::endl;
 		this->type = rhs.type;
-		this->_brain = rhs._brain;
+		this->_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }
@@ -42,7 +42,17 @@ Cat &Cat::operator=(Cat const &rhs)
 Cat::~Cat()
 {
 	std::cout << PURPLE << BOLD << "Cat destructor called" << RESET << std::endl;
-	delete _brain;
+	delete this->_brain;
+}
+
+void Cat::setBrainIdeas(std::string idea, int index)
+{
+	this->_brain->setIdeas(idea, index);
+}
+
+std::string Cat::getBrainIdeas(int index) const
+{
+	return this->_brain->getIdeas(index);
 }
 
 void Cat::makeSound() const

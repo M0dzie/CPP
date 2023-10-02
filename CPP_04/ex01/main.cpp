@@ -43,5 +43,28 @@ int main (void)
 	copy->makeSound();
 	for (int i = 0; i < 10; i++)
 		delete array[i];
+	
+	Cat cat;
+	cat.setBrainIdeas("Cat's ideas", 0);
+	cat.setBrainIdeas("Cat's first idea", 1);
+	cat.setBrainIdeas("Cat's last idea", 99);
+	Cat catCopy = cat;
+	std::cout << catCopy.getBrainIdeas(0) << std::endl;
+	std::cout << catCopy.getBrainIdeas(1) << std::endl;
+	std::cout << catCopy.getBrainIdeas(99) << std::endl;
+
+	std::cout << GRAY << BOLD << "CatCopy's brain" << RESET << std::endl;
+	catCopy.setBrainIdeas("CatCopy's ideas", 0);
+	catCopy.setBrainIdeas("CatCopy's first ideas", 1);
+	catCopy.setBrainIdeas("CatCopy's last ideas", 99);
+	std::cout << GRAY << BOLD << "Cat's brain" << RESET << std::endl;
+	std::cout << cat.getBrainIdeas(0) << std::endl;
+	std::cout << cat.getBrainIdeas(1) << std::endl;
+	std::cout << cat.getBrainIdeas(99) << std::endl;
+	std::cout << GRAY << BOLD << "CatCopy's brain" << RESET << std::endl;
+	std::cout << catCopy.getBrainIdeas(0) << std::endl;
+	std::cout << catCopy.getBrainIdeas(1) << std::endl;
+	std::cout << catCopy.getBrainIdeas(99) << std::endl;
+
 	return 0;
 }
