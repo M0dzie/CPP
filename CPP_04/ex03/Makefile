@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 16:06:09 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/02 16:06:28 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/02 16:41:48 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	
+HEADER		=	AMateria.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp
+SRC_FILES	=	main.cpp AMateria.cpp
 
 SRCS	=	$(SRC_FILES)
 

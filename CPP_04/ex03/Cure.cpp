@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 16:45:22 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/10/02 16:45:29 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/10/02 16:47:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
-#include "Ice.hpp"
 
-int main(void)
+Cure::Cure() : AMateria()
 {
-    return 0;
+    this->_type = "cure";
 }
+
+Cure::Cure(Cure const &rhs) : AMateria(rhs)
+{
+    this->_type = "cure";
+    *this = rhs;
+}
+
+Cure &Cure::operator=(Cure const &rhs)
+{
+    if (this != rhs)
+    {
+        AMateria::operator=(rhs);
+        this->_type = rhs._type;
+    }
+    return *this;
+}
+
+Cure::~Cure() {}

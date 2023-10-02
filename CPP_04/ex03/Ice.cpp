@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 16:45:22 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/10/02 16:49:03 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/10/02 17:38:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
 #include "Ice.hpp"
 
-int main(void)
+Ice::Ice() : AMateria()
 {
-    return 0;
+    this->_type = "ice";
 }
+
+Ice::Ice(Ice const &rhs) : AMateria(rhs)
+{
+    this->_type = "ice";
+    *this = rhs;
+}
+
+Ice &Ice::operator=(Ice const &rhs)
+{
+    if (this != &rhs)
+    {
+        AMateria::operator=(rhs);+
+        this->_type = rhs._type;
+    }
+    return *this;
+}
+
+Ice::~Ice() {}

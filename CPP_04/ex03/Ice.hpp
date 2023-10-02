@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 16:45:22 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/10/02 16:48:07 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/10/02 17:37:00 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "Ice.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
+# include "AMateria.hpp"
 
-int main(void)
+class Ice : public AMateria
 {
-    return 0;
-}
+public:
+    Ice();
+    Ice(Ice const &rhs);
+    Ice &operator=(Ice const &rhs);
+    ~Ice();
+
+private:
+};
+
+#endif

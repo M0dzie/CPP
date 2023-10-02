@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 16:45:22 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/10/02 16:43:10 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/10/02 16:44:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "Ice.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
+# include "AMateria.hpp"
 
-int main(void)
+class Cure : public AMateria
 {
-    return 0;
-}
+public:
+    Cure();
+    Cure(Cure const &rhs);
+    Cure &operator=(Cure const &rhs);
+    ~Cure();
+
+private:
+};
+
+#endif
