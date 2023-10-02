@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal .hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 10:25:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 10:46:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 12:48:24 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 # include <string>
 # include <iostream>
 
@@ -26,18 +26,18 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
-class Animal
+class AAnimal
 {
 public:
-	Animal();
-	Animal(Animal const &rhs);
-	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
+	AAnimal();
+	AAnimal(AAnimal const &rhs);
+	AAnimal &operator=(AAnimal const &rhs);
+	virtual ~AAnimal();
 
 	std::string getType() const;
 	void setType(std::string animal);
 
-	virtual void makeSound() const;
+	virtual void makeSound() const = 0;
 
 protected:
 	std::string type;

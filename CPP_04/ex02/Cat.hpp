@@ -6,16 +6,16 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:19:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 10:46:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 12:56:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 public:
 	Cat();
