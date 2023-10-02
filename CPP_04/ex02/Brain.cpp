@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:25:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 10:35:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 14:02:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ Brain &Brain::operator=(Brain const &rhs)
     if (this != &rhs)
     {
         std::cout << "Brain copy assignment operator called" << std::endl;
+        for (int i = 0; i < 100; i++)
+            this->_ideas[i] = rhs._ideas[i];
     }
     return *this;
 }
@@ -35,4 +37,14 @@ Brain &Brain::operator=(Brain const &rhs)
 Brain::~Brain()
 {
     std::cout << BLUE << BOLD << "Brain destructor called" << RESET << std::endl;
+}
+
+void Brain::setIdeas(std::string idea, int index)
+{
+    this->_ideas[index] = idea;
+}
+
+std::string Brain::getIdeas(int index) const
+{
+    return (this->_ideas[index]);
 }

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:19:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 12:56:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 15:22:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ public:
 	Cat &operator=(Cat const &rhs);
 	virtual ~Cat();
 	
+	void setBrainIdeas(std::string idea, int index);
+	std::string getBrainIdeas(int index) const;
+
 	virtual void makeSound() const;
 
 private:

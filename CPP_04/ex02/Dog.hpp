@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 11:06:38 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 12:56:48 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 15:23:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ public:
 	Dog(Dog const &rhs);
 	Dog &operator=(Dog const &rhs);
 	virtual ~Dog();
+
+	void setBrainIdeas(std::string idea, int index);
+	std::string getBrainIdeas(int index) const;
 	
 	virtual void makeSound() const;
 
