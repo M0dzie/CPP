@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:07:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 16:41:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/02 17:42:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
     AMateria(std::string const &type);
     AMateria(AMateria const &rhs);
     AMateria &operator=(AMateria const &rhs);
-    ~AMateria();
+    virtual ~AMateria();
 
     std::string const &getType() const;
     void setType(std::string type);
