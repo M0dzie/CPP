@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:25:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 14:02:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 10:39:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,12 @@ Brain::~Brain()
 }
 
 void Brain::setIdeas(std::string idea, int index)
-{
+{   
+    if (index >= 100)
+    {
+        std::cout << RED << "The brain is not so big" << RESET << std::endl;
+        return ;
+    }
     this->_ideas[index] = idea;
 }
 

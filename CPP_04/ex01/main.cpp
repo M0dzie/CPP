@@ -66,5 +66,8 @@ int main (void)
 	std::cout << catCopy.getBrainIdeas(1) << std::endl;
 	std::cout << catCopy.getBrainIdeas(99) << std::endl;
 
+	cat.setBrainIdeas("Wrong idea", 150);
+	std::cout << cat.getBrainIdeas(150) << std::endl;
+
 	return 0;
 }
