@@ -6,14 +6,14 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:42:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 18:32:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:41:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
