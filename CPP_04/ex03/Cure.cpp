@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:45:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 17:47:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 09:53:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Cure::Cure(Cure const &rhs) : AMateria(rhs)
 
 Cure &Cure::operator=(Cure const &rhs)
 {
-    if (this != rhs)
+    if (this != &rhs)
     {
         AMateria::operator=(rhs);
         this->_type = rhs._type;
