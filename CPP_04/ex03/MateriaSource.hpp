@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:22:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:20:46 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 17:34:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MATERIASOURCE_HPP
 # include "AMateria.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 public:
     MateriaSource();
