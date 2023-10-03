@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:48:07 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 09:42:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:08:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
     virtual ~Ice();
 
     virtual AMateria *clone() const;
+    virtual void use(ICharacter &target);
 
 private:
 };

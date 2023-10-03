@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:49:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 17:48:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:12:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ AMateria *Ice::clone() const
     AMateria *newMateria = new Ice();
 
     return newMateria;
+}
+
+void Ice::use(ICharacter &target)
+{
+    std::cout << "*shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

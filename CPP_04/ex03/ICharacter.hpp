@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:42:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 12:44:48 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 14:31:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ public:
 private:
     std::string _name;
     AMateria *_inventory[4];
-    int _idx;
 };
 
 #endif

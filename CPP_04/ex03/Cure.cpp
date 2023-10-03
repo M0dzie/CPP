@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:45:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 09:53:22 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:11:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ AMateria *Cure::clone() const
     AMateria *newMateria = new Cure();
 
     return newMateria;
+}
+
+void Cure::use(ICharacter &target)
+{
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

@@ -6,17 +6,17 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 13:53:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:06:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
-ICharacter::ICharacter() : _name("Unknown"), _idx(0) {}
+ICharacter::ICharacter() : _name("Unknown") {}
 
-ICharacter::ICharacter(std::string name) : _name(name), _idx(0) {}
+ICharacter::ICharacter(std::string name) : _name(name) {}
 
-ICharacter::ICharacter(ICharacter const &rhs) : _name("Unknown"), _idx(0)
+ICharacter::ICharacter(ICharacter const &rhs) : _name("Unknown")
 {
     *this = rhs;
 }
@@ -26,7 +26,6 @@ ICharacter &ICharacter::operator=(ICharacter const &rhs)
     if (this != &rhs)
     {
         this->_name = rhs._name;
-        this->_idx = rhs._idx;
         delete[] this->_inventory;
         for (int i = 0; i < 4; i++)
             this->_inventory[i] = rhs._inventory[i];
@@ -51,13 +50,16 @@ std::string const &ICharacter::getName() const
 
 void ICharacter::equip(AMateria *m)
 {
-    if (this->_idx > 3)
+    int i = 0;
+    while (this->_inventory[i])
+        i++;
+    if (this->_inventory[i])
     {
         std::cout << RED << "inventory is full" << RESET << std::endl;
         return;
     }
-    this->_inventory[this->_idx] = m;
-    std::cout << "Materia " << m->getType() << " added in inventory, in slot number : " << this->_idx << std::endl;
+    this->_inventory[i] = m;
+    std::cout << "Materia " << m->getType() << " added in inventory in slot :" << i << std::endl;
 }
 
 void ICharacter::unequip(int idx)
