@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 16:06:30 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 17:20:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
-IMateriaSource::IMateriaSource() {}
+MateriaSource::MateriaSource() {}
 
-IMateriaSource::IMateriaSource(IMateriaSource const &rhs)
+MateriaSource::MateriaSource(MateriaSource const &rhs)
 {
     *this = rhs;
 }
 
-IMateriaSource &IMateriaSource::operator=(IMateriaSource const &rhs)
+MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 {
     if (this != &rhs)
     {
@@ -30,12 +30,12 @@ IMateriaSource &IMateriaSource::operator=(IMateriaSource const &rhs)
     return *this;
 }
 
-IMateriaSource::~IMateriaSource()
+MateriaSource::~MateriaSource()
 {
     delete[] this->_memory;
 }
 
-void IMateriaSource::learnMateria(AMateria *rhs)
+void MateriaSource::learnMateria(AMateria *rhs)
 {
     int i = 0;
 
@@ -43,14 +43,14 @@ void IMateriaSource::learnMateria(AMateria *rhs)
         i++;
     if (this->_memory[i])
     {
-        std::cout << RED << "IMateriaSource couldn't learn more than 4 materias" << RESET << std::endl;
+        std::cout << RED << "MateriaSource couldn't learn more than 4 materias" << RESET << std::endl;
         return ;
     }
     this->_memory[i] = rhs;
-    std::cout << "IMateriaSource learn a new " << rhs->getType() << " Materia" << std::endl;
+    std::cout << "MateriaSource learn a new " << rhs->getType() << " Materia" << std::endl;
 }
 
-AMateria *IMateriaSource::createMateria(std::string const &type)
+AMateria *MateriaSource::createMateria(std::string const &type)
 {
     int i = 5;
 

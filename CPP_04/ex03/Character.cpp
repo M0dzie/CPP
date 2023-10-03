@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 15:06:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 17:21:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
-ICharacter::ICharacter() : _name("Unknown") {}
+Character::Character() : _name("Unknown") {}
 
-ICharacter::ICharacter(std::string name) : _name(name) {}
+Character::Character(std::string name) : _name(name) {}
 
-ICharacter::ICharacter(ICharacter const &rhs) : _name("Unknown")
+Character::Character(Character const &rhs) : _name("Unknown")
 {
     *this = rhs;
 }
 
-ICharacter &ICharacter::operator=(ICharacter const &rhs)
+Character &Character::operator=(Character const &rhs)
 {
     if (this != &rhs)
     {
@@ -33,22 +33,22 @@ ICharacter &ICharacter::operator=(ICharacter const &rhs)
     return *this;
 }
 
-ICharacter::~ICharacter()
+Character::~Character()
 {
     delete[] this->_inventory;
 }
 
-void ICharacter::setName(std::string name)
+void Character::setName(std::string name)
 {
     this->_name = name;
 }
 
-std::string const &ICharacter::getName() const
+std::string const &Character::getName() const
 {
     return this->_name;
 }
 
-void ICharacter::equip(AMateria *m)
+void Character::equip(AMateria *m)
 {
     int i = 0;
     while (this->_inventory[i])
@@ -62,7 +62,7 @@ void ICharacter::equip(AMateria *m)
     std::cout << "Materia " << m->getType() << " added in inventory in slot :" << i << std::endl;
 }
 
-void ICharacter::unequip(int idx)
+void Character::unequip(int idx)
 {
     if (!this->_inventory[idx] || (idx > 3 || idx < 0))
     {
@@ -76,7 +76,7 @@ void ICharacter::unequip(int idx)
     std::cout << "Inventory[" << idx << "] is now free" << std::endl;
 }
 
-void ICharacter::use(int idx, ICharacter &target)
+void Character::use(int idx, ICharacter &target)
 {
     if (!this->_inventory[idx] || (idx > 3 || idx < 0))
     {

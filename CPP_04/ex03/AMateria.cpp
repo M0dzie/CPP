@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:14:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/02 17:49:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 16:28:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void AMateria::setType(std::string type)
 
 AMateria *AMateria::clone() const
 {
-    std::cout << RED << "AMateria can't clone itself" << RESET << std::endl;
+    std::cout << RED << "Materia can't clone itself" << RESET << std::endl;
     return NULL;
 }
 
