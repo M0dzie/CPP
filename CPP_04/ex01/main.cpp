@@ -69,5 +69,13 @@ int main (void)
 	cat.setBrainIdeas("Wrong idea", 150);
 	std::cout << cat.getBrainIdeas(150) << std::endl;
 
+	Cat firstCat = Cat();
+	Cat secondCat = Cat();
+
+	firstCat.setBrainIdeas("first CatCopy's ideas", 0);
+	secondCat.setBrainIdeas("second CatCopy's ideas", 0);
+
+	firstCat = secondCat;
+
 	return 0;
 }
