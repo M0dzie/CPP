@@ -6,22 +6,23 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:18:36 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:19:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:31:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARCTER_HPP
+#ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class ICharacter
 {
 public:
     virtual ~ICharacter() {}
-    virtual std::string const & getName() const = 0;
-    virtual void equip(AMateria* m) = 0;
+    virtual std::string const &getName() const = 0;
+    virtual void equip(AMateria *m) = 0;
     virtual void unequip(int idx) = 0;
-    virtual void use(int idx, ICharacter& target) = 0;
+    virtual void use(int idx, ICharacter &target) = 0;
 };
 
 #endif

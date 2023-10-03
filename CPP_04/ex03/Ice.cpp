@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:49:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 15:12:47 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:31:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Ice::Ice() : AMateria()
 
 Ice::Ice(Ice const &rhs) : AMateria(rhs)
 {
-    this->_type = "ice";
     *this = rhs;
 }
 

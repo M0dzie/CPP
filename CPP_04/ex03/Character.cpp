@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:21:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:30:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Character::Character() : _name("Unknown") {}
 
 Character::Character(std::string name) : _name(name) {}
 
-Character::Character(Character const &rhs) : _name("Unknown")
+Character::Character(Character const &rhs)
 {
     *this = rhs;
 }
@@ -26,7 +26,6 @@ Character &Character::operator=(Character const &rhs)
     if (this != &rhs)
     {
         this->_name = rhs._name;
-        delete[] this->_inventory;
         for (int i = 0; i < 4; i++)
             this->_inventory[i] = rhs._inventory[i];
     }
@@ -35,7 +34,6 @@ Character &Character::operator=(Character const &rhs)
 
 Character::~Character()
 {
-    delete[] this->_inventory;
 }
 
 void Character::setName(std::string name)

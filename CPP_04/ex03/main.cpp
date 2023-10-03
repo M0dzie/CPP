@@ -6,14 +6,17 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:25:14 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:31:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "AMateria.hpp"
 #include "Ice.hpp"
-#include "MateriaSource.hpp"
+#include "Cure.hpp"
 #include "Character.hpp"
+#include "ICharacter.hpp"
+#include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
 
 int main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:07:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:33:52 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/03 18:31:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <string>
 # include <iostream>
 # include "ICharacter.hpp"
-# include "IMateriaSource.hpp"
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
