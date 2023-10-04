@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:42:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 18:41:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/04 10:09:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ public:
     virtual void use(int idx, ICharacter &target);
 
 private:
+    int _idxFloor;
     std::string _name;
     AMateria *_inventory[4];
+    AMateria *_floor[100];
 };
 
 #endif
