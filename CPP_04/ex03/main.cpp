@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 14:35:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 15:30:30 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,52 +20,65 @@
 
 int main(void)
 {
-    std::cout << BLUE << BOLD << " ---- MANDATORY TESTS ---- " << RESET << std::endl;
-    IMateriaSource* src = new MateriaSource();
+    {
+        std::cout << BLUE << BOLD << "===============MANDATORY TESTS================" << RESET << std::endl;
+        IMateriaSource *src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter *me = new Character("me");
+        AMateria *tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter *bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+        std::cout << BLUE << BOLD << "==============================================" << RESET << std::endl << std::endl;
+    }
 
+    std::cout << GREEN << BOLD << "===============ADDITIONAL TESTS===============" << RESET << std::endl << std::endl;
+    MateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
 
-    ICharacter* me = new Character("me");
+    std::cout << std::endl;
+
+    Character* me = new Character("me");
     AMateria* tmp;
-
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("fuyfyufyiu");
+    me->equip(tmp);
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
 
-    ICharacter* bob = new Character("bob");
+    std::cout << std::endl;
 
+    ICharacter* bob = new Character("bob");
+    me->unequip(0);
+    for (int i = -1; i < 4; i++)
+        me->use(i, *bob);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
     me->use(0, *bob);
-    me->use(1, *bob);
+    std::cout << GREEN << BOLD << "==============================================" << RESET << std::endl;
 
     delete bob;
     delete me;
     delete src;
 
-    std::cout << GREEN << BOLD << std::endl << " ---- ADDITIONAL TESTS ---- " << RESET << std::endl;
-    ICharacter *thomas = new Character("Thomas");
-    IMateriaSource *materia = new MateriaSource();
-
-    for (int i = 0; i < 2; i++)
-    {
-        materia->learnMateria(new Ice());
-        materia->learnMateria(new Cure());
-    }
-    Ice test;
-    materia->learnMateria(&test);
-
-    for (int i = 0; i < 3; i++)
-    {
-        thomas->equip(materia->createMateria("ice"));
-        thomas->equip(materia->createMateria("cure"));
-        thomas->equip(materia->createMateria("unknown"));
-    }
-
-    for (int i = -1; i < 4; i++)
-        thomas->use(i, *thomas);
-
-    delete thomas;
-    delete materia;
     return 0;
 }
