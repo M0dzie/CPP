@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:14:35 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 18:30:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 15:50:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ AMateria::AMateria(AMateria const &rhs)
 AMateria &AMateria::operator=(AMateria const &rhs)
 {
     if (this != &rhs)
-    {
         this->_type = rhs._type;
-    }
     return *this;
 }
 

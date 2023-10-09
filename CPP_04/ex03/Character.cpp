@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 15:43:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:35:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ Character::Character() : _name("Unknown")
 Character::Character(std::string name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
-    {
         this->_inventory[i] = NULL;
+    for (int i = 0; i < 10; i++)
         this->_floor[i] = NULL;
-    }
 }
 
 Character::Character(Character const &rhs)
@@ -55,12 +54,11 @@ Character &Character::operator=(Character const &rhs)
 Character::~Character()
 {
     for (int i = 0; i < 4; i++)
-    {
-        if (this->_inventory[i] != NULL)
+        if (this->_inventory[i])
             delete this->_inventory[i];
-        if (this->_floor[i] != NULL)
+    for (int i = 0; i < 10; i++)
+        if (this->_floor[i])
             delete this->_floor[i];
-    }
 }
 
 void Character::setName(std::string name)
@@ -75,7 +73,7 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-    if (m == NULL)
+    if (!m)
     {
         std::cout << RED << "Wrong type of materia" << RESET << std::endl;
         return;
@@ -104,18 +102,21 @@ void Character::unequip(int idx)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
-    while (i < 4)
+    while (i < 10)
+    {
         if (!this->_floor[i])
             break;
-    if (i == 4)
+        i++;
+    }
+    if (i == 10)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 10; i++)
         {
             delete this->_floor[i];
             this->_floor[i] = NULL;
         }
     }
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 10; i++)
         if (!this->_floor[i])
             this->_floor[i] = this->_inventory[idx];
     this->_inventory[idx] = NULL;
@@ -133,4 +134,6 @@ void Character::use(int idx, ICharacter &target)
         return ;
     }
     this->_inventory[idx]->use(target);
+    delete this->_inventory[idx];
+    this->_inventory[idx] = NULL;
 }

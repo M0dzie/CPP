@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 15:30:30 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:34:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,32 @@
 int main(void)
 {
     {
-        std::cout << BLUE << BOLD << "===============MANDATORY TESTS================" << RESET << std::endl;
+        std::cout << BLUE << BOLD << " ---- MANDATORY TESTS ---- " << RESET << std::endl;
         IMateriaSource *src = new MateriaSource();
         src->learnMateria(new Ice());
         src->learnMateria(new Cure());
+        
+        std::cout << std::endl;
+    
         ICharacter *me = new Character("me");
         AMateria *tmp;
         tmp = src->createMateria("ice");
         me->equip(tmp);
         tmp = src->createMateria("cure");
         me->equip(tmp);
+
+        std::cout << std::endl;
+    
         ICharacter *bob = new Character("bob");
         me->use(0, *bob);
         me->use(1, *bob);
+        
         delete bob;
         delete me;
         delete src;
-        std::cout << BLUE << BOLD << "==============================================" << RESET << std::endl << std::endl;
     }
 
-    std::cout << GREEN << BOLD << "===============ADDITIONAL TESTS===============" << RESET << std::endl << std::endl;
+    std::cout << std::endl << GREEN << BOLD << " ---- ADDITIONAL TESTS ---- " << RESET << std::endl;
     MateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -69,12 +75,12 @@ int main(void)
 
     ICharacter* bob = new Character("bob");
     me->unequip(0);
+    me->unequip(5);
     for (int i = -1; i < 4; i++)
         me->use(i, *bob);
     tmp = src->createMateria("cure");
     me->equip(tmp);
     me->use(0, *bob);
-    std::cout << GREEN << BOLD << "==============================================" << RESET << std::endl;
 
     delete bob;
     delete me;

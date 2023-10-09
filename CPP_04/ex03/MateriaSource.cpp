@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 14:48:07 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:19:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
-        if (this->_memory[i] != NULL)
+        if (this->_memory[i])
             delete this->_memory[i];
 }
 
@@ -51,7 +51,7 @@ void MateriaSource::learnMateria(AMateria *rhs)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (this->_memory[i] == NULL)
+        if (!this->_memory[i])
         {
             this->_memory[i] = rhs;
             std::cout << "MateriaSource learn a new " << rhs->getType() << " Materia" << std::endl;
