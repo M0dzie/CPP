@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 12:52:55 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:02:19 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
             if (this->_memory[i])
                 delete this->_memory[i];
             if (rhs._memory[i])
-                this->_memory[i] = rhs._memory[i];
+                this->_memory[i] = rhs._memory[i]->clone();
             else
                 this->_memory[i] = NULL;
         }

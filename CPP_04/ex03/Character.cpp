@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 12:55:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:05:45 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Character &Character::operator=(Character const &rhs)
             if (this->_inventory[i])
                 delete this->_inventory[i];
             if (rhs._inventory[i])
-                this->_inventory[i] = rhs._inventory[i];
+                this->_inventory[i] = rhs._inventory[i]->clone();
             else
                 this->_inventory[i] = NULL;
         }
@@ -70,7 +70,7 @@ void Character::equip(AMateria *m)
         return;
     }
     this->_inventory[i] = m;
-    std::cout << "Materia " << m->getType() << " added in inventory in slot :" << i << std::endl;
+    std::cout << "Materia " << m->getType() << " added in inventory in slot : " << i << std::endl;
 }
 
 void Character::unequip(int idx)
@@ -83,6 +83,10 @@ void Character::unequip(int idx)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
+    for (int i = 0; i < 100; i++)
+        if (!this->_floor[i])
+            this->_floor[i] = this->_inventory[idx];
+    delete this->_inventory[idx];
     this->_inventory[idx] = NULL;
     std::cout << "You left the materia on the floor. Inventory[" << idx << "] is free" << std::endl;
 }

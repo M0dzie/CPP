@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:49:03 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 12:56:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:01:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ Ice::~Ice() {}
 
 AMateria *Ice::clone() const
 {
-    AMateria *newMateria = new Ice();
-
-    return newMateria;
+    return new Ice();
 }
 
 void Ice::use(ICharacter &target)
