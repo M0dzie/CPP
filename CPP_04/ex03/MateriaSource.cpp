@@ -6,13 +6,17 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 17:20:25 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:48:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() {}
+MateriaSource::MateriaSource()
+{
+    for (int i = 0; i < 4; i++)
+        this->_memory[i] = NULL;
+}
 
 MateriaSource::MateriaSource(MateriaSource const &rhs)
 {
@@ -21,9 +25,16 @@ MateriaSource::MateriaSource(MateriaSource const &rhs)
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 {
+        //     for (int i = 0; i < 4; i++){
+        //     if (_created[i])
+        //         delete _created[i];
+        //     if (other._created[i])
+        //         _created[i] = other._created[i]->clone();
+        //     else
+        //         _created[i] = NULL;
+        // }
     if (this != &rhs)
     {
-        delete[] this->_memory;
         for (int i = 0; i < 4; i++)
             this->_memory[i] = rhs._memory[i];
     }
@@ -32,7 +43,9 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 
 MateriaSource::~MateriaSource()
 {
-    delete[] this->_memory;
+    for (int i = 0; i < 4; i++)
+        if (this->_memory[i] != NULL)
+            delete this->_memory[i];
 }
 
 void MateriaSource::learnMateria(AMateria *rhs)

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 09:42:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/04 10:20:49 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/10/09 11:12:49 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/10/09 11:43:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
-# include "AMateria.hpp"
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class Character : public ICharacter
 {
@@ -31,10 +31,8 @@ public:
     virtual void use(int idx, ICharacter &target);
 
 private:
-    int _idxFloor;
     std::string _name;
     AMateria *_inventory[4];
-    AMateria *_floor[100];
 };
 
 #endif

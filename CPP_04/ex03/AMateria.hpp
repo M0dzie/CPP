@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:07:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 18:31:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:42:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
+
+class ICharacter;
 
 class AMateria
 {

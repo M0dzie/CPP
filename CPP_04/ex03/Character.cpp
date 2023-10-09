@@ -6,15 +6,15 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/04 10:16:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:43:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : _name("Unknown"), _idxFloor(0) {}
+Character::Character() : _name("Unknown") {}
 
-Character::Character(std::string name) : _name(name), _idxFloor(0) {}
+Character::Character(std::string name) : _name(name) {}
 
 Character::Character(Character const &rhs)
 {
@@ -26,16 +26,13 @@ Character &Character::operator=(Character const &rhs)
     if (this != &rhs)
     {
         this->_name = rhs._name;
-        this->_idxFloor = rhs._idxFloor;
         for (int i = 0; i < 4; i++)
             this->_inventory[i] = rhs._inventory[i];
     }
     return *this;
 }
 
-Character::~Character()
-{
-}
+Character::~Character() {}
 
 void Character::setName(std::string name)
 {
@@ -71,8 +68,6 @@ void Character::unequip(int idx)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
-    this->_floor[this->_idxFloor] = this->_inventory[idx];
-    this->_idxFloor++;
     this->_inventory[idx] = NULL;
     std::cout << "You left the materia on the floor. Inventory[" << idx << "] is free" << std::endl;
 }

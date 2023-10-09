@@ -6,13 +6,15 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:18:36 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/04 10:21:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 11:38:36 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
