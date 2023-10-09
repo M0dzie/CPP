@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 16:34:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 17:25:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int main(void)
     for (int i = -1; i < 4; i++)
         me->use(i, *bob);
     tmp = src->createMateria("cure");
-    me->equip(tmp);
+    for (int i = 0; i < 5; i++)
+        me->equip(tmp);
     me->use(0, *bob);
 
     delete bob;

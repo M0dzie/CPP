@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 16:35:58 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 17:23:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Character::Character() : _name("Unknown")
 {
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = NULL;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 4; i++)
         this->_floor[i] = NULL;
 }
 
@@ -24,7 +24,7 @@ Character::Character(std::string name) : _name(name)
 {
     for (int i = 0; i < 4; i++)
         this->_inventory[i] = NULL;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 4; i++)
         this->_floor[i] = NULL;
 }
 
@@ -54,11 +54,12 @@ Character &Character::operator=(Character const &rhs)
 Character::~Character()
 {
     for (int i = 0; i < 4; i++)
+    {
         if (this->_inventory[i])
             delete this->_inventory[i];
-    for (int i = 0; i < 10; i++)
         if (this->_floor[i])
             delete this->_floor[i];
+    }
 }
 
 void Character::setName(std::string name)
@@ -88,6 +89,7 @@ void Character::equip(AMateria *m)
         }
     }
     std::cout << RED << "inventory is full" << RESET << std::endl;
+    
 }
 
 void Character::unequip(int idx)
@@ -102,21 +104,21 @@ void Character::unequip(int idx)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
-    while (i < 10)
+    while (i < 4)
     {
         if (!this->_floor[i])
             break;
         i++;
     }
-    if (i == 10)
+    if (i == 4)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 4; i++)
         {
             delete this->_floor[i];
             this->_floor[i] = NULL;
         }
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 4; i++)
         if (!this->_floor[i])
             this->_floor[i] = this->_inventory[idx];
     this->_inventory[idx] = NULL;
