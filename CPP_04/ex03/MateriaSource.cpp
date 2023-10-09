@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 13:02:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:46:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,16 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria *rhs)
 {
-    int i = 0;
-
-    while (this->_memory[i])
-        i++;
-    if (this->_memory[i])
+    for (int i = 0; i < 4; i++)
     {
-        std::cout << RED << "MateriaSource couldn't learn more than 4 materias" << RESET << std::endl;
-        return ;
+        if (this->_memory[i] == NULL)
+        {
+            this->_memory[i] = rhs;
+            std::cout << "MateriaSource learn a new " << rhs->getType() << " Materia" << std::endl;
+            return ;
+        }
     }
-    this->_memory[i] = rhs;
-    std::cout << "MateriaSource learn a new " << rhs->getType() << " Materia" << std::endl;
+    std::cout << RED << "MateriaSource couldn't learn more than 4 materias" << RESET << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
@@ -67,7 +66,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
     for (int i = 0; i < 4; i++)
         if (this->_memory[i] && this->_memory[i]->getType() == type)
             return this->_memory[i];
-            
     std::cout << RED << "The type is unknown" << RESET << std::endl;
     return 0;
 }

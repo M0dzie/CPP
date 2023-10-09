@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 11:21:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:44:46 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int main(void)
 {
+    std::cout << " ---- MANDATORY TESTS ---- " << std::endl;
     IMateriaSource* src = new MateriaSource();
 
     src->learnMateria(new Ice());
@@ -41,5 +42,19 @@ int main(void)
     delete bob;
     delete me;
     delete src;
+
+    std::cout << std::endl << " ---- ADDITIONAL TESTS ---- " << std::endl;
+    ICharacter *Thomas = new Character("Thomas");
+    IMateriaSource *materia = new MateriaSource();
+
+    for (int i = 0; i < 2; i++)
+    {
+        materia->learnMateria(new Ice());
+        materia->learnMateria(new Cure());
+    }
+    materia->learnMateria(new Ice());
+
+    delete Thomas;
+    delete materia;
     return 0;
 }
