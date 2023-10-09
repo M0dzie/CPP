@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 14:19:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 14:48:07 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 {
     for (int i = 0; i < 4; i++)
         if (this->_memory[i] && this->_memory[i]->getType() == type)
-            return this->_memory[i];
+            return this->_memory[i]->clone();
     std::cout << RED << "The type is unknown" << RESET << std::endl;
     return 0;
 }
