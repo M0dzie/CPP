@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 14:46:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 15:43:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+    if (m == NULL)
+    {
+        std::cout << RED << "Wrong type of materia" << RESET << std::endl;
+        return;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (!this->_inventory[i])
