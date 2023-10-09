@@ -6,15 +6,23 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 11:43:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 12:55:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : _name("Unknown") {}
+Character::Character() : _name("Unknown")
+{
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
+}
 
-Character::Character(std::string name) : _name(name) {}
+Character::Character(std::string name) : _name(name)
+{
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = NULL;
+}
 
 Character::Character(Character const &rhs)
 {
@@ -27,7 +35,14 @@ Character &Character::operator=(Character const &rhs)
     {
         this->_name = rhs._name;
         for (int i = 0; i < 4; i++)
-            this->_inventory[i] = rhs._inventory[i];
+        {
+            if (this->_inventory[i])
+                delete this->_inventory[i];
+            if (rhs._inventory[i])
+                this->_inventory[i] = rhs._inventory[i];
+            else
+                this->_inventory[i] = NULL;
+        }
     }
     return *this;
 }
@@ -82,5 +97,5 @@ void Character::use(int idx, ICharacter &target)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
-    this->_inventory[idx]->AMateria::use(target);
+    this->_inventory[idx]->use(target);
 }

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 11:48:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/09 12:52:55 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,17 @@ MateriaSource::MateriaSource(MateriaSource const &rhs)
 
 MateriaSource &MateriaSource::operator=(MateriaSource const &rhs)
 {
-        //     for (int i = 0; i < 4; i++){
-        //     if (_created[i])
-        //         delete _created[i];
-        //     if (other._created[i])
-        //         _created[i] = other._created[i]->clone();
-        //     else
-        //         _created[i] = NULL;
-        // }
     if (this != &rhs)
     {
         for (int i = 0; i < 4; i++)
-            this->_memory[i] = rhs._memory[i];
+        {
+            if (this->_memory[i])
+                delete this->_memory[i];
+            if (rhs._memory[i])
+                this->_memory[i] = rhs._memory[i];
+            else
+                this->_memory[i] = NULL;
+        }
     }
     return *this;
 }
@@ -65,13 +64,10 @@ void MateriaSource::learnMateria(AMateria *rhs)
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-    int i = 5;
-
-    while (--i > 0)
-    {
-        if (this->_memory[i]->getType() == type)
+    for (int i = 0; i < 4; i++)
+        if (this->_memory[i] && this->_memory[i]->getType() == type)
             return this->_memory[i];
-    }
+            
     std::cout << RED << "The type is unknown" << RESET << std::endl;
     return 0;
 }
