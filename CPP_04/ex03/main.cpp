@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:06:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 17:25:15 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:31:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int main(void)
     std::cout << std::endl;
 
     ICharacter* bob = new Character("bob");
+    me->unequip(0);
     me->unequip(0);
     me->unequip(5);
     for (int i = -1; i < 4; i++)

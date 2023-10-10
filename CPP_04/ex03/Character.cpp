@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/09 17:23:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:31:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,11 @@ Character &Character::operator=(Character const &rhs)
 Character::~Character()
 {
     for (int i = 0; i < 4; i++)
-    {
         if (this->_inventory[i])
             delete this->_inventory[i];
+    for (int i = 0; i < 4; i++)
         if (this->_floor[i])
             delete this->_floor[i];
-    }
 }
 
 void Character::setName(std::string name)
@@ -76,11 +75,16 @@ void Character::equip(AMateria *m)
 {
     if (!m)
     {
-        std::cout << RED << "Wrong type of materia" << RESET << std::endl;
+        std::cout << RED << "This materia doesn't exist" << RESET << std::endl;
         return;
     }
     for (int i = 0; i < 4; i++)
     {
+        if (this->_inventory[i] == m)
+        {
+            std::cout << RED << "This materia is already equipped" << RESET << std::endl;
+            return ;
+        }
         if (!this->_inventory[i])
         {
             this->_inventory[i] = m;
@@ -89,7 +93,6 @@ void Character::equip(AMateria *m)
         }
     }
     std::cout << RED << "inventory is full" << RESET << std::endl;
-    
 }
 
 void Character::unequip(int idx)
@@ -99,7 +102,7 @@ void Character::unequip(int idx)
     if (!this->_inventory[idx] || (idx > 3 || idx < 0))
     {
         if (!this->_inventory[idx])
-            std::cout << RED << "The Materia you want to use is unavailable" << RESET << std::endl;
+            std::cout << RED << "This slot is already empty" << RESET << std::endl;
         else
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
