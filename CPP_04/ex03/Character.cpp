@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 10:38:48 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:59:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,20 @@ void Character::equip(AMateria *m)
             return;
         }
     }
+    delete m;
     std::cout << RED << "inventory is full" << RESET << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-    if (!this->_inventory[idx] || (idx > 3 || idx < 0))
+    if (idx > 3 || idx < 0)
     {
-        if (!this->_inventory[idx])
-            std::cout << RED << "This slot is already empty" << RESET << std::endl;
-        else
-            std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
+        std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
+        return ;
+    }
+    if (!this->_inventory[idx])
+    {
+        std::cout << RED << "The Materia you want to use is unavailable" << RESET << std::endl;
         return ;
     }
     for (int i = 0; i < 4; i++)
@@ -127,12 +130,14 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (!this->_inventory[idx] || (idx > 3 || idx < 0))
+    if (idx > 3 || idx < 0)
     {
-        if (!this->_inventory[idx])
-            std::cout << RED << "The Materia you want to use is unavailable" << RESET << std::endl;
-        else
-            std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
+        std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
+        return ;
+    }
+    if (!this->_inventory[idx])
+    {
+        std::cout << RED << "The Materia you want to use is unavailable" << RESET << std::endl;
         return ;
     }
     this->_inventory[idx]->use(target);

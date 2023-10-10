@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/02 16:06:09 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/10 10:19:14 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/10 10:47:00 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADER		=	AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp IMateriaSou
 MAKEFILE	=	Makefile
 
 CC			=	c++
-CFLAGS 		= 	-Wall -Wextra -Werror
+CFLAGS 		= 	-Wall -Wextra -Werror -g3
 CPPFLAGS	=	-std=c++98
 
 RM 			= 	rm -rf

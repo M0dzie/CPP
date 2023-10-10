@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:25:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 10:10:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 11:02:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria *rhs)
 {
+    if (!rhs)
+    {
+        std::cout << RED << "This materia doesn't exist" << RESET << std::endl;
+        return;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (!this->_memory[i])
@@ -58,6 +63,7 @@ void MateriaSource::learnMateria(AMateria *rhs)
             return;
         }
     }
+    delete rhs;
     std::cout << RED << "MateriaSource couldn't learn more than 4 materias" << RESET << std::endl;
 }
 
