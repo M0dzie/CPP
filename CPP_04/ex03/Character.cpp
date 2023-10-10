@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 10:31:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:38:48 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-    int i = 0;
-
     if (!this->_inventory[idx] || (idx > 3 || idx < 0))
     {
         if (!this->_inventory[idx])
@@ -107,23 +105,22 @@ void Character::unequip(int idx)
             std::cout << RED << "Plese choose a slot between 0 and 3" << RESET << std::endl;
         return ;
     }
-    while (i < 4)
+    for (int i = 0; i < 4; i++)
     {
         if (!this->_floor[i])
-            break;
-        i++;
-    }
-    if (i == 4)
-    {
-        for (int i = 0; i < 4; i++)
         {
-            delete this->_floor[i];
-            this->_floor[i] = NULL;
+            this->_floor[i] = this->_inventory[idx]->clone();
+            delete this->_inventory[idx];
+            break ;
+        }
+        if (i == 3)
+        {
+            delete this->_floor[0];
+            this->_floor[0] = this->_inventory[idx]->clone();
+            delete this->_inventory[idx];
+            break;
         }
     }
-    for (int i = 0; i < 4; i++)
-        if (!this->_floor[i])
-            this->_floor[i] = this->_inventory[idx];
     this->_inventory[idx] = NULL;
     std::cout << "You left the materia on the floor. Inventory[" << idx << "] is free" << std::endl;
 }
