@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 14:33:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 22:12:48 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const 
 {
     return this->_grade;
+}
+
+std::ostream &operator<<(std::ostream output, Bureaucrat const &rhs)
+{
+    return output;
 }
