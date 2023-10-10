@@ -75,6 +75,8 @@ int main (void)
 
 	firstCat = secondCat;
 
+	std::cout << firstCat.getBrainIdeas(0) << std::endl;
+
 	// Should NOT compile
 	// const AAnimal* testAanimal = new AAnimal();
 	// delete testAanimal;

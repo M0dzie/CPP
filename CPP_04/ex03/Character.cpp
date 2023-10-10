@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:10:08 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 10:59:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:53:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void Character::unequip(int idx)
     }
     if (!this->_inventory[idx])
     {
-        std::cout << RED << "The Materia you want to use is unavailable" << RESET << std::endl;
+        std::cout << RED << "The Materia you want to unequip is unavailable" << RESET << std::endl;
         return ;
     }
     for (int i = 0; i < 4; i++)

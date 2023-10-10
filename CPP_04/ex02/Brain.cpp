@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:25:47 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/03 11:17:53 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 13:25:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void Brain::setIdeas(std::string idea, int index)
 
 std::string Brain::getIdeas(int index) const
 {
+    if (index < 0 || index >= 100)
+        return RED "Please enter an index between 0 and 99" RESET;
     return (this->_ideas[index]);
 }

@@ -77,5 +77,7 @@ int main (void)
 
 	firstCat = secondCat;
 
+	std::cout << firstCat.getBrainIdeas(0) << std::endl;
+
 	return 0;
 }
