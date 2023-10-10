@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 14:26:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/10 14:32:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ public:
     Bureaucrat(Bureaucrat const &rhs);
     Bureaucrat &operator=(Bureaucrat const &rhs);
     ~Bureaucrat();
+
+    std::string getName() const;
+    int getGrade() const;
 
 private:
     std::string const _name;
