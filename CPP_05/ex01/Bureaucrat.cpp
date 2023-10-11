@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:09:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:32:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void Bureaucrat::decreaseGrade()
 
 void Bureaucrat::signForm(Form &file)
 {
-    if (file.getSigned() == TRUE)
+    if (file.getSigned() == TRUE && this->_grade <= file.getGradeToSign())
         std::cout << this->_name << " signed " << file.getName() << std::endl;
     else
         std::cout << this->_name << " couldn't signed " << file.getName() << " because the grade was too low !"
