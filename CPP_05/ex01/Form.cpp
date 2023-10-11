@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:46:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:26:22 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:40:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void Form::beSigned(Bureaucrat &who)
             std::cout << this->_name << " could be signed by " << who.getName() << std::endl;
         }
         else
+        {
+            this->_signed = FALSE;
             throw Form::GradeTooLowException();
+        }
     }
     catch(const Form::GradeTooLowException &e)
     {
