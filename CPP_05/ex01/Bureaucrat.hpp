@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 14:56:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:09:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 
     void increaseGrade();
     void decreaseGrade();
-    void signForm(Form file);
+    void signForm(Form &file);
 
     class GradeTooLowException : public std::exception
     {

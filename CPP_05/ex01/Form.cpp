@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:46:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:01:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:09:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int Form::getGradeToExec() const
     return this->_gradeToExec;
 }
 
-void Form::beSigned(Bureaucrat who)
+void Form::beSigned(Bureaucrat &who)
 {
     try
     {

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 14:59:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:09:18 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void Bureaucrat::decreaseGrade()
     this->_grade++;
 }
 
-void Bureaucrat::signForm(Form file)
+void Bureaucrat::signForm(Form &file)
 {
     if (file.getSigned() == TRUE)
         std::cout << this->_name << " signed " << file.getName() << std::endl;

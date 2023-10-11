@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:33:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:01:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:09:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
     int getGradeToSign() const;
     int getGradeToExec() const;
 
-    void beSigned(Bureaucrat who);
+    void beSigned(Bureaucrat &who);
     
     class GradeTooLowException : public std::exception
     {
