@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:17:12 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/10 14:20:03 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/11 13:41:23 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@
 #               VARIABLES               #
 # ##################################### #
 
-NAME		=	bureaucrat
+NAME		=	form
 
 UNAME		=	$(shell uname)
 
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	Bureaucrat.hpp
+HEADER		=	Bureaucrat.hpp Form.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp Bureaucrat.cpp
+SRC_FILES	=	main.cpp Bureaucrat.cpp Form.cpp
 
 SRCS	=	$(SRC_FILES)
 
