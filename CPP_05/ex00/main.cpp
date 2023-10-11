@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 13:21:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 13:46:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 int main(void)
 {
     Bureaucrat test;
-    Bureaucrat meLow("Mehdi--", -1);
-    Bureaucrat meHigh("Mehdi++", 160);
+    Bureaucrat meLow("MehdiLow", 160);
+    Bureaucrat meHigh("MehdiHigh", -1);
     Bureaucrat me("Mehdi", 10);
 
     std::cout << test << std::endl;
 
-    std::cout << meLow;
-    meLow.increaseGrade();
-    std::cout << meLow << std::endl;
-
     std::cout << meHigh;
-    meHigh.decreaseGrade();
+    meHigh.increaseGrade();
     std::cout << meHigh << std::endl;
+
+    std::cout << meLow;
+    meLow.decreaseGrade();
+    std::cout << meLow << std::endl;
 
     std::cout << me;
     for (int i = 0; i < 10; i++)
