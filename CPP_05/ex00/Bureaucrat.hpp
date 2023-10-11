@@ -6,18 +6,31 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 11:22:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <string>
+# include <iostream>
+
+# define BLACK "\033[0;30m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define PURPLE "\033[0;35m"
+# define CYAN "\033[0;36m"
+# define GRAY "\033[0;37m"
+# define RESET "\033[0m" 
+# define BOLD "\033[1m"
 
 class Bureaucrat
 {
 public:
     Bureaucrat();
+    Bureaucrat(int grade);
     Bureaucrat(Bureaucrat const &rhs);
     Bureaucrat &operator=(Bureaucrat const &rhs);
     ~Bureaucrat();
@@ -25,11 +38,32 @@ public:
     std::string getName() const;
     int getGrade() const;
 
+    void increaseGrade();
+    void decreaseGrade();
+
+    class GradeTooLowException : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return RED "Too low bro" RESET;
+        }
+    };
+    
+    class GradeTooHighException : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return RED "Too high bro" RESET;
+        }
+    };
+
 private:
     std::string const _name;
     int _grade;
 };
 
-std::ostream &operator<<(std::ostream output, Bureaucrat const &rhs);
+std::ostream &operator<<(std::ostream &output, Bureaucrat const &rhs);
 
 #endif
