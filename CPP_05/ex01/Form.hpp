@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:33:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:09:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:12:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 
 # define TRUE 1
 # define FALSE 0
+
+class Bureaucrat;
 
 class Form
 {

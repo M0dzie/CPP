@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:09:15 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 15:12:49 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
+
+class Form;
 
 class Bureaucrat
 {
