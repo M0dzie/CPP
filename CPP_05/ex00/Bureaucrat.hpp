@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 13:21:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/11 13:42:49 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ public:
     public:
         virtual const char *what() const throw()
         {
-            return RED "The grade is too low" RESET;
+            return RED "The grade couldn't be below 150" RESET;
         }
     };
     
@@ -56,7 +56,7 @@ public:
     public:
         virtual const char *what() const throw()
         {
-            return RED "The grade is too high" RESET;
+            return RED "The grade couldn't be above 1" RESET;
         }
     };
 
