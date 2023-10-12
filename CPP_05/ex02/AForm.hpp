@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:33:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:12:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 09:58:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 # include "Bureaucrat.hpp"
 
 # define BLACK "\033[0;30m"
@@ -30,14 +30,14 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 public:
-    Form();
-    Form(std::string name, int gradeToSign, int gradeToExec);
-    Form(Form const &rhs);
-    Form &operator=(Form const &rhs);
-    ~Form();
+    AForm();
+    AForm(std::string name, int gradeToSign, int gradeToExec);
+    AForm(AForm const &rhs);
+    AForm &operator=(AForm const &rhs);
+    ~AForm();
 
     std::string getName() const;
     bool getSigned() const;
@@ -72,6 +72,6 @@ private:
     
 };
 
-std::ostream &operator<<(std::ostream &output, Form const &rhs);
+std::ostream &operator<<(std::ostream &output, AForm const &rhs);
 
 #endif

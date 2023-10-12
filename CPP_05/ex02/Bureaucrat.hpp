@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:19:23 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:12:49 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 10:02:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 # include <string>
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -27,7 +27,7 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -44,7 +44,7 @@ public:
 
     void increaseGrade();
     void decreaseGrade();
-    void signForm(Form &file);
+    void signForm(AForm &file);
 
     class GradeTooLowException : public std::exception
     {
