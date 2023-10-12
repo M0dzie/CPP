@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:49:27 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 13:56:47 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 14:32:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(AForm const &target)
     catch(const AForm::GradeTooLowException &e)
     {
         if (target.getGradeToSign() >= 145)
-            std::cerr << RED << "Grade to Sign issues :" << RESET << std::endl;
+            std::cerr << RED << "Grade to Sign issues with ShrubberyCreationForm : ";
         else
-            std::cerr << RED << "Grade to Exec issues :" << RESET << std::endl;
+            std::cerr << RED << "Grade to Exec issues with ShrubberyCreationForm : ";
         std::cerr << RED << e.what() << RESET << std::endl;
         return;
     }

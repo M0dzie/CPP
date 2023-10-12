@@ -52,7 +52,7 @@ public:
     public:
         virtual const char *what() const throw()
         {
-            return RED "The grade is out of bounds, it's too low" RESET;
+            return RED "It's too low" RESET;
         }
     };
     
@@ -61,7 +61,7 @@ public:
     public:
         virtual const char *what() const throw()
         {
-            return RED "The grade is out of bounds, it's too high" RESET;
+            return RED "It's too high" RESET;
         }
     };
 
