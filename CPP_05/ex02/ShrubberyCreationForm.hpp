@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:48:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 11:21:14 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:25:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class ShrubberyCreationForm
 {
 public:
     ShrubberyCreationForm();
+    ShrubberyCreationForm(AForm const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &rhs);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
     ~ShrubberyCreationForm();

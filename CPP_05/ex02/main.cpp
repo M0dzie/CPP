@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 11:21:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 13:03:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int main(void)
     std::cout << file1 << std::endl << file2 << std::endl;
     bad.signForm(file1);
     bad.signForm(file2);
+
+    ShrubberyCreationForm test(file1);
 
     return 0;
 }
