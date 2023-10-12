@@ -6,11 +6,14 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 10:01:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/12 11:21:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -39,6 +42,6 @@ int main(void)
     std::cout << file1 << std::endl << file2 << std::endl;
     bad.signForm(file1);
     bad.signForm(file2);
-    
+
     return 0;
 }

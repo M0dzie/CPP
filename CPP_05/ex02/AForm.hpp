@@ -13,6 +13,7 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include "Bureaucrat.hpp"
+# include <fstream>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
