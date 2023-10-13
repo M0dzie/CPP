@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:48:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 13:34:53 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 09:16:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 class ShrubberyCreationForm
 {
 public:
-    ShrubberyCreationForm();
     ShrubberyCreationForm(AForm const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &rhs);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
     ~ShrubberyCreationForm();
 
 private:
+    ShrubberyCreationForm();
 };
 
 #endif

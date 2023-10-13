@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 14:54:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 09:26:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(void)
     Bureaucrat bad("Mehdi", 14);
     AForm file1("Taxes", 150, 50);
     AForm file2("Salary", 23, 10);
+    AForm filePres("President", 10, 5);
 
     std::cout << YELLOW << BOLD << "---- DISPLAY BUREAUCRAT ----" << RESET << std::endl;
     std::cout << good << bad << std::endl;
@@ -45,6 +46,7 @@ int main(void)
 
     ShrubberyCreationForm test(file1);
     RobotomyRequestForm test2(file2);
+    PresidentialPardonForm test3(filePres);
 
     return 0;
 }

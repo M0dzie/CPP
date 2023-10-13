@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:51:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 14:52:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 09:23:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ RobotomyRequestForm::RobotomyRequestForm(AForm const &target)
 {
     try
     {
-        if (target.getGradeToSign() >= 72)
+        if (target.getGradeToSign() > 72)
             throw AForm::GradeTooLowException();
-        else if (target.getGradeToExec() >= 45)
+        else if (target.getGradeToExec() > 45)
             throw AForm::GradeTooLowException();
     }
     catch(const AForm::GradeTooLowException &e)
     {
-        if (target.getGradeToSign() >= 72)
+        if (target.getGradeToSign() > 72)
             std::cerr << RED << "Grade to Sign issues with RobotomyRequestForm : ";
         else
             std::cerr << RED << "Grade to Exec issues with RobotomyRequestForm : ";
-        std::cerr << e.what() << RESET << std::endl;
+        std::cerr << e.what() << std::endl;
         return;
     }
     std::cout << "Drilling noises" << std::endl;
