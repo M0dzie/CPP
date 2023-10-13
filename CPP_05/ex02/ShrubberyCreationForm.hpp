@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:48:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/13 09:16:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 11:19:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 # define SHRUBBERYCREATIONFORM_HPP
 # include "AForm.hpp"
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
 public:
-    ShrubberyCreationForm(AForm const &target);
+    ShrubberyCreationForm(std::string const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &rhs);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
-    ~ShrubberyCreationForm();
+    virtual ~ShrubberyCreationForm();
+
+    virtual void execute(Bureaucrat const &executor) const;
 
 private:
     ShrubberyCreationForm();
+    std::string _target;
 };
 
 #endif

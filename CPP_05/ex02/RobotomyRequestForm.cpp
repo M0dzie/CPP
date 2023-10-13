@@ -6,13 +6,11 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:51:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/13 09:23:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 10:32:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-
-RobotomyRequestForm::RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(AForm const &target)
 {

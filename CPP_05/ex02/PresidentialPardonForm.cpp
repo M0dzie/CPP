@@ -6,13 +6,11 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:53:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/13 09:26:07 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/13 10:32:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-PresidentialPardonForm::PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm(AForm const &target)
 {

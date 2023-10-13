@@ -46,13 +46,14 @@ public:
     int getGradeToExec() const;
 
     void beSigned(Bureaucrat &who);
+    virtual void execute(Bureaucrat const &executor) const = 0;
     
     class GradeTooLowException : public std::exception
     {
     public:
         virtual const char *what() const throw()
         {
-            return RED "It's too low" RESET;
+            return RED "Grade is too low" RESET;
         }
     };
     
@@ -61,7 +62,25 @@ public:
     public:
         virtual const char *what() const throw()
         {
-            return RED "It's too high" RESET;
+            return RED "Grade is too high" RESET;
+        }
+    };
+
+    class FormIsNotSigned : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return RED "Form is not signed by an authorized Bureaucrat" RESET;
+        }
+    };
+
+    class FormIsNotExec : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return RED "Form is not executable by this Bureaucrat" RESET;
         }
     };
 

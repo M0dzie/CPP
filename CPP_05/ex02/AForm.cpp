@@ -70,7 +70,7 @@ void AForm::beSigned(Bureaucrat &who)
     catch(const AForm::GradeTooLowException &e)
     {
         std::cerr << RED << this->_name << " couldn't be signed by " << who.getName() << " :" << std::endl;
-        std::cerr << RED << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
 }
 
