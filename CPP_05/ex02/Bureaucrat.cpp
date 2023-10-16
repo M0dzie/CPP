@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/12 10:01:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 10:25:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         if (grade > 150)
             throw Bureaucrat::GradeTooLowException();
     }
-    catch(const Bureaucrat::GradeTooLowException &e)
+    catch (const Bureaucrat::GradeTooLowException &e)
     {
         std::cerr << e.what() << std::endl;
         std::cerr << RED << BOLD << "Grade is out of range, it'll be set automatically to 150" << RESET << std::endl;
         this->_grade = 150;
     }
-    catch(const Bureaucrat::GradeTooHighException &e)
+    catch (const Bureaucrat::GradeTooHighException &e)
     {
         this->_grade = 1;
         std::cerr << e.what() << std::endl;
         std::cerr << RED << BOLD << "Grade is out of range, it'll be set automatically to 1" << RESET << std::endl;
     }
-    catch(const std::exception &e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
