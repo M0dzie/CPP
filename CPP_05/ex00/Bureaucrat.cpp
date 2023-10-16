@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 13:23:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:52:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         this->_grade = 1;
         std::cerr << e.what() << std::endl;
         std::cerr << RED << BOLD << "Grade is out of range, it'll be set automatically to 1" << RESET << std::endl;
-    }
-    catch(const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
     }
 }
 
