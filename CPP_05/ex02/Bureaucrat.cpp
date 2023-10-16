@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 10:25:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:26:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,23 @@ void Bureaucrat::signForm(AForm &file)
     else
         std::cerr << RED << this->_name << " couldn't signed " << file.getName() << " because the grade was too low !"
         << RESET << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executed " << form.getName() << std::endl;
+    }
+    catch (const AForm::FormIsNotSigned &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch (const AForm::FormIsNotExec &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &rhs)

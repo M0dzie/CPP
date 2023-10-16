@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:51:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 11:08:26 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:11:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,17 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-    try
-    {
-        if (this->getSigned() == FALSE)
-            throw AForm::FormIsNotSigned();
-        if (executor.getGrade() > this->getGradeToExec())
-            throw AForm::FormIsNotExec();
-    }
-    catch (const AForm::FormIsNotSigned &e)
-    {
-        std::cerr << e.what() << std::endl;
-        return;
-    }
-    catch (const AForm::FormIsNotExec &e)
-    {
-        std::cerr << e.what() << std::endl;
-        return;
-    }
-    std::cout << "Drilling noises" << std::endl;
-    std::srand(std::time(NULL));
-    if (std::rand() % 2)
-        std::cout << executor.getName() << " has been robotomized successfully!" << std::endl;
+    if (this->getSigned() == FALSE)
+        throw AForm::FormIsNotSigned();
+    if (executor.getGrade() > this->getGradeToExec())
+        throw AForm::FormIsNotExec();
     else
-        std::cout << "Robotomy failed on " << executor.getName() << " ..." << std::endl;
+    {
+        std::cout << "Drilling noises" << std::endl;
+        std::srand(std::time(NULL));
+        if (std::rand() % 2)
+            std::cout << executor.getName() << " has been robotomized successfully!" << std::endl;
+        else
+            std::cout << "Robotomy failed on " << executor.getName() << " ..." << std::endl;
+    }
 }

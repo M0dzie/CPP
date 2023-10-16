@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 11:32:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:10:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,41 @@ int main(void)
     {
         std::cout << YELLOW << BOLD << "---- SHRUBBERY FORM ----" << RESET << std::endl;
         ShrubberyCreationForm forest("forest");
-        Bureaucrat mehdi("Mehdi", 25);
+        Bureaucrat thomas("Thomas", 5);
+        forest.beSigned(thomas);
+        thomas.executeForm(forest);
+        Bureaucrat mehdi("Mehdi", 145);
         forest.beSigned(mehdi);
-        forest.execute(mehdi);
+        mehdi.executeForm(forest);
         Bureaucrat clement("Clement", 150);
         forest.beSigned(clement);
-        forest.execute(clement);
+        clement.executeForm(forest);
     }
     {
         std::cout << std::endl << YELLOW << BOLD << "---- ROBOTOMY FORM ----" << RESET << std::endl;
         RobotomyRequestForm robReq("RobReq");
-        Bureaucrat mehdi("Mehdi", 25);
+        Bureaucrat thomas("Thomas", 5);
+        robReq.beSigned(thomas);
+        thomas.executeForm(robReq);
+        Bureaucrat mehdi("Mehdi", 72);
         robReq.beSigned(mehdi);
-        robReq.execute(mehdi);
-        Bureaucrat clement("Clement", 72);
+        mehdi.executeForm(robReq);
+        Bureaucrat clement("Clement", 150);
         robReq.beSigned(clement);
-        robReq.execute(clement);
+        clement.executeForm(robReq);
     }
     {
         std::cout << std::endl << YELLOW << BOLD << "---- PRESIDENTIAL FORM ----" << RESET << std::endl;
         PresidentialPardonForm presPard("PresPard");
         Bureaucrat thomas("Thomas", 5);
         presPard.beSigned(thomas);
-        presPard.execute(thomas);
+        thomas.executeForm(presPard);
         Bureaucrat mehdi("Mehdi", 25);
         presPard.beSigned(mehdi);
-        presPard.execute(mehdi);
-        Bureaucrat clement("Clement", 75);
+        mehdi.executeForm(presPard);
+        Bureaucrat clement("Clement", 150);
         presPard.beSigned(clement);
-        presPard.execute(clement);
+        clement.executeForm(presPard);
     }
     
     return 0;
