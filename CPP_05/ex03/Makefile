@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 14:17:12 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/12 10:00:45 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/16 18:47:05 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
 HEADER		=	Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp \
-				ShrubberyCreationForm.hpp
+				ShrubberyCreationForm.hpp Intern.hpp
 
 MAKEFILE	=	Makefile
 
@@ -45,7 +45,7 @@ OBJS_DIRS	=	.objs/
 # ##################################### #
 
 SRC_FILES	=	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp Intern.cpp
 
 SRCS	=	$(SRC_FILES)
 

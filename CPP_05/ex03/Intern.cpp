@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:42:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 18:44:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 18:59:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,8 @@ Intern &Intern::operator=(Intern const &rhs)
 }
 
 Intern::~Intern() {}
+
+AForm *Intern::makeForm(std::string name, std::string target)
+{
+    
+}
