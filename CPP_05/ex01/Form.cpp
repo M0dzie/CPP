@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:46:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/11 15:40:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/16 17:34:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,10 @@ int Form::getGradeToExec() const
 
 void Form::beSigned(Bureaucrat &who)
 {
-    try
-    {
-        if (who.getGrade() <= this->_gradeToSign)
-        {
-            this->_signed = TRUE;
-            std::cout << this->_name << " could be signed by " << who.getName() << std::endl;
-        }
-        else
-        {
-            this->_signed = FALSE;
-            throw Form::GradeTooLowException();
-        }
-    }
-    catch(const Form::GradeTooLowException &e)
-    {
-        std::cerr << RED << this->_name << " couldn't be signed by " << who.getName() << " :" << std::endl;
-        std::cerr << RED << e.what() << std::endl;
-    }
+    if (who.getGrade() <= this->_gradeToSign)
+        this->_signed = TRUE;
+    else
+        throw Form::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &rhs)
