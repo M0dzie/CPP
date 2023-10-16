@@ -54,24 +54,10 @@ int AForm::getGradeToExec() const
 
 void AForm::beSigned(Bureaucrat &who)
 {
-    try
-    {
-        if (who.getGrade() <= this->_gradeToSign)
-        {
-            this->_signed = TRUE;
-            std::cout << this->_name << " could be signed by " << who.getName() << std::endl;
-        }
-        else
-        {
-            this->_signed = FALSE;
-            throw AForm::GradeTooLowException();
-        }
-    }
-    catch(const AForm::GradeTooLowException &e)
-    {
-        std::cerr << RED << this->_name << " couldn't be signed by " << who.getName() << " :" << std::endl;
-        std::cerr << e.what() << std::endl;
-    }
+    if (who.getGrade() <= this->_gradeToSign)
+        this->_signed = TRUE;
+    else
+        throw AForm::GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &output, AForm const &rhs)
