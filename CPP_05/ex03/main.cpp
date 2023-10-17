@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 12:47:26 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:22:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,24 @@ int main(void)
     AForm *scf;
     AForm *rrf;
     AForm *ppf;
-    AForm *wrong;
 
-    scf = slave.makeForm("shrubbery creation", "Forest");
-    rrf = slave.makeForm("robotomy request", "Bender");
-    ppf = slave.makeForm("presidential pardon", "PresPard");
-    wrong = slave.makeForm("Shrubbery creation", "Dedge");
+    try
+    {
+    
+        scf = slave.makeForm("shrubbery creation", "Forest");
+        rrf = slave.makeForm("robotomy request", "Bender");
+        ppf = slave.makeForm("presidential pardon", "PresPard");
+        // AForm *wrong;
+        // wrong = slave.makeForm("Shrubbery creation", "Dedge");
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+        delete scf;
+        delete rrf;
+        delete ppf;
+        return 1;
+    }
 
     {
         std::cout << std::endl << YELLOW << BOLD << "---- SHRUBBERY FORM ----" << RESET << std::endl;
@@ -69,6 +81,5 @@ int main(void)
     delete scf;
     delete rrf;
     delete ppf;
-    delete wrong;
     return 0;
 }

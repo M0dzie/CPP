@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:42:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 12:42:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:21:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,5 @@ AForm *Intern::makeForm(std::string const &name, std::string const &target)
             return (this->*displayFunc[i])(target);
         }
     }
-    std::cerr << RED << "Form name passed as parameter \"" << name << "\" doesn't exist" << RESET << std::endl;
-    return NULL;
+    throw FormDontExist();
 }

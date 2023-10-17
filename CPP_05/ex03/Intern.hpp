@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:41:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 11:25:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:17:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ public:
     AForm *createShrubberyForm(std::string const &target);
     AForm *createRobotomyForm(std::string const &target);
     AForm *createPresidentialForm(std::string const &target);
+
+    class FormDontExist : public std::exception
+    {
+        virtual const char *what() const throw()
+        {
+            return RED "Form name passed as parameter doesn't exist" RESET;
+        }
+    };
 
 private:
 };
