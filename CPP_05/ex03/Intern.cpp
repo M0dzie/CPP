@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:42:58 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 11:29:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 12:19:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Intern::Intern(Intern const &rhs)
 
 Intern &Intern::operator=(Intern const &rhs)
 {
+    (void)rhs;
     return *this;
 }
 
@@ -54,8 +55,9 @@ AForm *Intern::makeForm(std::string const &name, std::string const &target)
         if (checkInput[i] == name)
         {
             std::cout << "Intern creates " << name << std::endl;
-            return displayFunc[i];
+            return (this->*displayFunc[i])(target);
         }
     }
-    std::cerr << RED << "Form name passed as parameter doesn't exist" << RESET << std::endl;
+    std::cerr << RED << "Form name passed as parameter \"" << name << "\" doesn't exist" << RESET << std::endl;
+    return NULL;
 }
