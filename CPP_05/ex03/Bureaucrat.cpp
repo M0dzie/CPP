@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 17:10:25 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 12:31:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,11 @@ void Bureaucrat::decreaseGrade()
 
 void Bureaucrat::signForm(AForm &file)
 {
+    if (!file)
+    {
+        std::cerr << "Form passed as parameter doesn't exist" << std::endl;
+        return;
+    }
     try
     {
         file.beSigned(*this);

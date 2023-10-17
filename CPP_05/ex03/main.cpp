@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 12:23:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 12:29:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ int main(void)
         Bureaucrat clement("Clement", 150);
         clement.signForm(*ppf);
         clement.executeForm(*ppf);
+    }
+    {
+        std::cout << std::endl << YELLOW << BOLD << "---- WRONG FORM ----" << RESET << std::endl;
+        Bureaucrat thomas("Thomas", 5);
+        thomas.signForm(*wrong);
+        thomas.executeForm(*wrong);
     }
 
     delete scf;

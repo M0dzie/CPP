@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:53:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 16:17:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 12:33:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > this->getGradeToExec())
         throw AForm::FormIsNotExec();
     else
-        std::cout << executor.getName() << "has been pardoned by Zaphod Beeblebrox" << std::endl;
+        std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
