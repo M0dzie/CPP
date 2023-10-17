@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:46:55 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 17:34:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 13:13:19 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,30 @@
 
 Form::Form() : _name("Unknown"), _signed(FALSE), _gradeToSign(0), _gradeToExec(0) {}
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _signed(FALSE), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {}
+Form::Form(std::string name, int gradeToSign, int gradeToExec) : _name(name), _signed(FALSE), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+{
+    try
+    {
+        if (gradeToSign < 1)
+            throw Form::GradeTooHighException();
+        if (gradeToExec < 1)
+            throw Form::GradeTooHighException();
+        if (gradeToSign > 150)
+            throw Form::GradeTooLowException();
+        if (gradeToExec > 150)
+            throw Form::GradeTooLowException();
+    }
+    catch(const Form::GradeTooLowException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch(const Form::GradeTooHighException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+}
 
-Form::Form(Form const &rhs) : _name("Unknown"), _signed(FALSE), _gradeToSign(0), _gradeToExec(0)
+Form::Form(Form const &rhs) : _name(rhs._name), _signed(FALSE), _gradeToSign(rhs._gradeToSign), _gradeToExec(rhs._gradeToExec)
 {
     *this = rhs;
 }

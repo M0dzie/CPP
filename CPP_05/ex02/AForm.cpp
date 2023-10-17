@@ -14,9 +14,30 @@
 
 AForm::AForm() : _name("Unknown"), _signed(FALSE), _gradeToSign(0), _gradeToExec(0) {}
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExec) : _name(name), _signed(FALSE), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {}
+AForm::AForm(std::string name, int gradeToSign, int gradeToExec) : _name(name), _signed(FALSE), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+{
+    try
+    {
+        if (gradeToSign < 1)
+            throw AForm::GradeTooHighException();
+        if (gradeToExec < 1)
+            throw AForm::GradeTooHighException();
+        if (gradeToSign > 150)
+            throw AForm::GradeTooLowException();
+        if (gradeToExec > 150)
+            throw AForm::GradeTooLowException();
+    }
+    catch(const AForm::GradeTooLowException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch(const AForm::GradeTooHighException &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+}
 
-AForm::AForm(AForm const &rhs) : _name("Unknown"), _signed(FALSE), _gradeToSign(0), _gradeToExec(0)
+AForm::AForm(AForm const &rhs) : _name(rhs._name), _signed(FALSE), _gradeToSign(rhs._gradeToSign), _gradeToExec(rhs._gradeToExec)
 {
     *this = rhs;
 }

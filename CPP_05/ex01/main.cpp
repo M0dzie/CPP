@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:17:26 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/16 17:38:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 13:09:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
     Bureaucrat bad("Mehdi", 14);
     Form file1("Taxes", 50, 50);
     Form file2("Salary", 10, 10);
+    Form badfile("test", 151, 0);
 
     std::cout << YELLOW << BOLD << "---- DISPLAY BUREAUCRAT ----" << RESET << std::endl;
     std::cout << good << bad << std::endl;
