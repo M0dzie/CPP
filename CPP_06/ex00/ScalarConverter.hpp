@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:33:40 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 15:39:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:45:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
     ScalarConverter(ScalarConverter const &rhs);
     ScalarConverter &operator=(ScalarConverter const &rhs);
     ~ScalarConverter();
+
+    void convert(std::string number);
 
 private:
 };
