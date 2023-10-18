@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+    /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
@@ -27,15 +27,22 @@
 
 class ScalarConverter
 {
+private:
+    std::string _input;
+
 public:
     ScalarConverter();
+    ScalarConverter(char *argv);
     ScalarConverter(ScalarConverter const &rhs);
     ScalarConverter &operator=(ScalarConverter const &rhs);
     ~ScalarConverter();
 
-    void convert(std::string number);
-
-private:
+    virtual void convert(std::string number);
+    std::string getInput() const {return this->_input;}
+    operator char() {return static_cast<char>(this->_input);}
+    operator int() {return static_cast<int>(this->_input);}
+    operator float() {return static_cast<float>(this->_input);}
+    operator double() {return static_cast<double>(this->_input);}
 };
 
 #endif
