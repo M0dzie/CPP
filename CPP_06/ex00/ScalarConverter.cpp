@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/17 15:47:30 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/20 11:44:37 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,26 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs)
 
 ScalarConverter::~ScalarConverter() {}
 
-void ScalarConverter::convert(std::string number)
+void ScalarConverter::convert(std::string value)
 {
-    (void)number;
+    toChar(value);
+    toInt(value);
+    toFloat(value);
+    toDouble(value);
+}
+
+void ScalarConverter::toChar(std::string value)
+{
+}
+
+void ScalarConverter::toInt(std::string value)
+{
+}
+
+void ScalarConverter::toFloat(std::string value)
+{
+}
+
+void ScalarConverter::toDouble(std::string value)
+{
 }
