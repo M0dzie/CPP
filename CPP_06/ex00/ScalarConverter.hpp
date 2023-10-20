@@ -28,8 +28,6 @@
 class ScalarConverter
 {
 private:
-    std::string _input;
-
 public:
     ScalarConverter();
     ScalarConverter(ScalarConverter const &rhs);

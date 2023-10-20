@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/20 11:44:37 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/20 11:47:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ ScalarConverter::ScalarConverter(ScalarConverter const &rhs)
 
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &rhs)
 {
-    if (this != &rhs)
-    {
-    }
     return *this;
 }
 
