@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/22 19:55:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/22 21:05:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,16 @@ void ScalarConverter::toFloat(std::string input)
     std::cout << "float: ";
     if (isPseudoLiterals(input, FLOAT))
         return;
-    float floatInput = std::atof(input.c_str());
+    long double floatInput = std::stold(input.c_str());
+    if (floatInput < __FLT_MIN__ || floatInput > __FLT_MAX__)
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        std::cout << static_cast<float>(floatInput);
+        if (floatInput - static_cast<int>(floatInput) == 0)
+            std::cout << ".0";
+        std::cout << "f" << std::endl;
+    }
 }
 
 void ScalarConverter::toDouble(std::string input)
@@ -95,4 +104,14 @@ void ScalarConverter::toDouble(std::string input)
     std::cout << "double: ";
     if (isPseudoLiterals(input, DOUBLE))
         return;
+    long double doubleInput = std::stold(input.c_str());
+    if (doubleInput < __DBL_MIN__ || doubleInput > __DBL_MAX__)
+        std::cout << "impossible" << std::endl;
+    else
+    {
+        std::cout << static_cast<double>(doubleInput);
+        if (doubleInput - static_cast<int>(doubleInput) == 0)
+            std::cout << ".0";
+        std::cout << std::endl;
+    }
 }
