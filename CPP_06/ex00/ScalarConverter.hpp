@@ -25,6 +25,11 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
+# define CHAR 0
+# define INT 0
+# define FLOAT 1
+# define DOUBLE 2
+
 class ScalarConverter
 {
 private:

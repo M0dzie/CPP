@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/22 16:39:17 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/22 16:44:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ void ScalarConverter::convert(std::string input)
     toDouble(input);
 }
 
-static bool checkPseudoLiterals(std::string input)
+static bool isPseudoLiterals(std::string input, int type)
 {
     if (input == "nan" || input == "nanf" || input == "-inf" || input == "-inff" \
     || input == "inf" || input == "inff" || input == "+inf" || input == "+inff")
     {
-        std::cout << "impossible" << std::endl;
+        if (type == INT || type == CHAR)
+            std::cout << "impossible" << std::endl;
+        else if (type == FLOAT)
+            std::cout << "nanf" << std::endl;
+        else
+            std::cout << "nan" << std::endl;
         return true;
     }
     return false;
@@ -49,8 +54,7 @@ static bool checkPseudoLiterals(std::string input)
 void ScalarConverter::toChar(std::string input)
 {
     std::cout << "char: ";
-
-    if (checkPseudoLiterals(input))
+    if (isPseudoLiterals(input, CHAR))
         return;
     int charInput = std::atoi(input.c_str());
     if (charInput >= 32 && charInput <= 126)
@@ -61,15 +65,21 @@ void ScalarConverter::toChar(std::string input)
 
 void ScalarConverter::toInt(std::string input)
 {
-    (void)input;
+    std::cout << "int: ";
+    if (isPseudoLiterals(input, INT))
+        return;
 }
 
 void ScalarConverter::toFloat(std::string input)
 {
-    (void)input;
+    std::cout << "float: ";
+    if (isPseudoLiterals(input, FLOAT))
+        return;
 }
 
 void ScalarConverter::toDouble(std::string input)
 {
-    (void)input;
+    std::cout << "double: ";
+    if (isPseudoLiterals(input, DOUBLE))
+        return;
 }
