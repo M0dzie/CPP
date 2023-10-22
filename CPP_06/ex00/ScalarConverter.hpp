@@ -26,9 +26,9 @@
 # define BOLD "\033[1m"
 
 # define CHAR 0
-# define INT 0
-# define FLOAT 1
-# define DOUBLE 2
+# define INT 1
+# define FLOAT 2
+# define DOUBLE 3
 
 class ScalarConverter
 {
