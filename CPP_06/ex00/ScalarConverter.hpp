@@ -34,11 +34,11 @@ public:
     ScalarConverter &operator=(ScalarConverter const &rhs);
     ~ScalarConverter();
 
-    void convert(std::string value);
-    void toChar(std::string value);
-    void toInt(std::string value);
-    void toFloat(std::string value);
-    void toDouble(std::string value);
+    void convert(std::string input);
+    void toChar(std::string input);
+    void toInt(std::string input);
+    void toFloat(std::string input);
+    void toDouble(std::string input);
 };
 
 #endif
