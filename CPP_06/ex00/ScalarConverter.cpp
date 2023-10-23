@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/23 13:19:58 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:21:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void ScalarConverter::convert(std::string input)
 
 static bool isPseudoLiterals(std::string input, int type)
 {
-    if (!std::isdigit(input[0]) && input[0] != '-' && input[0] != '+')
-        return (std::cout << "impossible" << std::endl, true);
     if (input == "nan" || input == "nanf" || input == "-inf" || input == "-inff" \
     || input == "inf" || input == "inff" || input == "+inf" || input == "+inff")
     {
@@ -57,6 +55,8 @@ static bool isPseudoLiterals(std::string input, int type)
             std::cout << input << std::endl;
         return true;
     }
+    if (!std::isdigit(input[0]) && input[0] != '-' && input[0] != '+')
+        return (std::cout << "impossible" << std::endl, true);
     return false;
 }
 
