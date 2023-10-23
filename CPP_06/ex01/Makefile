@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/23 13:40:19 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/23 13:41:22 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/23 14:11:18 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	Serializer.hpp
+HEADER		=	Serializer.hpp Data.hpp
 
 MAKEFILE	=	Makefile
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp Serializer.cpp
+SRC_FILES	=	main.cpp Serializer.cpp Data.cpp
 
 SRCS	=	$(SRC_FILES)
 

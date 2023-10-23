@@ -6,14 +6,15 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:41:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/23 13:55:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:15:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 # include "Data.hpp"
-# include <cstdint>
+# include <iostream>
+# include <stdint.h>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -29,13 +30,15 @@
 class Serializer
 {
 private:
-public:
     Serializer();
     Serializer(Serializer const &rhs);
     Serializer &operator=(Serializer const &rhs);
     ~Serializer();
 
+public:
+
     static uintptr_t serialize(Data *ptr);
+    static Data *deserialize(uintptr_t raw);
 };
 
 #endif

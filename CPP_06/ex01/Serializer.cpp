@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:42:13 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/23 13:47:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/23 14:11:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,19 @@ Serializer &Serializer::operator=(Serializer const &rhs)
 }
 
 Serializer::~Serializer() {}
+
+uintptr_t Serializer::serialize(Data *ptr)
+{
+    uintptr_t raw;
+
+    raw = reinterpret_cast<uintptr_t>(ptr);
+    return raw;
+}
+
+Data *Serializer::deserialize(uintptr_t raw)
+{
+    Data *ptr;
+
+    ptr = reinterpret_cast<Data*>(raw);
+    return ptr;
+}
