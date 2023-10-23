@@ -6,13 +6,12 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:41:32 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/23 14:15:13 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/23 15:30:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
-# include "Data.hpp"
 # include <iostream>
 # include <stdint.h>
 
@@ -26,6 +25,13 @@
 # define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
+
+struct Data
+{
+    std::string name;
+    std::string gender;
+    int age;
+};
 
 class Serializer
 {
