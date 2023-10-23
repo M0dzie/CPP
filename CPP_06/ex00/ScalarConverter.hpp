@@ -14,7 +14,8 @@
 # define SCALARCONVERTER_HPP
 # include <iostream>
 # include <string>
-# include <stdlib.h>
+# include <cstdlib>
+# include <limits>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -31,9 +32,6 @@
 # define INT 1
 # define FLOAT 2
 # define DOUBLE 3
-
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
 
 class ScalarConverter
 {

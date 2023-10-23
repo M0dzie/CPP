@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/23 10:26:47 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:10:42 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void ScalarConverter::toInt(std::string input)
     if (isPseudoLiterals(input, INT))
         return;
     long long intInput = std::atoll(input.c_str());
-    if (intInput < INT_MIN || intInput > INT_MAX)
+    if (intInput < std::numeric_limits<int>::min() || intInput > std::numeric_limits<int>::max() || \
+    (!std::isdigit(input[0]) && input[0] != '-' && input[0] != '+'))
         std::cout << "impossible" << std::endl;
     else
         std::cout << static_cast<int>(intInput) << std::endl;
@@ -87,8 +88,8 @@ void ScalarConverter::toFloat(std::string input)
     std::cout << "float: ";
     if (isPseudoLiterals(input, FLOAT))
         return;
-    long double floatInput = std::stold(input.c_str());
-    if (floatInput < __FLT_MIN__ || floatInput > __FLT_MAX__)
+    long double floatInput = std::strtold(input.c_str(), NULL);
+    if (floatInput < -std::numeric_limits<float>::max() || floatInput > std::numeric_limits<float>::max())
         std::cout << "impossible" << std::endl;
     else
     {
@@ -104,14 +105,15 @@ void ScalarConverter::toDouble(std::string input)
     std::cout << "double: ";
     if (isPseudoLiterals(input, DOUBLE))
         return;
-    long double doubleInput = std::stold(input.c_str());
-    if (doubleInput < __DBL_MIN__ || doubleInput > __DBL_MAX__)
-        std::cout << "impossible" << std::endl;
-    else
-    {
-        std::cout << static_cast<double>(doubleInput);
-        if (doubleInput - static_cast<int>(doubleInput) == 0)
-            std::cout << ".0";
-        std::cout << std::endl;
-    }
+    // strtold
+    // long double doubleInput = std::stold(input.c_str());
+    // if (doubleInput < __DBL_MIN__ || doubleInput > __DBL_MAX__)
+    //     std::cout << "impossible" << std::endl;
+    // else
+    // {
+    //     std::cout << static_cast<double>(doubleInput);
+    //     if (doubleInput - static_cast<int>(doubleInput) == 0)
+    //         std::cout << ".0";
+    //     std::cout << std::endl;
+    // }
 }
