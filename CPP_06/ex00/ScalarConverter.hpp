@@ -36,11 +36,12 @@
 class ScalarConverter
 {
 private:
-public:
     ScalarConverter();
     ScalarConverter(ScalarConverter const &rhs);
     ScalarConverter &operator=(ScalarConverter const &rhs);
     ~ScalarConverter();
+
+public:
 
     static void convert(std::string input);
     static void toChar(std::string input);
