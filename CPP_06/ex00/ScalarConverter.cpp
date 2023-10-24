@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 10:29:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:19:20 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,16 @@ void ScalarConverter::toChar(std::string input)
     std::cout << "char: ";
     if (isPseudoLiterals(input, CHAR))
         return;
-    int charInput = std::atoi(input.c_str());
-    if (charInput >= 32 && charInput <= 126)
-        std::cout << "'" << static_cast<char>(charInput) << "'" << std::endl;
+    if (input.size() == 1 && !std::isdigit(input[0]))
+        std::cout << "'" << static_cast<char>(input[0]) << "'" << std::endl;
     else
-        std::cout << "Non displayable" << std::endl;
+    {
+        int charInput = std::atoi(input.c_str());
+        if (charInput >= 32 && charInput <= 126)
+            std::cout << "'" << static_cast<char>(charInput) << "'" << std::endl;
+        else
+            std::cout << "Non displayable" << std::endl;
+    }
 }
 
 void ScalarConverter::toInt(std::string input)
@@ -79,11 +84,16 @@ void ScalarConverter::toInt(std::string input)
     std::cout << "int: ";
     if (isPseudoLiterals(input, INT))
         return;
-    long long intInput = std::atoll(input.c_str());
-    if (intInput < std::numeric_limits<int>::min() || intInput > std::numeric_limits<int>::max())
-        std::cout << "impossible" << std::endl;
+    if (input.size() == 1 && !std::isdigit(input[0]))
+        std::cout << static_cast<int>(input[0]) << std::endl;
     else
-        std::cout << static_cast<int>(intInput) << std::endl;
+    {
+        long long intInput = std::atoll(input.c_str());
+        if (intInput < std::numeric_limits<int>::min() || intInput > std::numeric_limits<int>::max())
+            std::cout << "impossible" << std::endl;
+        else
+            std::cout << static_cast<int>(intInput) << std::endl;
+    }
 }
 
 void ScalarConverter::toFloat(std::string input)
@@ -91,15 +101,20 @@ void ScalarConverter::toFloat(std::string input)
     std::cout << "float: ";
     if (isPseudoLiterals(input, FLOAT))
         return;
-    long double floatInput = std::strtold(input.c_str(), NULL);
-    if (floatInput < -std::numeric_limits<float>::max() || floatInput > std::numeric_limits<float>::max())
-        std::cout << "impossible" << std::endl;
+    if (input.size() == 1 && !std::isdigit(input[0]))
+        std::cout << static_cast<float>(input[0]) << ".0f" << std::endl;
     else
     {
-        std::cout << static_cast<float>(floatInput);
-        if (floatInput - static_cast<int>(floatInput) == 0)
-            std::cout << ".0";
-        std::cout << "f" << std::endl;
+        long double floatInput = std::strtold(input.c_str(), NULL);
+        if (floatInput < -std::numeric_limits<float>::max() || floatInput > std::numeric_limits<float>::max())
+            std::cout << "impossible" << std::endl;
+        else
+        {
+            std::cout << static_cast<float>(floatInput);
+            if (floatInput - static_cast<int>(floatInput) == 0)
+                std::cout << ".0";
+            std::cout << "f" << std::endl;
+        }
     }
 }
 
@@ -108,14 +123,19 @@ void ScalarConverter::toDouble(std::string input)
     std::cout << "double: ";
     if (isPseudoLiterals(input, DOUBLE))
         return;
-    long double doubleInput = std::strtold(input.c_str(), NULL);
-    if (doubleInput < -std::numeric_limits<double>::max() || doubleInput > std::numeric_limits<double>::max())
-        std::cout << "impossible" << std::endl;
+    if (input.size() == 1 && !std::isdigit(input[0]))
+        std::cout << static_cast<double>(input[0]) << ".0" << std::endl;
     else
     {
-        std::cout << static_cast<double>(doubleInput);
-        if (doubleInput - static_cast<int>(doubleInput) == 0)
-            std::cout << ".0";
-        std::cout << std::endl;
+        long double doubleInput = std::strtold(input.c_str(), NULL);
+        if (doubleInput < -std::numeric_limits<double>::max() || doubleInput > std::numeric_limits<double>::max())
+            std::cout << "impossible" << std::endl;
+        else
+        {
+            std::cout << static_cast<double>(doubleInput);
+            if (doubleInput - static_cast<int>(doubleInput) == 0)
+                std::cout << ".0";
+            std::cout << std::endl;
+        }
     }
 }
