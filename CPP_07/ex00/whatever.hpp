@@ -6,12 +6,14 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:44:24 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 11:44:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/24 13:12:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
 # define WHATEVER_HPP
+# include <iostream>
+# include <string>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -24,6 +26,10 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
-
+template<typename T>
+T const &max(T const &x, T const &y)
+{
+    return x > y ? x : y;
+}
 
 #endif
