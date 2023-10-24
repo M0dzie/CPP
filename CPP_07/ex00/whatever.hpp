@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:44:24 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 13:12:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:51:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,23 @@
 # define BOLD "\033[1m"
 
 template<typename T>
-T const &max(T const &x, T const &y)
+void swap(T &arg1, T &arg2)
 {
-    return x > y ? x : y;
+    T tmp = arg1;
+    arg1 = arg2;
+    arg2 = tmp;
+}
+
+template<typename T>
+T &max(T &arg1, T &arg2)
+{
+    return arg1 > arg2 ? arg1 : arg2;
+}
+
+template<typename T>
+T &min(T &arg1, T &arg2)
+{
+    return arg1 < arg2 ? arg1 : arg2;
 }
 
 #endif
