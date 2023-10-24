@@ -16,6 +16,7 @@
 # include <string>
 # include <cstdlib>
 # include <limits>
+# include <sstream>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:45:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 11:19:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/24 16:08:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void ScalarConverter::toChar(std::string input)
         std::cout << "'" << static_cast<char>(input[0]) << "'" << std::endl;
     else
     {
-        int charInput = std::atoi(input.c_str());
+        std::istringstream iss(input);
+        int charInput;
+        iss >> charInput;
         if (charInput >= 32 && charInput <= 126)
             std::cout << "'" << static_cast<char>(charInput) << "'" << std::endl;
         else
@@ -88,7 +90,9 @@ void ScalarConverter::toInt(std::string input)
         std::cout << static_cast<int>(input[0]) << std::endl;
     else
     {
-        long long intInput = std::atoll(input.c_str());
+        std::istringstream iss(input);
+        long long intInput;
+        iss >> intInput;
         if (intInput < std::numeric_limits<int>::min() || intInput > std::numeric_limits<int>::max())
             std::cout << "impossible" << std::endl;
         else
@@ -105,7 +109,9 @@ void ScalarConverter::toFloat(std::string input)
         std::cout << static_cast<float>(input[0]) << ".0f" << std::endl;
     else
     {
-        long double floatInput = std::strtold(input.c_str(), NULL);
+        std::istringstream iss(input);
+        long double floatInput;
+        iss >> floatInput;
         if (floatInput < -std::numeric_limits<float>::max() || floatInput > std::numeric_limits<float>::max())
             std::cout << "impossible" << std::endl;
         else
@@ -127,7 +133,9 @@ void ScalarConverter::toDouble(std::string input)
         std::cout << static_cast<double>(input[0]) << ".0" << std::endl;
     else
     {
-        long double doubleInput = std::strtold(input.c_str(), NULL);
+        std::istringstream iss(input);
+        long double doubleInput;
+        iss >> doubleInput;
         if (doubleInput < -std::numeric_limits<double>::max() || doubleInput > std::numeric_limits<double>::max())
             std::cout << "impossible" << std::endl;
         else
