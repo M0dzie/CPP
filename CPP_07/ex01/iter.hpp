@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 16:23:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:32:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@
 # define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
+
+template<typename T>
+void iter(T *arr[], T arrLength, T *func())
+{
+    for (int i = 0; i < arrLength; i++)
+        func(arr[i]);
+}
 
 #endif
