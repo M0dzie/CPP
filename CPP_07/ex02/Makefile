@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 10:46:17 by thmeyer           #+#    #+#              #
-#    Updated: 2023/10/25 11:20:24 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/10/25 12:42:04 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJS_DIRS	=	.objs/
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp Array.tpp
+SRC_FILES	=	main.cpp
 
 SRCS	=	$(SRC_FILES)
 

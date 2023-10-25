@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 11:31:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 12:56:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int main(int, char**)
 {
     int *a = new int();
-    std::cout << a << std::endl;
-    // Array<int> numbers(MAX_VAL);
-    // int* mirror = new int[MAX_VAL];
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    (void)a;
+    (void)numbers;
+    (void)mirror;
     // srand(time(NULL));
     // for (int i = 0; i < MAX_VAL; i++)
     // {
