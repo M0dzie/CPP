@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 19:26:00 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 20:57:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 class Awesome
 {
-  public:
-    Awesome( void ) : _n( 42 ) { return; }
-    int get( void ) const { return this->_n; }
-  private:
-    int _n;
+private:
+  int _n;
+public:
+  Awesome(void) : _n(42) {return;}
+  int get(void) const {return this->_n;}
 };
 
-std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+std::ostream &operator<<(std::ostream & o, Awesome const & rhs)
 {
   o << rhs.get();
   return o;
 }
 
-template< typename T >
-void print( T& x )
+template<typename T>
+void print(T &x)
 {
-  std::cout << x << std::endl;
+  std::cout << BLACK << "Print function called : " << RESET << x << std::endl;
   return;
 }
 
@@ -65,13 +65,15 @@ int main(void)
         int arrSize = sizeof(array) / sizeof(int);
         iter<int>(array, arrSize, otherFuncTest);
     }
-
+    std::cout << std::endl << YELLOW << BOLD << "---- CONST INT TYPE ----" << RESET << std::endl;
     {
-        int tab[] = { 0, 1, 2, 3, 4 };
+        int tab[] = {0, 1, 2, 3, 4};
+        iter(tab, 5, print<const int>);
+    }
+    std::cout << std::endl << YELLOW << BOLD << "---- CLASS ARRAY ----" << RESET << std::endl;
+    {
         Awesome tab2[5];
-
-        iter( tab, 5, print<const int> );
-        iter( tab2, 5, print<Awesome> );
+        iter(tab2, 5, print<Awesome>);
     }
 
     return 0;
