@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 14:28:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:50:30 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@ int main(int, char**)
         Array<int> tmp = numbers;
         std::cout << "number[98] = " << numbers[98] << std::endl;
         std::cout << "tmp[98] = " << tmp[98] << std::endl;
+        std::cout << "Size of arr in numbers = " << numbers.size() << std::endl;
+        std::cout << "Size of arr in tmp = " << tmp.size() << std::endl;
         
         std::cout << BLACK << "Copy by assignation" << RESET << std::endl;
         Array<int> test(tmp);
         std::cout << "tmp[98] = " << tmp[98] << std::endl;
         std::cout << "test[98] = " << test[98] << std::endl;
+        std::cout << "Size of arr in tmp = " << tmp.size() << std::endl;
+        std::cout << "Size of arr in test = " << test.size() << std::endl;
         std::cout << std::endl;
     
         std::cout << YELLOW << BOLD << "---- CHECK IF COPY IS DEEP ----" << RESET << std::endl;
@@ -63,7 +67,7 @@ int main(int, char**)
     }
     std::cout << GREEN << BOLD << "OK!" << RESET << std::endl << std::endl;
 
-    std::cout << YELLOW << BOLD << "---- TRIGGER EXCEPTION ----" << RESET << std::endl;
+    std::cout << YELLOW << BOLD << "---- TRIGGER EXCEPTIONS ----" << RESET << std::endl;
     try
     {
         numbers[-2] = 0;

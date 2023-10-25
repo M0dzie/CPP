@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 13:57:14 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:56:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ template<typename T>
 class Array
 {
 private:
+    unsigned int _size;
     T *_arr;
 
 public:
@@ -42,36 +43,33 @@ public:
     Array &operator=(Array const &rhs);
     T &operator[](unsigned int index);
     ~Array();
+
+    unsigned int size() const;
+
+    
 };
 
 template<typename T>
-Array<T>::Array() : _arr(0) {}
+Array<T>::Array() : _size(0), _arr(NULL) {}
 
 template<typename T>
-Array<T>::Array(unsigned int n) : _arr(new T[n]) {}
+Array<T>::Array(unsigned int n) : _size(n), _arr(new T[n]) {}
 
 template<typename T>
-Array<T>::Array(Array<T> const &rhs)
+Array<T>::Array(Array<T> const &rhs) : _size(rhs._size), _arr(new T[rhs._size])
 {
-    *this = rhs;
+    for (unsigned int i = 0; i < this->_size; i++)
+        this->_arr[i] = rhs._arr[i];
 }
 
 template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const &rhs)
 {
-    int sizeOfArr = sizeof(this->_arr);
-    int arrSize = sizeOfArr / sizeof(T);
-
     if (this != &rhs)
     {
-        for (int i = 0; i < arrSize; i++)
-        {
-            delete [] this->_arr;
-            if (rhs._arr[i])
-                this->_arr[i] = rhs._arr[i];
-            else
-                this->_arr[i] = 0;
-        }
+        for (unsigned int i = 0; i < this->_size; i++)
+            this->_arr[i] = rhs._arr[i];
+        this->_size = rhs._size;
     }
     return *this;
 }
@@ -79,10 +77,9 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
 template<typename T>
 T &Array<T>::operator[](unsigned int index)
 {
-    int sizeOfArr = sizeof(this->_arr);
-    unsigned int arrSize = sizeOfArr / sizeof(T);
-    
-    if (index > arrSize)
+    if (index > this->_size)
+        throw std::exception();
+    if (index < 0)
         throw std::exception();
     return this->_arr[index];
 }
@@ -91,6 +88,12 @@ template<typename T>
 Array<T>::~Array()
 {
     delete [] this->_arr;
+}
+
+template<typename T>
+unsigned int Array<T>::size() const
+{
+    return this->_size;
 }
 
 #endif
