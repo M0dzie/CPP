@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 19:23:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 21:20:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 class Awesome
 {
-  public:
-    Awesome( void ) : _n( 42 ) { return; }
-    int get( void ) const { return this->_n; }
-  private:
-    int _n;
+private:
+  int _n;
+public:
+  Awesome(void) : _n(42) {return;}
+  int get(void) const {return this->_n;}
 };
 
 int main(int, char**)
@@ -95,13 +95,18 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
+    std::cout << std::endl;
+    std::cout << YELLOW << BOLD << "---- CLASS TEST ----" << RESET << std::endl;
     {
-        Array<Awesome> ns(2);
-        std::cout << ns.size() << std::endl;
+        Array<Awesome> ns(4);
+        std::cout << "Size of the array : " << ns.size() << std::endl;
+    }
+    std::cout << std::endl;
+    std::cout << YELLOW << BOLD << "---- CONST CASS TEST ----" << RESET << std::endl;
+    {
         const Array<int> test(numbers);
-        std::cout << test[0] << std::endl;
-        std::cout << numbers[0] << std::endl;
+        std::cout << "test[0] : " << test[0] << std::endl;
+        std::cout << "numbers[0] : " << numbers[0] << std::endl;
     }
 
     delete [] mirror;
