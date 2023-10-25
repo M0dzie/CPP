@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 16:11:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:26:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ private:
 
 public:
     Array() : _size(0), _arr(NULL) {}
-    ~Array() {delete [] this->_arr;}
     Array(unsigned int n) : _size(n), _arr(new T[n]) {}
     Array(Array const &rhs) : _size(rhs._size), _arr(new T[rhs._size])
     {
@@ -55,28 +54,33 @@ public:
         }
         return *this;
     }
+    ~Array() {delete [] this->_arr;}
 
     unsigned int size() const {return this->_size;}
+    T &operator[](int index)
+    {
+        if (index >= static_cast<int>(this->_size))
+            throw Array<T>::IndexIsTooHigh();
+        if (index < 0)
+            throw Array<T>::IndexIsTooLow();
+        return this->_arr[index];
+    }
     T &operator[](unsigned int index)
     {
         if (index >= this->_size)
-            throw std::exception();
-            // throw Array<T>::IndexIsTooHigh();
-        if (index < 0)
-            throw std::exception();
-            // throw Array<T>::IndexIsTooLow();
+            throw Array<T>::IndexIsTooHigh();
         return this->_arr[index];
     }
     
     class IndexIsTooLow : public std::exception
     {
     public:
-        virtual const char *what() throw() {return RED "Index is too low" RESET;}
+        virtual const char *what() const throw() {return RED "Index is too low" RESET;}
     };
     class IndexIsTooHigh : public std::exception
     {
     public:
-        virtual const char *what() throw() {return RED "Index is too high" RESET;}
+        virtual const char *what() const throw() {return RED "Index is too high" RESET;}
     };
 };
 

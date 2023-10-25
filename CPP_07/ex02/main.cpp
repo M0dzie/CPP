@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 16:13:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:21:19 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main(int, char**)
     
     std::cout << YELLOW << BOLD << "---- COPY TESTS ----" << RESET << std::endl;
     {
-        std::cout << BLACK << "Copy by operator =" << RESET << std::endl;
+        std::cout << BLACK << "Copy by operator '='" << RESET << std::endl;
         Array<int> tmp = numbers;
         std::cout << GREEN << BOLD << "Copy done!" << RESET << std::endl;
         std::cout << "number[98] = " << numbers[98] << std::endl;
