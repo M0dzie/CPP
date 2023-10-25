@@ -6,12 +6,13 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 18:32:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:05:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
 # define ITER_HPP
+# include <iostream>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -25,9 +26,15 @@
 # define BOLD "\033[1m"
 
 template<typename T>
-void iter(T *arr[], T arrLength, T *func())
+void displayArr(T arr)
 {
-    for (int i = 0; i < arrLength; i++)
+    std::cout << BLACK << "displayArr called :" << RESET << arr << std::endl;
+}
+
+template<typename T>
+void iter(T *arr, int arrSize, void (*func)(T))
+{
+    for (int i = 0; i < arrSize; i++)
         func(arr[i]);
 }
 

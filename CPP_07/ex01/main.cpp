@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 16:22:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:08:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,18 @@
 
 int main(void)
 {
+    std::cout << YELLOW << BOLD << "---- INT ARRAY ----" << RESET << std::endl;
+    {
+        int array[4] = {21, 42, 212, 424};
+        int arrSize = sizeof(array) / sizeof(int);
+        iter<int>(array, arrSize, displayArr);
+    }
+    std::cout << std::endl << YELLOW << BOLD << "---- FLOAT ARRAY ----" << RESET << std::endl;
+    {
+        float array[20] = {21.3f, 42.0f, 32.0f, 3243243.23f, 32432424.3242f};
+        int arrSize = sizeof(array) / sizeof(float);
+        iter<float>(array, arrSize, displayArr);
+    }
+
     return 0;
 }
