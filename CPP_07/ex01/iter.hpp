@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 10:05:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:09:48 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 template<typename T>
 void displayArr(T arr)
 {
-    std::cout << BLACK << "displayArr called :" << RESET << arr << std::endl;
+    std::cout << BLACK << "displayArr called : " << RESET << arr << std::endl;
 }
 
 template<typename T>

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 10:08:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:31:55 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@ int main(void)
     }
     std::cout << std::endl << YELLOW << BOLD << "---- FLOAT ARRAY ----" << RESET << std::endl;
     {
-        float array[20] = {21.3f, 42.0f, 32.0f, 3243243.23f, 32432424.3242f};
+        float array[10] = {21.3f, 42.0f, 32.0f, 3243243.23f, 32432424.3242f};
         int arrSize = sizeof(array) / sizeof(float);
         iter<float>(array, arrSize, displayArr);
+    }
+    std::cout << std::endl << YELLOW << BOLD << "---- STRING ARRAY ----" << RESET << std::endl;
+    {
+        std::string array[4] = {"Hello", "You", "are", "beautiful"};
+        int arrSize = sizeof(array) / sizeof(std::string);
+        iter<std::string>(array, arrSize, displayArr);
+    }
+    std::cout << std::endl << YELLOW << BOLD << "---- WEIRD TEST ----" << RESET << std::endl;
+    {
+        
     }
 
     return 0;
