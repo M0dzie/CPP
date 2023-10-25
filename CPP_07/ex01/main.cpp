@@ -6,11 +6,16 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 10:31:55 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:43:00 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+
+static void otherFuncTest(int arr)
+{
+    std::cout << BLACK << "Not template func : " << RESET << arr << std::endl;
+}
 
 int main(void)
 {
@@ -32,9 +37,11 @@ int main(void)
         int arrSize = sizeof(array) / sizeof(std::string);
         iter<std::string>(array, arrSize, displayArr);
     }
-    std::cout << std::endl << YELLOW << BOLD << "---- WEIRD TEST ----" << RESET << std::endl;
+    std::cout << std::endl << YELLOW << BOLD << "---- OTHER FUNC TEST ----" << RESET << std::endl;
     {
-        
+        int array[4] = {21, 42, 212, 424};
+        int arrSize = sizeof(array) / sizeof(int);
+        iter<int>(array, arrSize, otherFuncTest);
     }
 
     return 0;
