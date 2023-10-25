@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 13:04:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 13:42:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ public:
     Array(unsigned int n);
     Array(Array const &rhs);
     Array &operator=(Array const &rhs);
+    T &operator[](unsigned int index);
     ~Array();
 };
 
@@ -74,13 +75,18 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
 }
 
 template<typename T>
-Array<T>::~Array()
+T &Array<T>::operator[](unsigned int index)
 {
     int arrSize = sizeof(this->_arr) / sizeof(T);
+    
+    if (index > arrSize)
+        throw std::exception();
+}
 
-    for (int i = 0; i < arrSize ; i++)
-        if (this->_arr[i])
-            delete this->_arr[i];
+template<typename T>
+Array<T>::~Array()
+{
+    delete [] this->_arr;
 }
 
 #endif
