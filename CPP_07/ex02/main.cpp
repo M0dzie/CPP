@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 16:02:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:13:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,22 @@ int main(int, char**)
         mirror[i] = value;
     }
 
+    std::cout << YELLOW << BOLD << "---- CHECK SAME VALUE ----" << RESET << std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    std::cout << GREEN << BOLD << "OK!" << RESET << std::endl << std::endl;
+    
     std::cout << YELLOW << BOLD << "---- COPY TESTS ----" << RESET << std::endl;
     {
         std::cout << BLACK << "Copy by operator =" << RESET << std::endl;
         Array<int> tmp = numbers;
+        std::cout << GREEN << BOLD << "Copy done!" << RESET << std::endl;
         std::cout << "number[98] = " << numbers[98] << std::endl;
         std::cout << "tmp[98] = " << tmp[98] << std::endl;
         std::cout << "Size of arr in numbers = " << numbers.size() << std::endl;
@@ -36,6 +48,7 @@ int main(int, char**)
         
         std::cout << BLACK << "Copy by assignation" << RESET << std::endl;
         Array<int> test(tmp);
+        std::cout << GREEN << BOLD << "Copy done!" << RESET << std::endl;
         std::cout << "tmp[98] = " << tmp[98] << std::endl;
         std::cout << "test[98] = " << test[98] << std::endl;
         std::cout << "Size of arr in tmp = " << tmp.size() << std::endl;
@@ -55,17 +68,6 @@ int main(int, char**)
         std::cout << "tmp[10] = " << tmp[10] << std::endl;
     }
     std::cout << std::endl;
-
-    std::cout << YELLOW << BOLD << "---- CHECK SAME VALUE ----" << RESET << std::endl;
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
-    std::cout << GREEN << BOLD << "OK!" << RESET << std::endl << std::endl;
 
     std::cout << YELLOW << BOLD << "---- TRIGGER EXCEPTIONS ----" << RESET << std::endl;
     try
