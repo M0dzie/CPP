@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:45:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/24 16:18:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 17:14:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 
     float e = 42.0f;
     float f = 24.24f;
-    std::cout << YELLOW << BOLD << "---- SECOND TEST ----" << RESET << std::endl;
+    std::cout << YELLOW << BOLD << "---- THIRD TEST ----" << RESET << std::endl;
     std::cout << BLACK << "e = " << e << ", f = " << f << std::endl;
     ::swap(e, f);
     std::cout << GREEN << BOLD << "Swap OK!" << RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 10:43:00 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 17:16:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void otherFuncTest(int arr)
 {
-    std::cout << BLACK << "Not template func : " << RESET << arr << std::endl;
+    std::cout << BLACK << "Not template function called : " << RESET << arr << std::endl;
 }
 
 int main(void)
