@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 14:50:30 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 16:02:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int main(int, char**)
     {
         numbers[-2] = 0;
     }
-    catch(const std::exception& e)
+    catch(const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
