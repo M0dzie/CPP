@@ -6,13 +6,15 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 13:42:38 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 13:57:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 # include <iostream>
+# include <ctime>
+# include <cstdlib>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -57,14 +59,14 @@ Array<T>::Array(Array<T> const &rhs)
 template<typename T>
 Array<T> &Array<T>::operator=(Array<T> const &rhs)
 {
-    int arrSize = sizeof(this->_arr) / sizeof(T);
+    int sizeOfArr = sizeof(this->_arr);
+    int arrSize = sizeOfArr / sizeof(T);
 
     if (this != &rhs)
     {
         for (int i = 0; i < arrSize; i++)
         {
-            if (this->_arr[i])
-                delete this->_arr[i];
+            delete [] this->_arr;
             if (rhs._arr[i])
                 this->_arr[i] = rhs._arr[i];
             else
@@ -77,10 +79,12 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
 template<typename T>
 T &Array<T>::operator[](unsigned int index)
 {
-    int arrSize = sizeof(this->_arr) / sizeof(T);
+    int sizeOfArr = sizeof(this->_arr);
+    unsigned int arrSize = sizeOfArr / sizeof(T);
     
     if (index > arrSize)
         throw std::exception();
+    return this->_arr[index];
 }
 
 template<typename T>
