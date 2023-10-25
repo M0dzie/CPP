@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 19:17:07 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:23:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,9 @@ int main(int, char**)
     {
         Array<Awesome> ns(2);
         std::cout << ns.size() << std::endl;
-        const Array<int> test(1);
+        const Array<int> test(numbers);
         std::cout << test[0] << std::endl;
+        std::cout << numbers[0] << std::endl;
     }
 
     delete [] mirror;
