@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 16:26:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:16:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ public:
     ~Array() {delete [] this->_arr;}
 
     unsigned int size() const {return this->_size;}
+    T const &operator[](int index) const
+    {
+        if (index >= static_cast<int>(this->_size))
+            throw Array<T>::IndexIsTooHigh();
+        if (index < 0)
+            throw Array<T>::IndexIsTooLow();
+        return this->_arr[index];
+    }
+    T const &operator[](unsigned int index) const
+    {
+        if (index >= this->_size)
+            throw Array<T>::IndexIsTooHigh();
+        return this->_arr[index];
+    }
     T &operator[](int index)
     {
         if (index >= static_cast<int>(this->_size))

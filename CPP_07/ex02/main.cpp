@@ -6,11 +6,20 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 16:21:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:17:07 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+
+class Awesome
+{
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
 
 int main(int, char**)
 {
@@ -85,6 +94,13 @@ int main(int, char**)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+    }
+
+    {
+        Array<Awesome> ns(2);
+        std::cout << ns.size() << std::endl;
+        const Array<int> test(1);
+        std::cout << test[0] << std::endl;
     }
 
     delete [] mirror;

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 17:16:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:21:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,14 @@ void displayArr(T arr)
 }
 
 template<typename T>
-void iter(T *arr, int arrSize, void (*f)(T))
+void iter(T *arr, int arrSize, void (*f)(T&))
+{
+    for (int i = 0; i < arrSize; i++)
+        f(arr[i]);
+}
+
+template<typename T>
+void iter(T const *arr, int arrSize, void (*f)(T const &))
 {
     for (int i = 0; i < arrSize; i++)
         f(arr[i]);

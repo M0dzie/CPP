@@ -6,11 +6,33 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:22:29 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 17:16:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/25 19:18:12 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+
+class Awesome
+{
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
+
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
+}
 
 static void otherFuncTest(int arr)
 {
@@ -42,6 +64,14 @@ int main(void)
         int array[4] = {21, 42, 212, 424};
         int arrSize = sizeof(array) / sizeof(int);
         iter<int>(array, arrSize, otherFuncTest);
+    }
+
+    {
+        int tab[] = { 0, 1, 2, 3, 4 };
+        Awesome tab2[5];
+
+        iter( tab, 5, print<const int> );
+        iter( tab2, 5, print<Awesome> );
     }
 
     return 0;
