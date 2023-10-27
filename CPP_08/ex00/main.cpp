@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 11:20:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 11:31:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,22 @@ int main(void)
     {
         std::cerr << e.what() << std::endl;
     }
+    std::cout << std::endl;
+    
+    std::cout << YELLOW << BOLD << "---- TEST 5 (EXIST) ----" << RESET << std::endl;
+    std::cout << BLACK << "Adding -999 to array" << RESET << std::endl;
+    arr.push_back(-999);
+    std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
+    try
+    {
+        std::cout << BLACK << "Testing -999 : " << RESET;
+        easyfind(arr, -999);
+    }
+    catch (const NoOccurenceFound &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
 
     return 0;
 }
