@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 10:15:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:16:55 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
         easyfind(arr, -20);
         std::cout << std::endl;
     }
-    catch (const NoOccurenceFound &e)
+    catch (const std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
