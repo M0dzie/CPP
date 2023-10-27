@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:34:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 11:22:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 12:30:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,17 @@ public:
 template<typename T>
 void easyfind(T container, int toFind)
 {
-    for (size_t i = 0; i < container.size(); i++)
-        if (container[i] == toFind)
+    int index = 0;
+
+    for (typename T::iterator it = container.begin(); it != container.end(); *it++)
+    {
+        if (*it == toFind)
         {
-            std::cout << "First occurence found at " << i << "th place !" << std::endl;
+            std::cout << "First occurence found at " << index << "th place !" << std::endl;
             return;
         }
+        index++;
+    }
     throw NoOccurenceFound();
 }
 

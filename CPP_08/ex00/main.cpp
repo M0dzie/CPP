@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 11:31:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 12:29:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main(void)
 {
+    int index = 0;
+
     std::cout << YELLOW << BOLD << "---- MAKING ARRAY ----" << RESET << std::endl;
     std::cout << BLACK << "Init array" << RESET << std::endl;
     std::vector<int> arr;
@@ -28,8 +30,11 @@ int main(void)
     arr.push_back(46);
     std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
     std::cout << BLACK << "Displaying array" << RESET << std::endl;
-    for (size_t i = 0; i < arr.size(); i++)
-        std::cout << i << "th place : " << arr[i] << std::endl;
+    for (std::vector<int>::iterator it = arr.begin(); it < arr.end(); *it++)
+    {
+        std::cout << index << "th place : " << *it << std::endl;
+        index++;
+    }
     std::cout << std::endl;
     
     try
@@ -90,7 +95,6 @@ int main(void)
     {
         std::cerr << e.what() << std::endl;
     }
-    
 
     return 0;
 }
