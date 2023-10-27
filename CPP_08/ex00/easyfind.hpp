@@ -6,12 +6,13 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:34:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 10:15:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:21:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
+# include <algorithm>
 # include <iostream>
 # include <vector>
 
@@ -33,11 +34,14 @@ public:
 };
 
 template<typename T>
-int easyfind(T first, int second)
+void easyfind(T first, int second)
 {
     for (size_t i = 0; i < first.size(); i++)
         if (first[i] == second)
-            return first[i];
+        {
+            std::cout << "Occurence found!" << std::endl;
+            return;
+        }
     throw NoOccurenceFound();
 }
 
