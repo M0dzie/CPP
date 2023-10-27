@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 21:20:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 09:09:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int main(int, char**)
         std::cout << "Size of the array : " << ns.size() << std::endl;
     }
     std::cout << std::endl;
-    std::cout << YELLOW << BOLD << "---- CONST CASS TEST ----" << RESET << std::endl;
+    std::cout << YELLOW << BOLD << "---- CONST CASS TEST (READ ONLY) ----" << RESET << std::endl;
     {
         const Array<int> test(numbers);
         std::cout << "test[0] : " << test[0] << std::endl;
