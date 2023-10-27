@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:34:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 17:09:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:15:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
+class NoOccurenceFound : std::exception
+{
+public:
+    virtual const char *what() const throw () {return RED "No Occurence found for this parameter" RESET;}
+};
+
 template<typename T>
 int easyfind(T first, int second)
 {
-    for (int i = 0; i < first.size(); i++)
+    for (size_t i = 0; i < first.size(); i++)
         if (first[i] == second)
             return first[i];
+    throw NoOccurenceFound();
 }
 
 #endif
