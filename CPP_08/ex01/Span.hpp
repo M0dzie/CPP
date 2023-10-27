@@ -6,12 +6,15 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 15:26:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/27 16:24:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
+# include <iostream>
+# include <algorithm>
+# include <array>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -27,7 +30,16 @@
 class Span
 {
 private:
+	unsigned int const _N;
+
 public:
+	Span() : _N(0) {}
+	Span(unsigned int n);
+	Span(Span const &rhs) : _N(rhs._N) {}
+	Span &operator=(Span const &rhs);
+	~Span() {}
+
+	// void addNumber(int number);
 };
 
 #endif
