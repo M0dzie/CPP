@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:45:54 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/30 14:12:49 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/30 14:26:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,12 +107,6 @@ int main(int, char**)
         const Array<int> test(numbers);
         std::cout << "test[0] : " << test[0] << std::endl;
         std::cout << "numbers[0] : " << numbers[0] << std::endl;
-    }
-    std::cout << std::endl;
-    std::cout << YELLOW << BOLD << "---- TEST VOID ARRAY ----" << RESET << std::endl;
-    {
-        Array<int> test;
-        std::cout << test[0] << std::endl;
     }
     delete [] mirror;
     return 0;
