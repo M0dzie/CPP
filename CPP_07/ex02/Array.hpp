@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:46:44 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/25 19:16:33 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/30 14:03:48 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ private:
     T *_arr;
 
 public:
-    Array() : _size(0), _arr(NULL) {}
+    Array() : _size(0), _arr(new T[NULL]) {}
     Array(unsigned int n) : _size(n), _arr(new T[n]) {}
     Array(Array const &rhs) : _size(rhs._size), _arr(new T[rhs._size])
-    {
+    {   
         for (unsigned int i = 0; i < this->_size; i++)
             this->_arr[i] = rhs._arr[i];
     }
@@ -73,7 +73,7 @@ public:
     }
     T &operator[](int index)
     {
-        if (index >= static_cast<int>(this->_size))
+        if (index >= static_cast<int>(this->_size) && this->_size != 0)
             throw Array<T>::IndexIsTooHigh();
         if (index < 0)
             throw Array<T>::IndexIsTooLow();
@@ -81,7 +81,7 @@ public:
     }
     T &operator[](unsigned int index)
     {
-        if (index >= this->_size)
+        if (index >= this->_size && this->_size != 0)
             throw Array<T>::IndexIsTooHigh();
         return this->_arr[index];
     }
