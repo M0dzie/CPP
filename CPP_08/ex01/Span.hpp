@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 16:24:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/30 15:31:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Span
 {
 private:
 	unsigned int const _N;
+	std::array<int, N> store;
 
 public:
 	Span() : _N(0) {}
@@ -40,6 +41,8 @@ public:
 	~Span() {}
 
 	// void addNumber(int number);
+	// void shortestSpan();
+	// void longestSpan();
 };
 
 #endif
