@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/30 15:31:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/10/30 15:55:30 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Span
 {
 private:
 	unsigned int const _N;
-	std::array<int, N> store;
+	// std::array<int, N> satore;
 
 public:
 	Span() : _N(0) {}
