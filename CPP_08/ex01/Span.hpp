@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 18:49:47 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 19:17:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ public:
 	class StoreIsFull : public std::exception
 	{
 	public:
-		virtual const char *what() const throw () {return RED "The Store is already full" RESET;}	
+		virtual const char *what() const throw () {return RED "The Store can't accept any more elements" RESET;}	
 	};
 };
 

@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 19:04:06 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 19:19:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,7 @@ int main(void)
 			// std::cout << BLACK << "Should output : 14" << RESET << std::endl;
 			// std::cout << sp.longestSpan() << std::endl;
 		// }
-		// catch (const Span::NumberIncorrect &e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
-		// catch (const Span::StoreIsFull &e)
+		// catch (const std::exception &e)
 		// {
 		// 	std::cerr << e.what() << std::endl;
 		// }
@@ -61,8 +57,20 @@ int main(void)
 			Span sp(0);
 			std::cout << BLACK << "Try to add a number in a span, store init at 0" << RESET << std::endl;
 			sp.addNumber(5);
-			std::cout << BLACK << "Test sp(0) = sp1(10)" << RESET << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- TESTING COPY OPERATOR AND COPY CONSTRUCTOR ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp;
 			Span sp1(10);
+			std::cout << BLACK << "Test sp(0) = sp1(10)" << RESET << std::endl;
 			sp = sp1;
 			if (sp.getN() == sp1.getN())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
