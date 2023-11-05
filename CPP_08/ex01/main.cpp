@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/31 13:53:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 18:54:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,21 @@ int main(void)
 		try
 		{
 			Span sp(0);
-			std::cout << BLACK << "Try to add a number in a span in a store init at 0" << RESET << std::endl;
+			std::cout << BLACK << "Try to add a number in a span, store init at 0" << RESET << std::endl;
 			sp.addNumber(5);
+			std::cout << BLACK << "Test sp(0) = sp1(10)" << RESET << std::endl;
+			Span sp1(10);
+			sp = sp1;
+			if (sp.getN() == sp1.getN())
+				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
+			else
+				std::cout << RED << BOLD << "Copy operator failed " << RESET << std::endl;
+			std::cout << BLACK << "Test sp2(sp1)" << RESET << std::endl;
+			Span sp2(sp1);
+			if (sp1.getN() == sp2.getN())
+				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
+			else
+				std::cout << RED << BOLD << "Copy operator failed " << RESET << std::endl;
 		}
 		catch (const Span::NumberIncorrect &e)
 		{
@@ -66,7 +79,7 @@ int main(void)
 		try
 		{
 			Span sp(-1);
-			std::cout << BLACK << "Try to add a number in a span in a store init at -1" << RESET << std::endl;
+			std::cout << BLACK << "Try to add a number in a span, store init at -1" << RESET << std::endl;
 			sp.addNumber(5);
 		}
 		catch (const Span::NumberIncorrect &e)
@@ -75,13 +88,13 @@ int main(void)
 		}
 	}
 	std::cout << std::endl;
-	std::cout << YELLOW << BOLD << "---- SPAN INIT TO UNSIGNED INT MAX - 1 ----" << RESET << std::endl;
+	std::cout << YELLOW << BOLD << "---- SPAN INIT TO UNSIGNED INT MAX ----" << RESET << std::endl;
 	{
-		std::cout << BLACK << "Init a Span at unsigned int max - 1" << RESET << std::endl;
+		std::cout << BLACK << "Init a Span at unsigned int max" << RESET << std::endl;
 		try
 		{
-			Span sp(4294967294);
-			std::cout << BLACK << "Try to add a number in a span in a store init at unsigned int max - 1" << RESET << std::endl;
+			Span sp(UINT_MAX);
+			std::cout << BLACK << "Try to add a number in a span, store init at unsigned int max" << RESET << std::endl;
 			sp.addNumber(5);
 		}
 		catch (const Span::NumberIncorrect &e)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/31 13:50:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 18:49:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
-# define UINT_MAX 4294967295
+# ifndef UINT_MAX
+#  define UINT_MAX 4294967295
+# endif
 
 class Span
 {
@@ -43,6 +45,8 @@ public:
 	Span(Span const &rhs) : _N(rhs._N) {}
 	Span &operator=(Span const &rhs);
 	~Span() {}
+
+	unsigned int getN() const {return this->_N;}
 
 	void addNumber(int number);
 	// void shortestSpan();
