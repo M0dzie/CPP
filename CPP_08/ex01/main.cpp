@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 18:54:22 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 18:57:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 		// try
 		// {
 			// Span sp = Span(5);
+			// std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
 			// sp.addNumber(6);
 			// sp.addNumber(3);
 			// sp.addNumber(17);
@@ -59,13 +60,13 @@ int main(void)
 			if (sp.getN() == sp1.getN())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
-				std::cout << RED << BOLD << "Copy operator failed " << RESET << std::endl;
+				std::cout << RED << BOLD << "Copy operator '=' failed " << RESET << std::endl;
 			std::cout << BLACK << "Test sp2(sp1)" << RESET << std::endl;
 			Span sp2(sp1);
 			if (sp1.getN() == sp2.getN())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
-				std::cout << RED << BOLD << "Copy operator failed " << RESET << std::endl;
+				std::cout << RED << BOLD << "Copy constructor failed " << RESET << std::endl;
 		}
 		catch (const Span::NumberIncorrect &e)
 		{
