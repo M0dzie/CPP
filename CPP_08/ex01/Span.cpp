@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 18:49:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 19:01:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,8 @@ Span &Span::operator=(Span const &rhs)
 
 void Span::addNumber(int number)
 {
-	(void) number;
-	unsigned int index = 0;
-	for (std::vector<int>::iterator it = this->_store.begin(); it < this->_store.end(); *it++)
-	{
-		if (index == this->_N)
-		{
-			throw Span::StoreIsFull();
-		}
-		index++;
-	}
+	if (this->_store.size() < this->_N)
+		this->_store.push_back(number);
+	else
+		throw Span::StoreIsFull();
 }

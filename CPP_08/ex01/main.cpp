@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 18:57:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 19:04:06 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,16 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << YELLOW << BOLD << "---- VOID SPAN ----" << RESET << std::endl;
 	{
-		Span sp;
-		std::cout << BLACK << "Try to add a number in a void span" << RESET << std::endl;
-		sp.addNumber(5);
+		try
+		{
+			Span sp;
+			std::cout << BLACK << "Try to add a number in a void span" << RESET << std::endl;
+			sp.addNumber(5);
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	std::cout << std::endl;
 	std::cout << YELLOW << BOLD << "---- SPAN INIT TO 0 ----" << RESET << std::endl;
@@ -68,7 +75,7 @@ int main(void)
 			else
 				std::cout << RED << BOLD << "Copy constructor failed " << RESET << std::endl;
 		}
-		catch (const Span::NumberIncorrect &e)
+		catch (const std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -83,7 +90,7 @@ int main(void)
 			std::cout << BLACK << "Try to add a number in a span, store init at -1" << RESET << std::endl;
 			sp.addNumber(5);
 		}
-		catch (const Span::NumberIncorrect &e)
+		catch (const std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
@@ -98,7 +105,7 @@ int main(void)
 			std::cout << BLACK << "Try to add a number in a span, store init at unsigned int max" << RESET << std::endl;
 			sp.addNumber(5);
 		}
-		catch (const Span::NumberIncorrect &e)
+		catch (const std::exception &e)
 		{
 			std::cerr << e.what() << std::endl;
 		}
