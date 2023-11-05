@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 19:19:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/05 19:27:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@ int main(void)
 {
 	std::cout << YELLOW << BOLD << "---- MANDATORY TESTS ----" << RESET << std::endl;
 	{
-		// try
-		// {
-			// Span sp = Span(5);
-			// std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
-			// sp.addNumber(6);
-			// sp.addNumber(3);
-			// sp.addNumber(17);
-			// sp.addNumber(9);
-			// sp.addNumber(11);
-			// std::cout << BLACK << "Should output : 2" << RESET << std::endl;
+		try
+		{
+			Span sp = Span(5);
+			std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
+			std::cout << BLACK << "Add 5 numbers" << RESET << std::endl;
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+			std::cout << BLACK << "Should output : 2" << RESET << std::endl;
 			// std::cout << sp.shortestSpan() << std::endl;
-			// std::cout << BLACK << "Should output : 14" << RESET << std::endl;
+			std::cout << BLACK << "Should output : 14" << RESET << std::endl;
 			// std::cout << sp.longestSpan() << std::endl;
-		// }
-		// catch (const std::exception &e)
-		// {
-		// 	std::cerr << e.what() << std::endl;
-		// }
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 	std::cout << std::endl;
 	std::cout << YELLOW << BOLD << "---- VOID SPAN ----" << RESET << std::endl;
@@ -119,5 +120,22 @@ int main(void)
 		}
 	}
 	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- ADD MORE ELEMENTS THAN A STORE CAN HANDLE ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp(5);
+			std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
+			for (int i = 0; i < 10; i++)
+			{
+				sp.addNumber(10);
+				std::cout << GREEN << "Number " << i << " successfully add" << RESET << std::endl;
+			}
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	return 0;
 }
