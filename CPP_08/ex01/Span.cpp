@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 17:01:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 17:34:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ void Span::showStore() const
 			std::cout << ", ";
 	}
 	std::cout << std::endl;
+}
+
+void Span::fillRandom()
+{
+	
 }
 
 void Span::fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end)
