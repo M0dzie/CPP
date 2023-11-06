@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 10:47:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 13:43:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ Span::Span(unsigned int n)
 	if (n >= UINT_MAX)
 	{
 		this->_N = UINT_MAX - 1;
-		throw Span::NumberIncorrect();
-	}
-	if (static_cast<int>(n) < 0)
-	{
-		this->_N = 0;
 		throw Span::NumberIncorrect();
 	}
 	this->_N = n;
@@ -48,11 +43,15 @@ void Span::addNumber(int number)
 
 int Span::shortestSpan()
 {
+	if (this->_store.size() < 2)
+		throw Span::NotEnoughNumber();
 	return 0;
 }
 
 int Span::longestSpan()
 {
+	if (this->_store.size() < 2)
+		throw Span::NotEnoughNumber();
 	return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 10:51:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 13:46:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main(void)
 			sp.addNumber(11);
 			std::cout << BLACK << "Should output : 2 => " << RESET;
 			std::cout << sp.shortestSpan() << std::endl;
-			// std::cout << BLACK << "Should output : 14" << RESET;
-			// std::cout << sp.longestSpan() << std::endl;
+			std::cout << BLACK << "Should output : 14 => " << RESET;
+			std::cout << sp.longestSpan() << std::endl;
 		}
 		catch (const std::exception &e)
 		{
@@ -89,6 +89,38 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- TESTING SHORTESTSPAN TO A STORE OF 0 ELEMENT ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp(10);
+			std::cout << BLACK << "Try to find the shortest span of 0 element" << RESET << std::endl;
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- TESTING SHORTESTSPAN TO A STORE OF 1 ELEMENT ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp(10);
+			std::cout << BLACK << "Add number to store" << RESET << std::endl;
+			sp.addNumber(2147483647);
+			std::cout << BLACK << "Try to find the longest span of 1 element" << RESET << std::endl;
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		
 	}
 	std::cout << std::endl;
 	std::cout << YELLOW << BOLD << "---- SPAN INIT TO NEGATIVE VALUE ----" << RESET << std::endl;

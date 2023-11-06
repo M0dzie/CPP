@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 10:51:17 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 13:37:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <algorithm>
 # include <vector>
 # include <iterator>
-# include <limits>
+# include <climits>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -28,10 +28,6 @@
 # define GRAY "\033[0;37m"
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
-
-# ifndef UINT_MAX
-#  define UINT_MAX 4294967295
-# endif
 
 class Span
 {
@@ -63,6 +59,11 @@ public:
 	{
 	public:
 		virtual const char *what() const throw () {return RED "The Store can't accept any more elements" RESET;}	
+	};
+	class NotEnoughNumber : public std::exception
+	{
+	public:
+		virtual const char *what() const throw () {return RED "The number of elements stored is not enough" RESET;}	
 	};
 };
 
