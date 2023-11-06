@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 17:34:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 18:33:22 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(void)
 	{
 		std::cout << BLACK << "Init span at 1" << RESET << std::endl;
 		Span sp = Span(1);
-		std::cout << BLACK << "Use 2x addNumber" << RESET << std::endl;
+		std::cout << BLACK << "Add 2 numbers" << RESET << std::endl;
 		sp.addNumber(10);
 		sp.addNumber(10);
 	}
@@ -55,8 +55,9 @@ int main(void)
 	{
 		std::cout << BLACK << "Init span at 1" << RESET << std::endl;
 		Span sp = Span(1);
+		std::cout << BLACK << "Add 1 numbers" << RESET << std::endl;
 		sp.addNumber(1);
-		std::cout << BLACK << "Using longesSpan()" << RESET << std::endl;
+		std::cout << BLACK << "Using longestSpan()" << RESET << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
 	catch (const std::exception &e)
@@ -64,7 +65,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << YELLOW << BOLD << "---- TEST LONGESTSPAN ----" << RESET << std::endl;
+	std::cout << YELLOW << BOLD << "---- LONGESTSPAN ----" << RESET << std::endl;
 	try
 	{
 		Span sp = Span(8);
@@ -85,7 +86,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << YELLOW << BOLD << "---- TEST SHORTESTSPAN ----" << RESET << std::endl;
+	std::cout << YELLOW << BOLD << "---- SHORTESTSPAN ----" << RESET << std::endl;
 	try
 	{
 		Span sp = Span(8);
@@ -109,7 +110,7 @@ int main(void)
 	std::cout << YELLOW << BOLD << "---- TEST WITH 10 000 NUMBERS ----" << RESET << std::endl;
 	try
 	{
-		Span sp = Span(100000);
+		Span sp = Span(10000);
 		sp.fillRandom();
 		std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
 		std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
@@ -117,29 +118,45 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
-	// try {
-	// 	Span sp = Span(8);
-	// 	std::vector<unsigned int> numbers(10, 1);
-	// 	sp.fillRange(numbers.begin(d), numbers.end());
-	// 	sp.show();
-	// } catch (std::exception &e) {
-	// 	std::cout << e.what() << std::endl << std::endl;
-	// }
-
-	// try {
-	// 	Span sp = Span(100);
-	// 	std::vector<unsigned int> numbers(10, 55);
-	// 	sp.addNumber(1);
-	// 	sp.addNumber(3);
-	// 	sp.addNumber(6);
-	// 	sp.fillRange(numbers.begin(), numbers.end());
-	// 	sp.show();
-	// 	std::cout << "Shortest span : " << sp.shortestSpan() << std::endl;
-	// 	std::cout << "Longest span : " << sp.longestSpan() << std::endl << std::endl;
-	// } catch (std::exception &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- USING INCORRECT FILLSPAN  ----" << RESET << std::endl;
+	try
+	{
+		std::cout << BLACK << "Init Span at 8" << RESET << std::endl;
+		Span sp = Span(8);
+		std::cout << BLACK << "Init vector at 10" << RESET << std::endl;
+		std::vector<unsigned int> numbers(10, 1);
+		std::cout << BLACK << "Using fillSpan : " << RESET;
+		sp.fillSpan(numbers.begin(), numbers.end());
+		sp.showStore();
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- USING CORRECT FILLSPAN  ----" << RESET << std::endl;
+	try
+	{
+		std::cout << BLACK << "Init Span at 100" << RESET << std::endl;
+		Span sp = Span(100);
+		std::cout << BLACK << "Init vector at 10" << RESET << std::endl;
+		std::vector<unsigned int> numbers(10, 55);
+		std::cout << BLACK << "Add 3 number to Span" << RESET << std::endl;
+		sp.addNumber(1);
+		sp.addNumber(3);
+		sp.addNumber(6);
+		std::cout << BLACK << "Using fillSpan" << RESET << std::endl;
+		sp.fillSpan(numbers.begin(), numbers.end());
+		std::cout << BLACK << "Display store : " << RESET;
+		sp.showStore();
+		std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
+		std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	// std::cout << YELLOW << BOLD << "---- VOID SPAN ----" << RESET << std::endl;
 	// {

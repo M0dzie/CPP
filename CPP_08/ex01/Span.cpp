@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 17:34:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 18:26:36 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int Span::shortestSpan()
 	if (this->_store.size() < 2)
 		throw Span::NotEnoughNumber();
 
-	std::vector<int> sp = this->_store;
+	std::vector<unsigned int> sp = this->_store;
 	std::sort(sp.begin(), sp.end());
-	int shortest = sp[1] - sp[0];
+	unsigned int shortest = sp[1] - sp[0];
 	for (size_t i = 2; i < sp.size(); i++)
 	{
 		if (sp[i] - sp[i - 1] < shortest)
@@ -79,10 +79,11 @@ void Span::showStore() const
 
 void Span::fillRandom()
 {
-	
+	std::srand(std::time(NULL));
+	std::generate(this->_store.begin(), this->_store.end(), std::rand);
 }
 
-void Span::fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end)
+void Span::fillSpan(std::vector<unsigned int>::iterator start, std::vector<unsigned int>::iterator end)
 {
 	if (std::distance(start, end) + this->_store.size() > this->_N)
 		throw Span::StoreIsFull();

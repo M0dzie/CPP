@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 17:34:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 18:26:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
 {
 private:
 	unsigned int _N;
-	std::vector<int> _store;
+	std::vector<unsigned int> _store;
 
 public:
 	Span() : _N(0) {}
@@ -49,7 +49,7 @@ public:
 	int longestSpan();
 	void showStore() const;
 	void fillRandom();
-	void fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end);
+	void fillSpan(std::vector<unsigned int>::iterator start, std::vector<unsigned int>::iterator end);
 
 	class NumberIncorrect : public std::exception
 	{
