@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:37:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 12:29:02 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 12:22:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(void)
     arr.push_back(475);
     arr.push_back(475);
     arr.push_back(46);
+    arr.push_back(48);
     std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
     std::cout << BLACK << "Displaying array" << RESET << std::endl;
     for (std::vector<int>::iterator it = arr.begin(); it < arr.end(); *it++)
@@ -42,8 +43,9 @@ int main(void)
         std::cout << YELLOW << BOLD << "---- TEST 1 (EXIST) ----" << std::endl;
         std::cout << BLACK << "Testing 46 : " << RESET;
         easyfind(arr, 46);
+        std::cout << GREEN << "Exist !" << RESET << std::endl;
     }
-    catch (const std::exception &e)
+    catch (const NoOccurenceFound &e)
     {
         std::cerr << e.what() << std::endl;
     }
@@ -53,6 +55,7 @@ int main(void)
         std::cout << YELLOW << BOLD << "---- TEST 2 (DON'T EXIST) ----" << RESET << std::endl;
         std::cout << BLACK << "Testing 4656 : " << RESET;
         easyfind(arr, 4656);
+        std::cout << GREEN << "Exist !" << RESET << std::endl;
     }
     catch (const NoOccurenceFound &e)
     {
@@ -64,6 +67,7 @@ int main(void)
         std::cout << YELLOW << BOLD << "---- TEST 3 (DON'T EXIST) ----" << RESET << std::endl;
         std::cout << BLACK << "Testing -1 : " << RESET;
         easyfind(arr, -1);
+        std::cout << GREEN << "Exist !" << RESET << std::endl;
     }
     catch (const NoOccurenceFound &e)
     {
@@ -75,6 +79,7 @@ int main(void)
         std::cout << YELLOW << BOLD << "---- TEST 4 (EXIST) ----" << RESET << std::endl;
         std::cout << BLACK << "Testing 475 : " << RESET;
         easyfind(arr, 475);
+        std::cout << GREEN << "Exist !" << RESET << std::endl;
     }
     catch (const NoOccurenceFound &e)
     {
@@ -90,6 +95,7 @@ int main(void)
     {
         std::cout << BLACK << "Testing -999 : " << RESET;
         easyfind(arr, -999);
+        std::cout << GREEN << "Exist !" << RESET << std::endl;
     }
     catch (const NoOccurenceFound &e)
     {

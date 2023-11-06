@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:34:37 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/10/27 12:30:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 12:11:13 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,13 @@ public:
 };
 
 template<typename T>
-void easyfind(T container, int toFind)
+typename T::iterator easyfind(T container, int toFind)
 {
-    int index = 0;
+    typename T::iterator it = std::find(container.begin(), container.end(), toFind);
 
-    for (typename T::iterator it = container.begin(); it != container.end(); *it++)
-    {
-        if (*it == toFind)
-        {
-            std::cout << "First occurence found at " << index << "th place !" << std::endl;
-            return;
-        }
-        index++;
-    }
-    throw NoOccurenceFound();
+    if (it == container.end())
+        throw NoOccurenceFound();
+    return it;
 }
 
 #endif
