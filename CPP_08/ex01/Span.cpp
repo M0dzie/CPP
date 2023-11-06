@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 19:01:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:43:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Span::Span(unsigned int n)
 		throw Span::NumberIncorrect();
 	}
 	this->_N = n;
+	this->_store.reserve(this->_N);
 }
 
 Span &Span::operator=(Span const &rhs)
@@ -32,6 +33,7 @@ Span &Span::operator=(Span const &rhs)
 	if (this != &rhs)
 	{
 		this->_N = rhs._N;
+		this->_store.reserve(rhs._N);
 	}
 	return *this;
 }
@@ -42,4 +44,19 @@ void Span::addNumber(int number)
 		this->_store.push_back(number);
 	else
 		throw Span::StoreIsFull();
+}
+
+int Span::shortestSpan()
+{
+	return 0;
+}
+
+int Span::longestSpan()
+{
+	return 0;
+}
+
+void Span::fillSpan()
+{
+	// for_each
 }

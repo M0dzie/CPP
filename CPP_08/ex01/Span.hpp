@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 19:17:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:44:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,16 @@ private:
 public:
 	Span() : _N(0) {}
 	Span(unsigned int n);
-	Span(Span const &rhs) : _N(rhs._N) {}
+	Span(Span const &rhs) : _N(rhs._N) {this->_store.reserve(rhs._N);}
 	Span &operator=(Span const &rhs);
 	~Span() {}
 
-	unsigned int getN() const {return this->_N;}
+	unsigned int getCapacity() const {return this->_store.capacity();}
 
 	void addNumber(int number);
-	// void shortestSpan();
-	// void longestSpan();
+	int shortestSpan();
+	int longestSpan();
+	void fillSpan();
 
 	class NumberIncorrect : public std::exception
 	{

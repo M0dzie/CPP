@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/05 19:27:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:44:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@ int main(void)
 	{
 		try
 		{
+			std::cout << BLACK << "Init span to 5" << RESET << std::endl;
 			Span sp = Span(5);
-			std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
+			std::cout << BLACK << "Store capacity is : " << RESET << sp.getCapacity() << std::endl;
 			std::cout << BLACK << "Add 5 numbers" << RESET << std::endl;
 			sp.addNumber(6);
 			sp.addNumber(3);
 			sp.addNumber(17);
 			sp.addNumber(9);
 			sp.addNumber(11);
-			std::cout << BLACK << "Should output : 2" << RESET << std::endl;
-			// std::cout << sp.shortestSpan() << std::endl;
-			std::cout << BLACK << "Should output : 14" << RESET << std::endl;
+			std::cout << BLACK << "Should output : 2" << RESET;
+			std::cout << sp.shortestSpan() << std::endl;
+			// std::cout << BLACK << "Should output : 14" << RESET;
 			// std::cout << sp.longestSpan() << std::endl;
 		}
 		catch (const std::exception &e)
@@ -73,13 +74,13 @@ int main(void)
 			Span sp1(10);
 			std::cout << BLACK << "Test sp(0) = sp1(10)" << RESET << std::endl;
 			sp = sp1;
-			if (sp.getN() == sp1.getN())
+			if (sp.getCapacity() == sp1.getCapacity())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
 				std::cout << RED << BOLD << "Copy operator '=' failed " << RESET << std::endl;
 			std::cout << BLACK << "Test sp2(sp1)" << RESET << std::endl;
 			Span sp2(sp1);
-			if (sp1.getN() == sp2.getN())
+			if (sp1.getCapacity() == sp2.getCapacity())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
 				std::cout << RED << BOLD << "Copy constructor failed " << RESET << std::endl;
@@ -97,7 +98,7 @@ int main(void)
 		{
 			Span sp(-1);
 			std::cout << BLACK << "Try to add a number in a span, store init at -1" << RESET << std::endl;
-			sp.addNumber(5);
+			sp.addNumber(5);	
 		}
 		catch (const std::exception &e)
 		{
@@ -124,8 +125,9 @@ int main(void)
 	{
 		try
 		{
+			std::cout << BLACK << "Init span to 5" << RESET << std::endl;
 			Span sp(5);
-			std::cout << BLACK << "Store max init is : " << RESET << sp.getN() << std::endl;
+			std::cout << BLACK << "Store capacity is : " << RESET << sp.getCapacity() << std::endl;
 			for (int i = 0; i < 10; i++)
 			{
 				sp.addNumber(10);
