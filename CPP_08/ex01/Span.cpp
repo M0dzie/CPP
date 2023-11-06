@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 13:43:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 14:18:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ int Span::longestSpan()
 {
 	if (this->_store.size() < 2)
 		throw Span::NotEnoughNumber();
-	return 0;
+	int min = *std::min_element(this->_store.begin(), this->_store.end());
+	int max = *std::max_element(this->_store.begin(), this->_store.end());
+	return max - min;
 }
 
 void Span::fillSpan()
