@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 13:58:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 16:55:07 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ int main(void)
 		std::cout << BLACK << "Init a Span at unsigned int max" << RESET << std::endl;
 		try
 		{
-			Span sp(UINT_MAX);
+			Span sp(4294967295);
 			std::cout << BLACK << "Try to add a number in a span, store init at unsigned int max" << RESET << std::endl;
 			sp.addNumber(5);
 		}
@@ -165,6 +165,45 @@ int main(void)
 				sp.addNumber(10);
 				std::cout << GREEN << "Number " << i << " successfully add" << RESET << std::endl;
 			}
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- TESTING FILLSPAN ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp(10000);
+			std::cout << BLACK << "Store capacity is : " << RESET << sp.getCapacity() << std::endl;
+			std::vector<int> fill(10000, 55);
+			std::cout << BLACK << "Calling fillSpan() function" << RESET << std::endl;
+			sp.fillSpan(fill.begin(), fill.end());
+			// std::cout << BLACK << "Showing the store : " << RESET;
+			// sp.showStore();
+			std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
+			std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- TESTING INCORRECT FILLSPAN ----" << RESET << std::endl;
+	{
+		try
+		{
+			Span sp(10000);
+			std::cout << BLACK << "Store capacity is : " << RESET << sp.getCapacity() << std::endl;
+			std::cout << BLACK << "Init a vector with 10001 elements" << RESET << std::endl;
+			std::vector<int> fill(10001, 42);
+			std::cout << BLACK << "Calling fillSpan() function" << RESET << std::endl;
+			sp.fillSpan(fill.begin(), fill.end());
+			std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
+			std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
 		}
 		catch (const std::exception &e)
 		{

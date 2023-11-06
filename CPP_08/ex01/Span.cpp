@@ -6,21 +6,17 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 15:12:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 17:01:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(unsigned int n)
+Span::Span(unsigned int n) : _N(n)
 {
-	if (n >= UINT_MAX)
-	{
-		this->_N = UINT_MAX - 1;
+	if (n >= 4294967295)
 		throw Span::NumberIncorrect();
-	}
-	this->_N = n;
-	this->_store.reserve(this->_N);
+	this->_store.reserve(n);
 }
 
 Span &Span::operator=(Span const &rhs)
@@ -48,26 +44,12 @@ int Span::shortestSpan()
 
 	std::vector<int> sp = this->_store;
 	std::sort(sp.begin(), sp.end());
-	int shortest = INT_MAX;
-	for (std::vector<int>::iterator it1 = this->_store.begin(); it1 != this->_store.end(); it1++)
+	int shortest = sp[1] - sp[0];
+	for (size_t i = 2; i < sp.size(); i++)
 	{
-		for (std::vector<int>::iterator it2 = sp.begin(); it2 != sp.end(); it2++)
-		{
-			if (*it1 == *it2)
-				break;
-			if (*it1 > *it2)
-			{
-				if (shortest > (*it1 - *it2))
-					shortest = *it1 - *it2;
-			}
-			else
-			{
-				if (shortest > (*it2 - *it1))
-					shortest = *it2 - *it1;
-			}
-		}
+		if (sp[i] - sp[i - 1] < shortest)
+			shortest = sp[i] - sp[i - 1];
 	}
-	
 	return shortest;
 }
 
@@ -82,7 +64,22 @@ int Span::longestSpan()
 	return max - min;
 }
 
-void Span::fillSpan()
+void Span::showStore() const
 {
-	// for_each
+	if (this->_store.size() == 0)
+		return;
+	for (size_t i = 0; i < this->_store.size(); i++)
+	{
+		std::cout << this->_store[i];
+		if (i + 1 < this->_store.size())
+			std::cout << ", ";
+	}
+	std::cout << std::endl;
+}
+
+void Span::fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end)
+{
+	if (std::distance(start, end) + this->_store.size() > this->_N)
+		throw Span::StoreIsFull();
+	this->_store.insert(this->_store.end(), start, end);
 }

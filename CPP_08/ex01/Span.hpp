@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 13:37:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 16:44:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
-# include <iterator>
-# include <climits>
+# include <ctime>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -48,7 +47,8 @@ public:
 	void addNumber(int number);
 	int shortestSpan();
 	int longestSpan();
-	void fillSpan();
+	void showStore() const;
+	void fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end);
 
 	class NumberIncorrect : public std::exception
 	{
