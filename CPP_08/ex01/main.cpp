@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 10:44:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:51:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 			sp.addNumber(17);
 			sp.addNumber(9);
 			sp.addNumber(11);
-			std::cout << BLACK << "Should output : 2" << RESET;
+			std::cout << BLACK << "Should output : 2 => " << RESET;
 			std::cout << sp.shortestSpan() << std::endl;
 			// std::cout << BLACK << "Should output : 14" << RESET;
 			// std::cout << sp.longestSpan() << std::endl;
@@ -74,13 +74,13 @@ int main(void)
 			Span sp1(10);
 			std::cout << BLACK << "Test sp(0) = sp1(10)" << RESET << std::endl;
 			sp = sp1;
-			if (sp.getCapacity() == sp1.getCapacity())
+			if (sp.getN() == sp1.getN())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
 				std::cout << RED << BOLD << "Copy operator '=' failed " << RESET << std::endl;
 			std::cout << BLACK << "Test sp2(sp1)" << RESET << std::endl;
 			Span sp2(sp1);
-			if (sp1.getCapacity() == sp2.getCapacity())
+			if (sp1.getN() == sp2.getN())
 				std::cout << GREEN << BOLD << "OK!" << RESET << std::endl;
 			else
 				std::cout << RED << BOLD << "Copy constructor failed " << RESET << std::endl;

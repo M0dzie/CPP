@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 10:44:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/06 10:51:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ public:
 	Span &operator=(Span const &rhs);
 	~Span() {}
 
+	unsigned int getN() const {return this->_N;}
 	unsigned int getCapacity() const {return this->_store.capacity();}
 
 	void addNumber(int number);
