@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:19:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 12:49:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:18:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,30 @@ int main(void)
     std::cout << YELLOW << BOLD << "---- TESTING INHERITED MEMBER FUNCTION ----" << RESET << std::endl;
     {
         MutantStack<int> mstack;
-        int index = 0;
         std::cout << BLACK << "Is stack empty ? (1 = True, 0 = False): "  << RESET << mstack.empty() << std::endl;
         std::cout << BLACK << "Add 5 elements" << RESET << std::endl;
         for (int i = 0; i < 5; i++)
             mstack.push(i);
-        std::cout << BLACK << "Display stack : " << RESET << std::endl;
-        for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); it++)
+        std::cout << BLACK << "Display stack : " << RESET;
+        for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
         {
-            std::cout << BLACK << index << "th element : " << RESET << *it << std::endl;
-            index++;
+            std::cout << *it;
+            if (it + 1 != mstack.end())
+                std::cout << ", ";
         }
+        std::cout << std::endl;
         std::cout << BLACK << "Size of the stack : " << RESET << mstack.size() << std::endl;
         std::cout << BLACK << "Access next element : " << RESET << mstack.top() << std::endl;
         std::cout << BLACK << "Remove top element" << RESET << std::endl;
         mstack.pop();
-        index = 0;
-        std::cout << BLACK << "Display stack : " << RESET << std::endl;
+        std::cout << BLACK << "Display stack : " << RESET;
         for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); it++)
         {
-            std::cout << BLACK << index << "th element : " << RESET << *it << std::endl;
-            index++;
+            std::cout << *it;
+            if (it + 1 != mstack.end())
+                std::cout << ", ";
         }
+        std::cout << std::endl;
     }
     std::cout << std::endl;
 
@@ -48,6 +50,14 @@ int main(void)
         std::cout << BLACK << "Add 2 elements" << RESET << std::endl;
         mstack.push(5);
         mstack.push(17);
+        std::cout << BLACK << "Display stack : " << RESET;
+        for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+        {
+            std::cout << *it;
+            if (it + 1 != mstack.end())
+                std::cout << ", ";
+        }
+        std::cout << std::endl;
         std::cout << BLACK << "Size of list : " << RESET << mstack.size() << std::endl;
         std::cout << BLACK << "First element : " << RESET << mstack.top() << std::endl;
         std::cout << BLACK << "Delete first element" << RESET << std::endl;
@@ -62,23 +72,26 @@ int main(void)
         MutantStack<int>::iterator ite = mstack.end();
         ++it;
         --it;
-        int index = 0;
+        std::cout << BLACK << "Display stack : " << RESET;
         while (it != ite)
         {
-            std::cout << BLACK << index << "th element : " << RESET << *it << std::endl;
+            std::cout << *it;
+            if (it + 1 != mstack.end())
+                std::cout << ", ";
             ++it;
-            index++;
         }
+        std::cout << std::endl;
         std::cout << BLACK << "Copy of the list" << RESET << std::endl;
         std::stack<int> s(mstack);
-        std::cout << BLACK << "Display of the new list" << RESET << std::endl;
-        index = 0;
+        std::cout << BLACK << "Display of the new list : " << RESET;
         while (!s.empty())
         {
-            std::cout << BLACK << index << "th element : " << RESET << s.top() << std::endl;
-            index++;
+            std::cout << s.top();
+            if (!s.empty())
+                std::cout << ", ";
             s.pop();
         }
+        std::cout << std::endl;
     }
     std::cout << std::endl;
 
@@ -88,6 +101,16 @@ int main(void)
         std::cout << BLACK << "Add 2 elements" << RESET << std::endl;
         mlist.push_front(5);
         mlist.push_front(17);
+        std::cout << BLACK << "Display stack : " << RESET;
+        for (std::list<int>::iterator it = mlist.begin(); it != mlist.end(); ++it)
+        {
+            std::list<int>::iterator it2 = it;
+            ++it2;
+            std::cout << *it;
+            if (it2 != mlist.end())
+                std::cout << ", ";
+        }
+        std::cout << std::endl;
         std::cout << BLACK << "Size of list : " << RESET << mlist.size() << std::endl;
         std::cout << BLACK << "First element : " << RESET << mlist.front() << std::endl;
         std::cout << BLACK << "Delete first element" << RESET << std::endl;
@@ -102,22 +125,29 @@ int main(void)
         std::list<int>::iterator ite = mlist.end();
         ++it;
         --it;
-        int index = 0;
+        std::cout << BLACK << "Display list : " << RESET;
         while (it != ite)
         {
-            std::cout << BLACK << index << "th element : " << RESET << *it << std::endl;
+            std::list<int>::iterator it2 = it;
+            ++it2;
+            std::cout << *it;
+            if (it2 != mlist.end())
+                std::cout << ", ";
             ++it;
-            index++;
         }
+        std::cout << std::endl;
         std::cout << BLACK << "Copy of the list" << RESET << std::endl;
         std::list<int> s(mlist);
-        std::cout << BLACK << "Display of the new list" << RESET << std::endl;
-        index = 0;
+        std::cout << BLACK << "Display of the new list : " << RESET;
         for (std::list<int>::iterator it = s.begin(); it != s.end(); it++)
         {
-            std::cout << BLACK << index << "th element : " << RESET << *it << std::endl;
-            index++;
+            std::list<int>::iterator it2 = it;
+            ++it2;
+            std::cout << *it;
+            if (it2 != mlist.end())
+                std::cout << ", ";
         }
+        std::cout << std::endl;
     }
     return 0;
 }
