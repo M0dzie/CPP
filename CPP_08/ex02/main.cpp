@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:19:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 13:24:34 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:21:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int main(void)
             std::list<int>::iterator it2 = it;
             ++it2;
             std::cout << *it;
-            if (it2 != mlist.end())
+            if (it2 != s.end())
                 std::cout << ", ";
         }
         std::cout << std::endl;
