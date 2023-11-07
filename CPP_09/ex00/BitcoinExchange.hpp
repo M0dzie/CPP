@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 15:36:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:16:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 # include <iostream>
 # include <string>
+# include <fstream>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
