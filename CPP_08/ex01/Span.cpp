@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 18:07:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:07:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ long Span::shortestSpan()
 	{
 		if (sp[i] - sp[i - 1] < shortest)
 			shortest = sp[i] - sp[i - 1];
+		if (shortest < 0)
+			shortest *= -1;
 	}
 	return shortest;
 }
