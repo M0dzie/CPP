@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:19:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 14:21:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:05:35 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int main(void)
         std::cout << std::endl;
         std::cout << BLACK << "Copy of the list" << RESET << std::endl;
         std::stack<int> s(mstack);
-        std::cout << BLACK << "Display of the new list (reverse order): " << RESET;
+        std::cout << BLACK << "Display of the new stack (reverse order): " << RESET;
         while (!s.empty())
         {
             std::cout << s.top();
@@ -149,5 +149,6 @@ int main(void)
         }
         std::cout << std::endl;
     }
+
     return 0;
 }
