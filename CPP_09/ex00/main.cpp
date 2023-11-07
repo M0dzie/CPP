@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 18:17:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:20:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static bool isValidFile(char *argv)
 
     file.open(argv);
     if (file)
-        return true;
+        return (file.close(), true);
     return false;
 }
 
