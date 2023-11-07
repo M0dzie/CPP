@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:07:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ void Span::addNumber(int number)
 		throw Span::StoreIsFull();
 }
 
-int Span::shortestSpan()
+long Span::shortestSpan()
 {
 	if (this->_store.size() < 2)
 		throw Span::NotEnoughNumber();
 
 	std::vector<int> sp = this->_store;
 	std::sort(sp.begin(), sp.end());
-	int shortest = sp[1] - sp[0];
+	long shortest = sp[1] - sp[0];
 	for (size_t i = 2; i < sp.size(); i++)
 	{
 		if (sp[i] - sp[i - 1] < shortest)
@@ -53,13 +53,13 @@ int Span::shortestSpan()
 	return shortest;
 }
 
-int Span::longestSpan()
+long Span::longestSpan()
 {
 	if (this->_store.size() < 2)
 		throw Span::NotEnoughNumber();
 
-	int min = *std::min_element(this->_store.begin(), this->_store.end());
-	int max = *std::max_element(this->_store.begin(), this->_store.end());
+	long min = *std::min_element(this->_store.begin(), this->_store.end());
+	long max = *std::max_element(this->_store.begin(), this->_store.end());
 	
 	return max - min;
 }

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:05:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,28 @@ int main(void)
 		sp.addNumber(72);
 		std::cout << BLACK << "Display store : " << RESET;
 		sp.showStore();
+		std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << YELLOW << BOLD << "---- OVERFLOW OF INT ----" << RESET << std::endl;
+	try
+	{
+		Span sp = Span(8);
+		sp.addNumber(10);
+		sp.addNumber(30);
+		sp.addNumber(2147483647);
+		sp.addNumber(-2147483648);
+		sp.addNumber(50);
+		sp.addNumber(-60);
+		sp.addNumber(71);
+		sp.addNumber(72);
+		std::cout << BLACK << "Display store : " << RESET;
+		sp.showStore();
+		std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
 		std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
 	}
 	catch (const std::exception &e)

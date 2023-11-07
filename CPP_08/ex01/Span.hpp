@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 17:45:31 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ public:
 	unsigned int getCapacity() const {return this->_store.capacity();}
 
 	void addNumber(int number);
-	int shortestSpan();
-	int longestSpan();
+	long shortestSpan();
+	long longestSpan();
 	void showStore() const;
 	void fillRange();
 	void fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end);
