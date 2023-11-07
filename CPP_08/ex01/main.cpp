@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 09:17:56 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ int main(void)
 	{
 		std::cout << BLACK << "Init Span at 100 000" << RESET << std::endl;
 		Span sp = Span(100000);
-		std::cout << BLACK << "Using fillRandom()" << RESET << std::endl;
-		sp.fillRandom();
+		std::cout << BLACK << "Using fillRange()" << RESET << std::endl;
+		sp.fillRange();
 		std::cout << BLACK << "Shortest span : " << RESET << sp.shortestSpan() << std::endl;
 		std::cout << BLACK << "Longest span : " << RESET << sp.longestSpan() << std::endl;
 	}

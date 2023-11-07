@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:30 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 18:51:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ public:
 	int shortestSpan();
 	int longestSpan();
 	void showStore() const;
-	void fillRandom();
+	void fillRange();
 	void fillSpan(std::vector<int>::iterator start, std::vector<int>::iterator end);
 
 	class NumberIncorrect : public std::exception

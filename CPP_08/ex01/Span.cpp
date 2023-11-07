@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:26:59 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 18:52:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:12:54 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void Span::showStore() const
 	std::cout << std::endl;
 }
 
-void Span::fillRandom()
+void Span::fillRange()
 {
 	int add = 0;
 	for (size_t i = 0; i < this->_N; i++)
