@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 18:16:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 21:30:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ class BitcoinExchange
 {
 private:
 public:
+	BitcoinExchange() {}
+	BitcoinExchange(BitcoinExchange const &) {}
+	BitcoinExchange &operator=(BitcoinExchange const &) {return *this;}
+	~BitcoinExchange() {}
 };
 
 #endif
