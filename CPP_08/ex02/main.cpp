@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:19:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 13:18:31 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:24:34 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ int main(void)
         std::cout << std::endl;
         std::cout << BLACK << "Copy of the list" << RESET << std::endl;
         std::stack<int> s(mstack);
-        std::cout << BLACK << "Display of the new list : " << RESET;
+        std::cout << BLACK << "Display of the new list (reverse order): " << RESET;
         while (!s.empty())
         {
             std::cout << s.top();
+            s.pop();
             if (!s.empty())
                 std::cout << ", ";
-            s.pop();
         }
         std::cout << std::endl;
     }
@@ -99,8 +99,8 @@ int main(void)
     {
         std::list<int> mlist;
         std::cout << BLACK << "Add 2 elements" << RESET << std::endl;
-        mlist.push_front(5);
-        mlist.push_front(17);
+        mlist.push_back(5);
+        mlist.push_back(17);
         std::cout << BLACK << "Display stack : " << RESET;
         for (std::list<int>::iterator it = mlist.begin(); it != mlist.end(); ++it)
         {
@@ -112,15 +112,15 @@ int main(void)
         }
         std::cout << std::endl;
         std::cout << BLACK << "Size of list : " << RESET << mlist.size() << std::endl;
-        std::cout << BLACK << "First element : " << RESET << mlist.front() << std::endl;
-        std::cout << BLACK << "Delete first element" << RESET << std::endl;
-        mlist.pop_front();
+        std::cout << BLACK << "Last element : " << RESET << mlist.back() << std::endl;
+        std::cout << BLACK << "Delete last element" << RESET << std::endl;
+        mlist.pop_back();
         std::cout << BLACK << "Size of list : " << RESET << mlist.size() << std::endl;
         std::cout << BLACK << "Add 4 elements" << RESET << std::endl;
-        mlist.push_front(3);
-        mlist.push_front(5);
-        mlist.push_front(737);
-        mlist.push_front(0);
+        mlist.push_back(3);
+        mlist.push_back(5);
+        mlist.push_back(737);
+        mlist.push_back(0);
         std::list<int>::iterator it = mlist.begin();
         std::list<int>::iterator ite = mlist.end();
         ++it;
