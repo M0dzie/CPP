@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/06 18:48:35 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 09:17:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << YELLOW << BOLD << "---- TEST WITH 10 000 NUMBERS ----" << RESET << std::endl;
+	std::cout << YELLOW << BOLD << "---- TEST WITH 100 000 NUMBERS ----" << RESET << std::endl;
 	try
 	{
 		std::cout << BLACK << "Init Span at 100 000" << RESET << std::endl;
