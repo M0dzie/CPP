@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:19:41 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 10:30:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:06:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,24 @@
 
 int main(void)
 {
-    std::cout << YELLOW << BOLD << "---- MANDATORY STACK TESTS ----" << RESET << std::endl;
+    std::cout << YELLOW << BOLD << "---- TESTING INHERITED MEMBER FUNCTION ----" << RESET << std::endl;
     {
         MutantStack<int> mstack;
         std::cout << BLACK << "Is stack empty ? (1 = True, 0 = False): "  << RESET << mstack.empty() << std::endl;
+        std::cout << BLACK << "Add 5 elements" << RESET << std::endl;
+        for (int i = 0; i < 5; i++)
+            mstack.push(i);
+        std::cout << BLACK << "Size of the stack : " << RESET << mstack.size() << std::endl;
+        std::cout << BLACK << "Access next element : " << RESET << mstack.top() << std::endl;
+        std::cout << BLACK << "Remove top element" << RESET << std::endl;
+        mstack.pop();
+        std::cout << BLACK << "Size of the stack : " << RESET << mstack.size() << std::endl;
+    }
+    std::cout << std::endl;
+
+    std::cout << YELLOW << BOLD << "---- MANDATORY STACK TESTS ----" << RESET << std::endl;
+    {
+        MutantStack<int> mstack;
         // std::cout << BLACK << "Add 2 elements" << RESET << std::endl;
         // mstack.push(5);
         // mstack.push(17);
@@ -58,7 +72,6 @@ int main(void)
     std::cout << YELLOW << BOLD << "---- MANDATORY LIST TESTS ----" << RESET << std::endl;
     {
         std::list<int> mlist;
-        std::cout << BLACK << "Is stack empty ? (1 = True, 0 = False): "  << RESET << mlist.empty() << std::endl;
         std::cout << BLACK << "Add 2 elements" << RESET << std::endl;
         mlist.push_back(5);
         mlist.push_back(17);

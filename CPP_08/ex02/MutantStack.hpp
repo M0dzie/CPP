@@ -6,13 +6,14 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:20:16 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/07 10:28:20 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/07 10:58:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 # include <algorithm>
+# include <deque>
 # include <stack>
 # include <list>
 # include <vector>
@@ -29,19 +30,15 @@
 # define RESET "\033[0m" 
 # define BOLD "\033[1m"
 
-template<typename T>
-class MutantStack
+template<typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-private:
-    std::stack<T> _mStack;
-
 public:
-    MutantStack() {};
-    MutantStack(MutantStack const &rhs) : _mStack(rhs._mStack) {}
-    MutantStack &operator=(MutantStack const &rhs) {if (this != &rhs) {this->_mStack = rhs._mStack;} return *this;}
+    MutantStack() : std::stack<T, Container>() {};
+    MutantStack(MutantStack const &rhs) : std::stack<T, Container>(rhs) {}
+    MutantStack &operator=(MutantStack const &rhs) {if (this != &rhs) this->c = rhs.c; return *this;}
     ~MutantStack() {}
 
-    bool empty() {return this->_mStack.empty();}
 };
 
 #endif
