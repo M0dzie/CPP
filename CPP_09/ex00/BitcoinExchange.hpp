@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 12:59:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 14:29:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class BitcoinExchange
 {
 private:
 	std::map<std::string, float> _dataBase;
-	std::map<std::string, float> _input;
 	
 	BitcoinExchange() {}
 	
@@ -46,12 +45,16 @@ public:
 	~BitcoinExchange();
 
 	bool isDataBaseCorrect();
-	bool isInputCorrect(std::string const &input);
 
 	class ErrorFormatDataBase : public std::exception
 	{
 	public:
 		virtual const char *what() const throw() {return RED "Error: Wrong format in database" RESET;}
+	};
+	class InvalidDateDataBase : public std::exception
+	{
+	public:
+		virtual const char *what() const throw() {return RED "Error: Invalid date in database" RESET;}
 	};
 	class ErrorFormatInput : public std::exception
 	{

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 13:33:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 14:29:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 BitcoinExchange::BitcoinExchange(std::string const &input)
 {
+    (void)input;
     if (!this->isDataBaseCorrect())
         throw BitcoinExchange::ErrorFormatDataBase();
-    if (!this->isInputCorrect(input))
-        throw BitcoinExchange::ErrorFormatInput();
+    // faut pas de map pour l'input
 }
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) : _dataBase(rhs._dataBase), _input(rhs._input) {}
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) : _dataBase(rhs._dataBase) {}
 
 BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 {
     if (this != &rhs)
-    {
         this->_dataBase = rhs._dataBase;
-        this->_input = rhs._input;
-    }
-    
     return *this;
 }
 
@@ -90,7 +86,7 @@ bool BitcoinExchange::isDataBaseCorrect()
             return false;
         date.resize(date.size() - value.size() - 1);
         if (!isDateValid(date))
-            return false;
+            throw BitcoinExchange::InvalidDateDataBase();
         std::istringstream iss(value);
         float valueFloat;
         iss >> valueFloat;
@@ -98,34 +94,5 @@ bool BitcoinExchange::isDataBaseCorrect()
         this->_dataBase.insert(std::pair<std::string, float>(date, valueFloat));
     }
     
-    return true;
-}
-
-bool BitcoinExchange::isInputCorrect(std::string const &input)
-{
-    std::ifstream infile(input.c_str());
-    std::string date;
-
-    std::getline(infile, date);
-    if (date != "date | value")
-        return false;
-    while (std::getline(infile, date))
-    {
-        size_t pos = date.find("|");
-        if (pos == std::string::npos || date[date.size() - 1] == '|')
-        {
-            this->_input.insert(std::pair<std::string, float>(date, 0));
-            continue;
-        }
-        std::string value = date.substr(pos + 1);
-        if (value.find("|") != std::string::npos)
-            return false;
-        date.resize(date.size() - value.size() - 1);
-        std::istringstream iss(value);
-        float valueFloat;
-        iss >> valueFloat;
-        std::cout << valueFloat << std::endl;
-        this->_input.insert(std::pair<std::string, float>(date, valueFloat));
-    }
     return true;
 }
