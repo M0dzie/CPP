@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 14:29:33 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 14:50:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ BitcoinExchange::BitcoinExchange(std::string const &input)
     if (!this->isDataBaseCorrect())
         throw BitcoinExchange::ErrorFormatDataBase();
     // faut pas de map pour l'input
+    for (std::map<std::string, float>::iterator it = this->_dataBase.begin(); it != this->_dataBase.end(); ++it)
+        std::cout << BLACK << it->first << RESET << " : " << it->second << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) : _dataBase(rhs._dataBase) {}
@@ -36,6 +38,9 @@ static bool haveChar(std::string str, char c)
     for (size_t i = 0; i < str.size(); i++)
         if (str[i] == c)
             return true;
+    for (size_t i = 0; i < str.size(); i++)
+        if (!std::isdigit(str[i]))
+            return false;
     return false;
 }
 
@@ -90,7 +95,6 @@ bool BitcoinExchange::isDataBaseCorrect()
         std::istringstream iss(value);
         float valueFloat;
         iss >> valueFloat;
-        std::cout << valueFloat << std::endl;
         this->_dataBase.insert(std::pair<std::string, float>(date, valueFloat));
     }
     
