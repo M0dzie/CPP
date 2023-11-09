@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 11:21:16 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 12:08:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fstream>
 # include <algorithm>
 # include <map>
+# include <ctime>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
