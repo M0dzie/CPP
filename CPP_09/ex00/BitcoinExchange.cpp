@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 13:16:38 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 13:20:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,10 @@ bool BitcoinExchange::isInputCorrect(std::string const &input)
     while (std::getline(infile, date))
     {
         size_t pos = date.find("|");
-        if (pos == std::string::npos)
+        if (pos == std::string::npos || date[date.size() - 1] == '|')
         {
             this->_input.insert(std::pair<std::string, float>(date, 0));
+            continue;
         }
         std::string value = date.substr(pos + 1);
         if (value.find("|") != std::string::npos)
