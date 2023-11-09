@@ -6,7 +6,7 @@
 #    By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 15:28:43 by thmeyer           #+#    #+#              #
-#    Updated: 2023/11/07 15:33:53 by thmeyer          ###   ########.fr        #
+#    Updated: 2023/11/09 10:48:14 by thmeyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ UNAME		=	$(shell uname)
 NOCOLOR		=	\033[0m
 BGREEN		=	\033[1;32m
 
-HEADER		=	BitcoinExchange.hpp
+HEADER		=	includes/BitcoinExchange.hpp includes/data.hpp
 
 MAKEFILE	=	Makefile
 
@@ -36,16 +36,18 @@ RM 			= 	rm -rf
 #                 PATHS                 #
 # ##################################### #
 
-OBJS_DIRS	=	.objs/
+SRCS_PATH	=	sources/
+
+OBJS_DIRS	=	$(SRCS_PATH).objs/
 
 
 # ##################################### #
 #                SOURCES                #
 # ##################################### #
 
-SRC_FILES	=	main.cpp BitcoinExchange.cpp
+SRC_FILES	=	main.cpp BitcoinExchange.cpp parseDataBase.cpp
 
-SRCS	=	$(SRC_FILES)
+SRCS	=	$(SRCS_PATH)$(SRC_FILES)
 
 
 # ##################################### #

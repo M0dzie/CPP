@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parseDataBase.cpp                                  :+:      :+:    :+:   */
+/*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 10:17:21 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 10:22:43 by thmeyer          ###   ########.fr       */
+/*   Created: 2023/11/09 10:39:33 by thmeyer           #+#    #+#             */
+/*   Updated: 2023/11/09 10:39:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
 
-bool isDataBaseCorrect()
-{
-    std::ifstream infile("data.csv");
-    return true;
-}
+bool isDataBaseCorrect();
+
+#endif

@@ -6,11 +6,12 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 10:27:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:40:02 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp" 
+#include "../includes/BitcoinExchange.hpp"
+#include "../includes/data.hpp"
 
 static void displayErrorMessage(std::string msg)
 {
@@ -31,7 +32,9 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
         return (displayErrorMessage("Error: This program must take a single file as argument."), 1);
-    if (!isValidFile(argv[1]) || !isValidFile("data.csv"))
+    if (!isValidFile(argv[1]) || !isValidFile("../data.csv"))
         return (displayErrorMessage("Error: could not open file."), 1);
+    if (!isDataBaseCorrect())
+        return (displayErrorMessage("Error: Wrong format in database"), 1);
     return 0;
 }
