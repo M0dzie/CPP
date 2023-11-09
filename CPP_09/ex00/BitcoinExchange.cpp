@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 12:43:36 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 12:51:06 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 BitcoinExchange::BitcoinExchange(std::string const &input)
 {
     (void) input;
-    if (!isDataBaseCorrect(*this))
+    if (!isDataBaseCorrect())
         throw BitcoinExchange::ErrorDataBase();
 }
 
@@ -61,13 +61,14 @@ static bool isDateValid(std::string date)
     return true;
 }
 
-bool BitcoinExchange::isDataBaseCorrect(BitcoinExchange const &btce)
+bool BitcoinExchange::isDataBaseCorrect()
 {
     std::ifstream infile("data.csv");
     std::string date;
-    (void)btce;
     
     std::getline(infile, date);
+    if (date != "date,exchange_rate")
+        return false;
     while (std::getline(infile, date))
     {
         size_t pos = date.find(",");
