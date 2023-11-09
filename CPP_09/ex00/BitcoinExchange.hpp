@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 12:08:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 12:30:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 # include <iostream>
 # include <string>
+# include <sstream>
 # include <fstream>
 # include <algorithm>
 # include <map>
@@ -33,8 +34,8 @@
 class BitcoinExchange
 {
 private:
-	std::map<std::string, int> _dataBase;
-	std::map<std::string, int> _input;
+	std::map<std::string, float> _dataBase;
+	std::map<std::string, float> _input;
 	
 	BitcoinExchange() {}
 	
