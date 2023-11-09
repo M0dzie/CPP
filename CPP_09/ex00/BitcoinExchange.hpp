@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 12:30:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 12:38:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ public:
 	BitcoinExchange &operator=(BitcoinExchange const &rhs);
 	~BitcoinExchange();
 
-	class ErrorInDataBase : public std::exception
+	bool isDataBaseCorrect(BitcoinExchange const &btce);
+
+	class ErrorDataBase : public std::exception
 	{
 	public:
 		virtual const char *what() const throw() {return RED "Error: Wrong format in database" RESET;}
