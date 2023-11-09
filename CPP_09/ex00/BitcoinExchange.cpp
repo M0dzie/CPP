@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 13:20:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 13:33:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 }
 
 BitcoinExchange::~BitcoinExchange() {}
+
+static bool haveChar(std::string str, char c)
+{
+    for (size_t i = 0; i < str.size(); i++)
+        if (str[i] == c)
+            return true;
+    return false;
+}
 
 static bool isDateValid(std::string date)
 {
@@ -72,6 +80,8 @@ bool BitcoinExchange::isDataBaseCorrect()
         return false;
     while (std::getline(infile, date))
     {
+        if (!haveChar(date, ','))
+            return false;
         size_t pos = date.find(",");
         if (pos == std::string::npos || date[date.size() - 1] == ',')
             return false;
