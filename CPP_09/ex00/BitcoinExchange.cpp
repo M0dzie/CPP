@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 13:01:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 13:16:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ bool BitcoinExchange::isDataBaseCorrect()
     while (std::getline(infile, date))
     {
         size_t pos = date.find(",");
+        if (pos == std::string::npos || date[date.size() - 1] == ',')
+            return false;
         std::string value = date.substr(pos + 1);
         if (value.find(",") != std::string::npos)
             return false;
@@ -97,5 +99,22 @@ bool BitcoinExchange::isInputCorrect(std::string const &input)
     std::getline(infile, date);
     if (date != "date | value")
         return false;
+    while (std::getline(infile, date))
+    {
+        size_t pos = date.find("|");
+        if (pos == std::string::npos)
+        {
+            this->_input.insert(std::pair<std::string, float>(date, 0));
+        }
+        std::string value = date.substr(pos + 1);
+        if (value.find("|") != std::string::npos)
+            return false;
+        date.resize(date.size() - value.size() - 1);
+        std::istringstream iss(value);
+        float valueFloat;
+        iss >> valueFloat;
+        std::cout << valueFloat << std::endl;
+        this->_input.insert(std::pair<std::string, float>(date, valueFloat));
+    }
     return true;
 }
