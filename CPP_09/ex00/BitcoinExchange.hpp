@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 11:19:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 11:21:16 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
 	BitcoinExchange(std::string const &input);
 	BitcoinExchange(BitcoinExchange const &rhs);
 	BitcoinExchange &operator=(BitcoinExchange const &rhs);
-	~BitcoinExchange() {}
+	~BitcoinExchange();
 
 	class ErrorInDataBase : public std::exception
 	{
