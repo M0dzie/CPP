@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 12:46:32 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/09 12:59:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,17 @@ public:
 	~BitcoinExchange();
 
 	bool isDataBaseCorrect();
+	bool isInputCorrect(std::string const &input);
 
-	class ErrorDataBase : public std::exception
+	class ErrorFormatDataBase : public std::exception
 	{
 	public:
 		virtual const char *what() const throw() {return RED "Error: Wrong format in database" RESET;}
+	};
+	class ErrorFormatInput : public std::exception
+	{
+	public:
+		virtual const char *what() const throw() {return RED "Error: Wrong format in input file" RESET;}
 	};
 };
 
