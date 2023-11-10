@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/10 11:32:38 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:07:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,23 @@ void BitcoinExchange::displayInput(std::string const &input)
             std::cout << "Error: bad input => " << date << std::endl;
             continue;
         }
-        std::cout << date << std::endl;
+        std::istringstream iss(value);
+        float valueFloat;
+        iss >> valueFloat;
+        if (valueFloat < 0 || valueFloat > 1000)
+        {
+            if (valueFloat < 0)
+                std::cout << "Error: not a positive number." << std::endl;
+            else
+                std::cout << "Error: too large a number." << std::endl;
+            continue;
+        }
+        std::map<std::string, float>::iterator it;
+        if (this->_dataBase.find(date) != this->_dataBase.end())
+            it = this->_dataBase.find(date);
+        else
+            it = --this->_dataBase.lower_bound(date);
+        float dataFloat = it->second;
+        std::cout << date << "=>" << valueFloat << " = " << valueFloat * dataFloat << std::endl;
     }
 }
