@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/10 11:17:18 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:30:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ BitcoinExchange::BitcoinExchange(std::string const &input)
     if (!this->isDataBaseCorrect())
         throw BitcoinExchange::ErrorFormatDataBase();
     this->displayInput(input);
-    for (std::map<std::string, float>::iterator it = this->_dataBase.begin(); it != this->_dataBase.end(); ++it)
-        std::cout << BLACK << it->first << RESET << " : " << it->second << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const &rhs) : _dataBase(rhs._dataBase) {}
@@ -102,5 +100,22 @@ bool BitcoinExchange::isDataBaseCorrect()
 
 void BitcoinExchange::displayInput(std::string const &input)
 {
-    (void) input;
+    std::ifstream infile(input);
+    std::string date;
+
+    std::getline(infile, date);
+    if (date != "date | value")
+        throw BitcoinExchange::ErrorFormatInput();
+    while (std::getline(infile, date))
+    {
+        size_t pos = date.find("|");
+        if (pos == std::string::npos)
+        {
+            std::cout << "Error: bad input => " << date << std::endl;
+            continue;
+        }
+        std::string value = date.substr(pos + 1);
+        date.resize(date.size() - value.size() - 1);
+        std::cout << date << std::endl;
+    }
 }
