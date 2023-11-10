@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 14:50:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:17:18 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ BitcoinExchange::BitcoinExchange(std::string const &input)
     (void)input;
     if (!this->isDataBaseCorrect())
         throw BitcoinExchange::ErrorFormatDataBase();
-    // faut pas de map pour l'input
+    this->displayInput(input);
     for (std::map<std::string, float>::iterator it = this->_dataBase.begin(); it != this->_dataBase.end(); ++it)
         std::cout << BLACK << it->first << RESET << " : " << it->second << std::endl;
 }
@@ -38,9 +38,11 @@ static bool haveChar(std::string str, char c)
     for (size_t i = 0; i < str.size(); i++)
         if (str[i] == c)
             return true;
-    for (size_t i = 0; i < str.size(); i++)
-        if (!std::isdigit(str[i]))
-            return false;
+
+    // add quelque chose qui marche
+    // for (size_t i = 0; i < str.size(); i++)
+    //     if (!std::isdigit(str[i]))
+    //         return false;
     return false;
 }
 
@@ -57,7 +59,6 @@ static bool isDateValid(std::string date)
     issM >> m;
     std::istringstream issD(date.substr(8));
     issD >> d;
-
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
         return false;
     if (m == 2)
@@ -67,7 +68,6 @@ static bool isDateValid(std::string date)
         if (d == 29 && ((y % 100) % 4 != 0))
             return false;
     }
-    
     return true;
 }
 
@@ -97,6 +97,10 @@ bool BitcoinExchange::isDataBaseCorrect()
         iss >> valueFloat;
         this->_dataBase.insert(std::pair<std::string, float>(date, valueFloat));
     }
-    
     return true;
+}
+
+void BitcoinExchange::displayInput(std::string const &input)
+{
+    (void) input;
 }
