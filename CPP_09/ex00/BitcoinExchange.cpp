@@ -6,7 +6,7 @@
 /*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/10 11:30:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:32:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@ void BitcoinExchange::displayInput(std::string const &input)
         }
         std::string value = date.substr(pos + 1);
         date.resize(date.size() - value.size() - 1);
+        if (!isDateValid(date))
+        {
+            std::cout << "Error: bad input => " << date << std::endl;
+            continue;
+        }
         std::cout << date << std::endl;
     }
 }
