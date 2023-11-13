@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
+/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 13:51:00 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 17:26:25 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ static bool isValid(std::string const &arg)
 
     for (size_t i = 0; i < arg.size(); i++)
     {
-        if (std::isdigit(arg[1]))
+        if (std::isdigit(arg[i]))
             digits++;
-        if (isOperator(arg[1]))
+        if (isOperator(arg[i]))
             operators++;
         if (!std::isdigit(arg[i]) && !std::isspace(arg[i]) && !isOperator(arg[i]))
             return false;
     }
-    std::cout << BLACK << "digits : " << RESET << digits << BLACK << " and operators : " << RESET << operators << std::endl;
     if (digits - 1 != operators)
         return false;
     return true;
