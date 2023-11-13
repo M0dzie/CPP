@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 10:35:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:41:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,6 @@ public:
 	{
 	public:
 		virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Invalid exhange_rate in database" RESET;}
-	};
-	class ErrorFormatInput : public std::exception
-	{
-	public:
-		virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Wrong format in input file" RESET;}
 	};
 };
 

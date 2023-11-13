@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 10:37:52 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:44:07 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,10 @@ void BitcoinExchange::displayInput(std::string const &input)
 
     std::getline(infile, date);
     if (date != "date | value")
-        throw BitcoinExchange::ErrorFormatInput();
+    {
+        infile.clear();
+        infile.seekg(0);
+    }
     while (std::getline(infile, date))
     {
         size_t pos = date.find("|");
