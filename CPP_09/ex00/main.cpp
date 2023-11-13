@@ -6,15 +6,15 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 09:18:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:30:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-static void displayErrorMessage(std::string msg)
+void displayErrorMessage(std::string msg)
 {
-    std::cerr << RED << msg << RESET << std::endl;
+    std::cerr << RED << BOLD << "Error: " << RESET << msg << std::endl;
 }
 
 static bool isValidFile(char const *argv)
@@ -30,7 +30,7 @@ static bool isValidFile(char const *argv)
 int main(int argc, char **argv)
 {
     if (argc != 2 || !isValidFile(argv[1]) || !isValidFile("data.csv"))
-        return (displayErrorMessage("Error: could not open file."), 1);
+        return (displayErrorMessage("could not open file."), 1);
     try
     {
         BitcoinExchange btce(argv[1]);

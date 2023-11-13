@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/10 11:37:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:30:56 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,18 @@ public:
 	public:
 		virtual const char *what() const throw() {return RED "Error: Invalid date in database" RESET;}
 	};
+	class InvalidExchangeRate: public std::exception
+	{
+	public:
+		virtual const char *what() const throw() {return RED "Error: Invalid exhange_rate in database" RESET;}
+	};
 	class ErrorFormatInput : public std::exception
 	{
 	public:
 		virtual const char *what() const throw() {return RED "Error: Wrong format in input file" RESET;}
 	};
 };
+
+void displayErrorMessage(std::string msg);
 
 #endif

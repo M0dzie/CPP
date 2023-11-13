@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 09:57:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:32:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,23 @@ static bool haveChar(std::string str, char c)
     for (size_t i = 0; i < str.size(); i++)
         if (str[i] == c)
             return true;
+    return false;
+}
 
-    // add quelque chose qui marche
-    // for (size_t i = 0; i < str.size(); i++)
-    //     if (!std::isdigit(str[i]))
-    //         return false;
+static bool haveWrongChar(std::string value)
+{
+    int comas = 0;
+    if (value.empty())
+        return false;
+    for (size_t i = 0; i < value.size(); i++)
+    {
+        if (value[i] == '.')
+            comas++;
+        if (!std::isdigit(value[i]) &&  value[i] != '.')
+            return true;
+    }
+    if (comas > 1)
+        return false;
     return false;
 }
 
@@ -87,11 +99,13 @@ bool BitcoinExchange::isDataBaseCorrect()
         if (pos == std::string::npos || date[date.size() - 1] == ',')
             return false;
         std::string value = date.substr(pos + 1);
-        if (value.find(",") != std::string::npos)
-            return false;
+        // if (value.find(",") != std::string::npos)
+        //     return false;
         date.resize(date.size() - value.size() - 1);
         if (!isDateValid(date))
             throw BitcoinExchange::InvalidDateDataBase();
+        if (haveWrongChar(value))
+            throw BitcoinExchange::InvalidExchangeRate();
         std::istringstream iss(value);
         float valueFloat;
         iss >> valueFloat;
@@ -113,25 +127,30 @@ void BitcoinExchange::displayInput(std::string const &input)
         size_t pos = date.find("|");
         if (pos == std::string::npos)
         {
-            std::cout << "Error: bad input => " << date << std::endl;
+            displayErrorMessage("bad input => " + date);
             continue;
         }
         std::string value = date.substr(pos + 1);
         date.resize(date.size() - value.size() - 1);
         if (!isDateValid(date))
         {
-            std::cout << "Error: bad input => " << date << std::endl;
+            displayErrorMessage("bad input => " + date);
             continue;
         }
+        // if (haveWrongChar(value))
+        // {
+            // displayErrorMessage("bad input => " + date);
+        //     continue;
+        // }
         std::istringstream iss(value);
         float valueFloat;
         iss >> valueFloat;
         if (valueFloat < 0 || valueFloat > 1000)
         {
             if (valueFloat < 0)
-                std::cout << "Error: not a positive number." << std::endl;
+                displayErrorMessage("not a positive number.");
             else
-                std::cout << "Error: too large a number." << std::endl;
+                displayErrorMessage("too large a number.");
             continue;
         }
         std::map<std::string, float>::iterator it;
@@ -139,8 +158,7 @@ void BitcoinExchange::displayInput(std::string const &input)
             it = this->_dataBase.find(date);
         else
             it = --this->_dataBase.lower_bound(date);
-        std::cout << "input date : " << date << " and dataBase date found : " << it->first << std::endl;
         float dataFloat = it->second;
-        std::cout << date << "=>" << valueFloat << " = " << valueFloat * dataFloat << std::endl;
+        std::cout << date << "=> " << valueFloat << " = " << valueFloat * dataFloat << std::endl;
     }
 }
