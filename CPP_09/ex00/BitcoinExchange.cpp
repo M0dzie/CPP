@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 10:32:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:37:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ bool BitcoinExchange::isDataBaseCorrect()
         if (pos == std::string::npos || date[date.size() - 1] == ',')
             return false;
         std::string value = date.substr(pos + 1);
-        // if (value.find(",") != std::string::npos)
-        //     return false;
         date.resize(date.size() - value.size() - 1);
         if (!isDateValid(date))
             throw BitcoinExchange::InvalidDateDataBase();
