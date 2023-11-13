@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/09 11:19:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 09:18:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 {
     if (argc != 2 || !isValidFile(argv[1]) || !isValidFile("data.csv"))
         return (displayErrorMessage("Error: could not open file."), 1);
-    
     try
     {
         BitcoinExchange btce(argv[1]);
@@ -40,6 +39,5 @@ int main(int argc, char **argv)
     {
         std::cerr << e.what() << std::endl;
     }
-    
     return 0;
 }

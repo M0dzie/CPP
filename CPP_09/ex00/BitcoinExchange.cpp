@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thmeyer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/10 12:07:40 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 09:57:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static bool isDateValid(std::string date)
     issM >> m;
     std::istringstream issD(date.substr(8));
     issD >> d;
+    if (y < 2009 || y > 2023)
+        return false;
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
         return false;
     if (m == 2)
@@ -100,7 +102,7 @@ bool BitcoinExchange::isDataBaseCorrect()
 
 void BitcoinExchange::displayInput(std::string const &input)
 {
-    std::ifstream infile(input);
+    std::ifstream infile(input.c_str());
     std::string date;
 
     std::getline(infile, date);
@@ -137,6 +139,7 @@ void BitcoinExchange::displayInput(std::string const &input)
             it = this->_dataBase.find(date);
         else
             it = --this->_dataBase.lower_bound(date);
+        std::cout << "input date : " << date << " and dataBase date found : " << it->first << std::endl;
         float dataFloat = it->second;
         std::cout << date << "=>" << valueFloat << " = " << valueFloat * dataFloat << std::endl;
     }
