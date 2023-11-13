@@ -6,13 +6,13 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 10:30:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 11:27:21 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-void displayErrorMessage(std::string msg)
+void displayErrorMessage(std::string const &msg)
 {
     std::cerr << RED << BOLD << "Error: " << RESET << msg << std::endl;
 }

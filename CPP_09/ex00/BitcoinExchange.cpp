@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 11:24:42 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 11:30:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,11 @@ void BitcoinExchange::displayInput(std::string const &input)
             displayErrorMessage("bad input => " + date);
             continue;
         }
+        if (haveWrongChar(value))
+        {
+            displayErrorMessage("bad input => " + date);
+            continue;
+        }
         std::istringstream iss(value);
         float valueFloat;
         iss >> valueFloat;
@@ -147,11 +152,6 @@ void BitcoinExchange::displayInput(std::string const &input)
                 displayErrorMessage("not a positive number.");
             else
                 displayErrorMessage("too large a number.");
-            continue;
-        }
-        if (haveWrongChar(value))
-        {
-            displayErrorMessage("bad input => " + date);
             continue;
         }
         std::map<std::string, float>::iterator it;

@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 10:41:03 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/13 11:27:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ public:
 	};
 };
 
-void displayErrorMessage(std::string msg);
+void displayErrorMessage(std::string const &msg);
 
 #endif
