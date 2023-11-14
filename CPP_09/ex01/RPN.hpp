@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:48:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 10:18:24 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 10:33:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ private:
     RPN();
 
     std::stack<int> _digit;
-    std::stack<std::string> _operator;
+    std::stack<int> _operator;
     
 public:
     RPN(std::string const &arg);
