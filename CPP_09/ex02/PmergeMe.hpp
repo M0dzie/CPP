@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 16:10:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:28:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include <sstream>
 # include <list>
+# include <vector>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -35,6 +36,7 @@ private:
 
     int _nElements;
     std::list<int> _list;
+    std::vector<int> _vector;
 
 public:
     PmergeMe(int argc, char **argv);
@@ -49,6 +51,11 @@ public:
     {
     public:
         virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Argument must be a positive integer";}
+    };
+    class DuplicateNumber : public std::exception
+    {
+    public:
+        virtual const char *what() const throw() {return RED BOLD "Error: " RESET "No duplicate numbers in argument";}
     };
 };
 
