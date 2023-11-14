@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:37:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 12:53:14 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 17:08:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ RPN::~RPN () {}
 
 void RPN::doCalculate()
 {
-    int result = this->_digit.top();
+    long result = this->_digit.top();
 
     this->_digit.pop();
     while (!this->_digit.empty())
