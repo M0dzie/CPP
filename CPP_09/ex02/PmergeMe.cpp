@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 16:37:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:54:36 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1)
     this->displayList(this->_list);
     std::cout << BLACK << "After :  " << RESET;
     this->displayList(this->_list);
+    std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
+    BLACK << " elements with std::list : " << RESET << this->_time << " us" << std::endl;
+    std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
+    BLACK << " elements with std::vector : " << RESET << this->_time << " us"  << std::endl;
 }
 
 PmergeMe::PmergeMe(PmergeMe const &rhs) : _nElements(rhs._nElements), _list(rhs._list), _vector(rhs._vector) {}

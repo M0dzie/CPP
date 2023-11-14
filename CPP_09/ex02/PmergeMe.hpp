@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 16:28:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:54:03 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ private:
     PmergeMe();
 
     int _nElements;
+    float _time;
     std::list<int> _list;
     std::vector<int> _vector;
 
