@@ -6,33 +6,33 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:37:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 12:28:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 12:40:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-static void displayDigit(std::stack<int> stack)
-{
-    int index = 1;
-    while (!stack.empty())
-    {
-        std::cout << BLACK << index << "th element : " << RESET << stack.top() << std::endl;
-        stack.pop();
-        index++;
-    }
-}
+// static void displayDigit(std::stack<int> stack)
+// {
+//     int index = 1;
+//     while (!stack.empty())
+//     {
+//         std::cout << BLACK << index << "th element : " << RESET << stack.top() << std::endl;
+//         stack.pop();
+//         index++;
+//     }
+// }
 
-static void displayOperator(std::stack<int> stack)
-{
-    int index = 1;
-    while (!stack.empty())
-    {
-        std::cout << BLACK << index << "th element : " << RESET << static_cast<char>(stack.top()) << std::endl;
-        stack.pop();
-        index++;
-    }
-}
+// static void displayOperator(std::stack<int> stack)
+// {
+//     int index = 1;
+//     while (!stack.empty())
+//     {
+//         std::cout << BLACK << index << "th element : " << RESET << static_cast<char>(stack.top()) << std::endl;
+//         stack.pop();
+//         index++;
+//     }
+// }
 
 RPN::RPN (std::string const &arg)
 {
@@ -43,11 +43,11 @@ RPN::RPN (std::string const &arg)
         if (isOperator(*it))
             this->_operator.push(*it);
     }
-    std::cout << BLACK << "Display digit : " << RESET << std::endl;
-    displayDigit(this->_digit);
-    std::cout << std::endl;
-    std::cout << BLACK << "Display operator : " << RESET << std::endl;
-    displayOperator(this->_operator);
+    // std::cout << BLACK << "Display digit : " << RESET << std::endl;
+    // displayDigit(this->_digit);
+    // std::cout << std::endl;
+    // std::cout << BLACK << "Display operator : " << RESET << std::endl;
+    // displayOperator(this->_operator);
     this->doCalculate();
 }
 
@@ -83,5 +83,5 @@ void RPN::doCalculate()
         this->_digit.pop();
         this->_operator.pop();
     }
-    std::cout << BLACK << "Result : " << RESET << result << std::endl;
+    std::cout << GREEN << BOLD << "Result : " << RESET << result << std::endl;
 }

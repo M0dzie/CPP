@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 12:10:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 12:43:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static bool isValid(std::string const &arg)
 
     for (size_t i = 0; i < arg.size(); i++)
     {
-        if (std::isdigit(arg[i]))
+        if (std::isdigit(arg[i]) || (i != arg.size() - 1 && arg[i] == '-' && std::isdigit(arg[i + 1])))
         {
             std::istringstream iss(arg.substr(i));
             int digit;
             iss >> digit;
-            if (digit > 9)
-                return (displayErrorMessage("This program accept only digits [0-9]"), false);
+            if (digit < 0 || digit > 9)
+                return (displayErrorMessage("This program accept only positive digits [0-9]"), false);
             digits++;
         }
         if (isOperator(arg[i]))
