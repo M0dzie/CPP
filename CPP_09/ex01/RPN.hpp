@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:48:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 10:33:52 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 12:00:50 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ public:
     RPN &operator=(RPN const &rhs);
     ~RPN();
 
+    void doCalculate();
 };
 
 bool isOperator(int c);
