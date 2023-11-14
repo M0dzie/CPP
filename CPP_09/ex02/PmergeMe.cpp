@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 16:32:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:37:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ PmergeMe::~PmergeMe() {}
 
 static bool isDuplicateNumber(std::list<int> list)
 {
-    list.sort();
     size_t previousSize = list.size();
+
+    list.sort();
     list.unique();
     if (list.size() != previousSize)
         return true;
