@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:48:19 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 13:37:45 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/14 10:18:24 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string>
 # include <stack>
+# include <sstream>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -30,16 +31,19 @@
 class RPN
 {
 private:
-    std::stack<int> _digits;
+    RPN();
+
+    std::stack<int> _digit;
     std::stack<std::string> _operator;
     
 public:
-    RPN();
+    RPN(std::string const &arg);
     RPN(RPN const &rhs);
     RPN &operator=(RPN const &rhs);
     ~RPN();
+
 };
 
-void displayErrorMessage(std::string const &msg);
+bool isOperator(int c);
 
 #endif
