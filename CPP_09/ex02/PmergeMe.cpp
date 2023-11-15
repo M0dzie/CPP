@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 16:54:36 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/15 12:51:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1)
     
     std::cout << BLACK << "Before :  " << RESET;
     this->displayList(this->_list);
+
+    this->mergeInsertSort();
+    
     std::cout << BLACK << "After :  " << RESET;
     this->displayList(this->_list);
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
@@ -79,4 +82,20 @@ void PmergeMe::displayList(std::list<int> list)
     for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
+}
+
+void PmergeMe::mergeSort() {}
+
+void PmergeMe::insertionSort() {}
+
+void PmergeMe::mergeInsertSort()
+{
+    bool even = this->_nElements % 2 ? false : true;
+//     int straggler = 0;
+
+//     if (!even)
+//     {
+//         std::list<int>::reverse_iterator it = this->_list.rbegin();
+//         straggler = *it;
+//     }
 }
