@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/15 14:51:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:36:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include <list>
 # include <vector>
 # include <ctime>
-
-# include <unistd.h>
+# include <iomanip>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -57,12 +56,12 @@ public:
     class NotPositiveInteger : public std::exception
     {
     public:
-        virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Argument must be a positive integer";}
+        virtual const char *what() const throw();
     };
     class DuplicateNumber : public std::exception
     {
     public:
-        virtual const char *what() const throw() {return RED BOLD "Error: " RESET "No duplicate numbers in argument";}
+        virtual const char *what() const throw();
     };
 };
 

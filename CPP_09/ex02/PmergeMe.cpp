@@ -6,12 +6,21 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 09:31:41 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:36:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <iomanip>
+
+const char *PmergeMe::NotPositiveInteger::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Argument must be a positive integer";
+}
+
+const char *PmergeMe::DuplicateNumber::what() const throw()
+{
+    return RED BOLD "Error: " RESET "No duplicate numbers in argument";
+}
 
 PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), _timeVector(0)
 {
