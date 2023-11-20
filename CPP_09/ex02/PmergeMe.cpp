@@ -6,11 +6,16 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 16:54:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 17:18:10 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+const char *PmergeMe::NotAValidChar::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Invalid character found";
+}
 
 const char *PmergeMe::NotPositiveInteger::what() const throw()
 {
@@ -75,8 +80,8 @@ void PmergeMe::fillContainer(char **argv)
     {
         for (size_t j = 0; argv[i][j]; j++)
         {
-            if (!std::isdigit(argv[i][j]))
-                throw PmergeMe::NotPositiveInteger();
+            if (!std::isdigit(argv[i][j]) && argv[i][j] != '-')
+                throw PmergeMe::NotAValidChar();
         }
         std::istringstream iss(argv[i]);
         std::string intMax = argv[i];
@@ -97,56 +102,6 @@ void PmergeMe::displayList(std::list<int> list)
         std::cout << *it << " ";
     std::cout << std::endl;
 }
-
-
-// void PmergeMe::sortList()
-// {
-//     std::list<int> split[this->_nElements / 2];
-
-// // Split the container in nElements / 2 pairs of 2 elements
-//     for (int i = 0; i < (this->_nElements / 2); i++)
-//     {
-//         std::list<int>::iterator it = this->_list.begin();
-//         if (it == this->_list.end())
-//             break;
-//         std::list<int>::iterator itNext = it;
-//         ++itNext;
-//         if (*itNext < *it)
-//             std::swap(itNext, it);
-//         split[i].push_back(*it);
-//         split[i].push_back(*itNext);
-//         this->_list.pop_front();
-//         this->_list.pop_front();
-//     }
-
-// // Sort the pairs of elements by their highest values
-//     for (int i = 0; i < (this->_nElements / 2); i++)
-//     {
-//         if (i + 1 >= (this->_nElements / 2))
-//             break;
-//         if (*split[i].rbegin() > *split[i + 1].rbegin())
-//         {
-//             std::swap(split[i], split[i + 1]);
-//             i = -1;
-//         }
-//     }
-
-// // Insert all the highest values of pairs in the main chain
-//     for (int i = 0; i < (this->_nElements / 2); i++)
-//         this->_list.push_back(*split[i].rbegin());
-
-// // Insert now the lowest values
-//     for (int i = 0; i < (this->_nElements / 2); i++)
-//     {
-//         for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
-//         {
-//             if (*split[i].begin() > *it)
-//                 continue;
-//             this->_list.insert(it, *split[i].begin());
-//             break;
-//         }
-//     }
-// }
 
 template<typename T>
 static void sortList(T &container, int &nElements)
