@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 17:44:58 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 18:42:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,52 +103,93 @@ void PmergeMe::displayList(std::list<int> list)
 }
 
 template<typename T>
-static void sortList(T &container, int &nElements)
+static T getMidIter(T it, int middle)
 {
-    T split[nElements / 2];
+    for (int i = 0; i < middle; i++)
+        it++;
+    return it;
+}
 
-// Split the container in nElements / 2 pairs of 2 elements
-    for (int i = 0; i < (nElements / 2); i++)
-    {
-        typename T::iterator it = container.begin();
-        if (it == container.end())
-            break;
-        typename T::iterator itNext = it;
-        ++itNext;
-        if (*itNext < *it)
-            std::swap(itNext, it);
-        split[i].push_back(*it);
-        split[i].push_back(*itNext);
-        container.pop_front();
-        container.pop_front();
-    }
+// ---------- Old tech (don't work with vector) ---------- //
+// template<typename T>
+// static void sortList(T &container, int &nElements)
+// {
+//     T split[nElements / 2];
 
-// Sort the pairs of elements by their highest values
-    for (int i = 0; i < (nElements / 2); i++)
+// // Split the container in nElements / 2 pairs of 2 elements
+//     for (int i = 0; i < (nElements / 2); i++)
+//     {
+//         typename T::iterator it = container.begin();
+//         if (it == container.end())
+//             break;
+//         typename T::iterator itNext = it;
+//         ++itNext;
+//         if (*itNext < *it)
+//             std::swap(itNext, it);
+//         split[i].push_back(*it);
+//         split[i].push_back(*itNext);
+//         container.pop_front();
+//         container.pop_front();
+//     }
+
+// // Sort the pairs of elements by their highest values
+//     for (int i = 0; i < (nElements / 2); i++)
+//     {
+//         if (i + 1 >= (nElements / 2))
+//             break;
+//         if (*split[i].rbegin() > *split[i + 1].rbegin())
+//         {
+//             std::swap(split[i], split[i + 1]);
+//             i = -1;
+//         }
+//     }
+
+// // Insert all the highest values of pairs in the main chain
+//     for (int i = 0; i < (nElements / 2); i++)
+//         container.push_back(*split[i].rbegin());
+
+// // Insert now the lowest values
+//     for (int i = 0; i < (nElements / 2); i++)
+//     {
+//         for (typename T::iterator it = container.begin(); it != container.end(); ++it)
+//         {
+//             if (*split[i].begin() > *it)
+//                 continue;
+//             container.insert(it, *split[i].begin());
+//             break;
+//         }
+//     }
+// }
+
+// ---------- Try new tech ---------- //
+template<typename T>
+static void sortList(T &container)
+{
+    if (container.size() > 2)
     {
-        if (i + 1 >= (nElements / 2))
-            break;
-        if (*split[i].rbegin() > *split[i + 1].rbegin())
+        int middle = container.size() / 2;
+        T firstHalf(container.begin(), getMidIter(container.begin(), middle));
+        T secondHalf(getMidIter(container.begin(), middle), container.end());
+
+        std::cout << BLACK << "First half : " << RESET;
+        for (typename T::iterator it = firstHalf.begin(); it != firstHalf.end(); ++it)
         {
-            std::swap(split[i], split[i + 1]);
-            i = -1;
+            std::cout << *it << std::endl;
+            if (it != firstHalf.end())
+                std::cout << " ";
         }
-    }
-
-// Insert all the highest values of pairs in the main chain
-    for (int i = 0; i < (nElements / 2); i++)
-        container.push_back(*split[i].rbegin());
-
-// Insert now the lowest values
-    for (int i = 0; i < (nElements / 2); i++)
-    {
-        for (typename T::iterator it = container.begin(); it != container.end(); ++it)
+        std::cout << std::endl;
+        std::cout << BLACK << "second half : " << RESET;
+        for (typename T::iterator it = secondHalf.begin(); it != secondHalf.end(); ++it)
         {
-            if (*split[i].begin() > *it)
-                continue;
-            container.insert(it, *split[i].begin());
-            break;
+            std::cout << *it << std::endl;
+            if (it != secondHalf.end())
+                std::cout << " ";
         }
+        std::cout << std::endl;
+
+        sortList(firstHalf);
+        sortList(secondHalf);
     }
 }
 
@@ -158,7 +199,8 @@ void PmergeMe::mergeInsertSort()
     
     std::list<int> sorted = this->_list;
     startList = std::clock();
-    sortList(this->_list, this->_nElements);
+    // sortList(this->_list, this->_nElements);
+    sortList(this->_list);
     endList = std::clock();
     sorted.sort();
     if (this->_list == sorted)
