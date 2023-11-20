@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 10:36:33 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 12:40:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,17 +98,50 @@ void PmergeMe::displayList(std::list<int> list)
     std::cout << std::endl;
 }
 
+void PmergeMe::sortList()
+{
+    std::list<int> split[this->_nElements / 2];
+
+    for (int i = 0; i < (this->_nElements / 2); i++)
+    {
+        for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
+        {
+            std::list<int>::iterator itNext = it;
+            ++itNext;
+            if (*itNext < *it)
+                std::swap(itNext, it);
+            split[i].push_back(*it);
+            split[i].push_back(*itNext);
+            this->_list.pop_front();
+            this->_list.pop_front();
+            break;
+        }
+    }
+    std::cout << std::endl;
+    for (int i = 0; i < (this->_nElements / 2); i++)
+    {
+        std::cout << BLACK << i << "th split : " << RESET << std::endl;
+        for (std::list<int>::iterator it = split[i].begin(); it != split[i].end(); ++it)
+            std::cout << *it << std::endl;
+    }
+}
+
+void PmergeMe::sortVector()
+{
+}
+
 void PmergeMe::mergeInsertSort()
 {
     clock_t startList, endList, startVector, endVector;
+    
     startList = std::clock();
-    // sortList;
-    this->_list.sort();
+    sortList();
+    // this->_list.sort();
     endList = std::clock();
 
     
     startVector = std::clock();
-    // sort Vector
+    sortVector();
     endVector = std::clock();
     this->_timeList = (endList - startList) / double(CLOCKS_PER_SEC) * 1000;
     this->_timeVector = (endVector - startVector) / double(CLOCKS_PER_SEC) * 1000;
