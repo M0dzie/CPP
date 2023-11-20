@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 12:33:29 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:26:14 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ public:
     void fillContainer(char **argv);
     void displayList(std::list<int> list);
     void mergeInsertSort();
-    void sortList();
-    void sortVector();
+    // void sortList();
 
     class NotPositiveInteger : public std::exception
     {

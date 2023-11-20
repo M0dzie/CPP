@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 14:41:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 16:54:01 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), 
 
     this->mergeInsertSort();
     
-    std::cout << BLACK << "After :  " << RESET;
+    std::cout << BLACK << "After :   " << RESET;
     this->displayList(this->_list);
 
-    std::cout << std::fixed << std::setprecision(5);
+    // std::cout << std::fixed << std::setprecision(5);
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
     BLACK << " elements with std::list : " << RESET << this->_timeList << " us" << std::endl;
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
@@ -98,40 +98,81 @@ void PmergeMe::displayList(std::list<int> list)
     std::cout << std::endl;
 }
 
-void PmergeMe::sortList()
+
+// void PmergeMe::sortList()
+// {
+//     std::list<int> split[this->_nElements / 2];
+
+// // Split the container in nElements / 2 pairs of 2 elements
+//     for (int i = 0; i < (this->_nElements / 2); i++)
+//     {
+//         std::list<int>::iterator it = this->_list.begin();
+//         if (it == this->_list.end())
+//             break;
+//         std::list<int>::iterator itNext = it;
+//         ++itNext;
+//         if (*itNext < *it)
+//             std::swap(itNext, it);
+//         split[i].push_back(*it);
+//         split[i].push_back(*itNext);
+//         this->_list.pop_front();
+//         this->_list.pop_front();
+//     }
+
+// // Sort the pairs of elements by their highest values
+//     for (int i = 0; i < (this->_nElements / 2); i++)
+//     {
+//         if (i + 1 >= (this->_nElements / 2))
+//             break;
+//         if (*split[i].rbegin() > *split[i + 1].rbegin())
+//         {
+//             std::swap(split[i], split[i + 1]);
+//             i = -1;
+//         }
+//     }
+
+// // Insert all the highest values of pairs in the main chain
+//     for (int i = 0; i < (this->_nElements / 2); i++)
+//         this->_list.push_back(*split[i].rbegin());
+
+// // Insert now the lowest values
+//     for (int i = 0; i < (this->_nElements / 2); i++)
+//     {
+//         for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
+//         {
+//             if (*split[i].begin() > *it)
+//                 continue;
+//             this->_list.insert(it, *split[i].begin());
+//             break;
+//         }
+//     }
+// }
+
+template<typename T>
+static void sortList(T &container, int &nElements)
 {
-    std::list<int> split[this->_nElements / 2];
+    T split[nElements / 2];
 
 // Split the container in nElements / 2 pairs of 2 elements
-    for (int i = 0; i < (this->_nElements / 2); i++)
+    for (int i = 0; i < (nElements / 2); i++)
     {
-        std::list<int>::iterator it = this->_list.begin();
-        if (it == this->_list.end())
+        typename T::iterator it = container.begin();
+        if (it == container.end())
             break;
-        std::list<int>::iterator itNext = it;
+        typename T::iterator itNext = it;
         ++itNext;
         if (*itNext < *it)
             std::swap(itNext, it);
         split[i].push_back(*it);
         split[i].push_back(*itNext);
-        this->_list.pop_front();
-        this->_list.pop_front();
+        container.pop_front();
+        container.pop_front();
     }
-
-    std::cout << std::endl;
-    std::cout << YELLOW << BOLD << "Before sort of highest values" << RESET << std::endl;
-    for (int i = 0; i < (this->_nElements / 2); i++)
-    {
-        std::cout << BLACK << i << "th split : " << RESET << std::endl;
-        for (std::list<int>::iterator it = split[i].begin(); it != split[i].end(); ++it)
-            std::cout << *it << std::endl;
-    }
-    std::cout << std::endl;
 
 // Sort the pairs of elements by their highest values
-    for (int i = 0; i < (this->_nElements / 2); i++)
+    for (int i = 0; i < (nElements / 2); i++)
     {
-        if (i + 1 >= (this->_nElements / 2))
+        if (i + 1 >= (nElements / 2))
             break;
         if (*split[i].rbegin() > *split[i + 1].rbegin())
         {
@@ -140,34 +181,21 @@ void PmergeMe::sortList()
         }
     }
 
-    std::cout << YELLOW << BOLD << "After sort of highest values" << RESET << std::endl;
-    for (int i = 0; i < (this->_nElements / 2); i++)
-    {
-        std::cout << BLACK << i << "th split : " << RESET << std::endl;
-        for (std::list<int>::iterator it = split[i].begin(); it != split[i].end(); ++it)
-            std::cout << *it << std::endl;
-    }
-    std::cout << std::endl;
-
 // Insert all the highest values of pairs in the main chain
-    for (int i = 0; i < (this->_nElements / 2); i++)
-        this->_list.push_back(*split[i].rbegin());
+    for (int i = 0; i < (nElements / 2); i++)
+        container.push_back(*split[i].rbegin());
 
 // Insert now the lowest values
-    for (int i = 0; i < (this->_nElements / 2); i++)
+    for (int i = 0; i < (nElements / 2); i++)
     {
-        for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
+        for (typename T::iterator it = container.begin(); it != container.end(); ++it)
         {
             if (*split[i].begin() > *it)
                 continue;
-            this->_list.insert(it, *split[i].begin());
+            container.insert(it, *split[i].begin());
             break;
         }
     }
-}
-
-void PmergeMe::sortVector()
-{
 }
 
 void PmergeMe::mergeInsertSort()
@@ -176,7 +204,8 @@ void PmergeMe::mergeInsertSort()
     
     std::list<int> sorted = this->_list;
     startList = std::clock();
-    sortList();
+    // sortList();
+    sortList(this->_list, this->_nElements);
     endList = std::clock();
     sorted.sort();
     if (this->_list == sorted)
@@ -186,7 +215,7 @@ void PmergeMe::mergeInsertSort()
 
     
     startVector = std::clock();
-    sortVector();
+    // sortList(this->_vector, this->_nElements);
     endVector = std::clock();
     this->_timeList = (endList - startList) / double(CLOCKS_PER_SEC) * 1000;
     this->_timeVector = (endVector - startVector) / double(CLOCKS_PER_SEC) * 1000;
