@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 13:56:09 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:13:43 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,16 @@ void PmergeMe::sortList()
         this->_list.push_back(*split[i].rbegin());
 
 // Insert now the lowest values
+    for (int i = 0; i < (this->_nElements / 2); i++)
+    {
+        for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
+        {
+            if (*split[i].begin() > *it)
+                continue;
+            this->_list.insert(it, *split[i].begin());
+            break;
+        }
+    }
 }
 
 void PmergeMe::sortVector()
