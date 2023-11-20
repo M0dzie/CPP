@@ -6,11 +6,26 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 12:36:52 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:33:24 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+const char *BitcoinExchange::ErrorFormatDataBase::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Wrong format in database";
+}
+
+const char *BitcoinExchange::InvalidDateDataBase::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Invalid date in database" RESET;
+}
+
+const char *BitcoinExchange::InvalidExchangeRate::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Invalid exhange_rate in database" RESET;
+}
 
 BitcoinExchange::BitcoinExchange(std::string const &input)
 {

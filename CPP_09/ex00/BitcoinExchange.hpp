@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 11:27:28 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 10:33:32 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ public:
 	class ErrorFormatDataBase : public std::exception
 	{
 	public:
-		virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Wrong format in database";}
+		virtual const char *what() const throw();
 	};
 	class InvalidDateDataBase : public std::exception
 	{
 	public:
-		virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Invalid date in database" RESET;}
+		virtual const char *what() const throw();
 	};
 	class InvalidExchangeRate: public std::exception
 	{
 	public:
-		virtual const char *what() const throw() {return RED BOLD "Error: " RESET "Invalid exhange_rate in database" RESET;}
+		virtual const char *what() const throw();
 	};
 };
 
