@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 12:40:53 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:56:09 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,28 +102,55 @@ void PmergeMe::sortList()
 {
     std::list<int> split[this->_nElements / 2];
 
+// Split the container in nElements / 2 pairs of 2 elements
     for (int i = 0; i < (this->_nElements / 2); i++)
     {
-        for (std::list<int>::iterator it = this->_list.begin(); it != this->_list.end(); ++it)
-        {
-            std::list<int>::iterator itNext = it;
-            ++itNext;
-            if (*itNext < *it)
-                std::swap(itNext, it);
-            split[i].push_back(*it);
-            split[i].push_back(*itNext);
-            this->_list.pop_front();
-            this->_list.pop_front();
+        std::list<int>::iterator it = this->_list.begin();
+        if (it == this->_list.end())
             break;
-        }
+        std::list<int>::iterator itNext = it;
+        ++itNext;
+        if (*itNext < *it)
+            std::swap(itNext, it);
+        split[i].push_back(*it);
+        split[i].push_back(*itNext);
+        this->_list.pop_front();
+        this->_list.pop_front();
     }
+
     std::cout << std::endl;
+    std::cout << YELLOW << BOLD << "Before sort of highest values" << RESET << std::endl;
     for (int i = 0; i < (this->_nElements / 2); i++)
     {
         std::cout << BLACK << i << "th split : " << RESET << std::endl;
         for (std::list<int>::iterator it = split[i].begin(); it != split[i].end(); ++it)
             std::cout << *it << std::endl;
     }
+    std::cout << std::endl;
+
+// Sort the pairs of elements by their highest values
+    for (int i = 0; i < (this->_nElements / 2); i++)
+    {
+        if (i + 1 >= (this->_nElements / 2))
+            break;
+        if (*split[i].rbegin() > *split[i + 1].rbegin())
+            std::swap(split[i], split[i + 1]);
+    }
+
+    std::cout << YELLOW << BOLD << "After sort of highest values" << RESET << std::endl;
+    for (int i = 0; i < (this->_nElements / 2); i++)
+    {
+        std::cout << BLACK << i << "th split : " << RESET << std::endl;
+        for (std::list<int>::iterator it = split[i].begin(); it != split[i].end(); ++it)
+            std::cout << *it << std::endl;
+    }
+    std::cout << std::endl;
+
+// Insert all the highest values of pairs in the main chain
+    for (int i = 0; i < (this->_nElements / 2); i++)
+        this->_list.push_back(*split[i].rbegin());
+
+// Insert now the lowest values
 }
 
 void PmergeMe::sortVector()
@@ -135,8 +162,13 @@ void PmergeMe::mergeInsertSort()
     clock_t startList, endList, startVector, endVector;
     
     startList = std::clock();
+    std::list<int> sorted = this->_list;
+    sorted.sort();
     sortList();
-    // this->_list.sort();
+    if (this->_list == sorted)
+        std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
+    else
+        std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
     endList = std::clock();
 
     
