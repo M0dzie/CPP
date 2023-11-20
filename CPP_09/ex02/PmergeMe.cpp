@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 17:18:10 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 17:44:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), 
     std::cout << BLACK << "After :   " << RESET;
     this->displayList(this->_list);
 
-    // std::cout << std::fixed << std::setprecision(5);
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::list : " << RESET << this->_timeList << " us" << std::endl;
+    BLACK << " elements with std::list : " << RESET << std::setprecision(8) << this->_timeList * 1e6 << " us" << std::endl;
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::vector : " << RESET << this->_timeVector << " us"  << std::endl;
+    BLACK << " elements with std::vector : " << RESET << std::setprecision(8) << this->_timeVector * 1e6 << " us"  << std::endl;
 }
 
 PmergeMe::PmergeMe(PmergeMe const &rhs) : _nElements(rhs._nElements), _timeList(rhs._timeList), _timeVector(rhs._timeVector), _list(rhs._list), _vector(rhs._vector) {}
@@ -159,7 +158,6 @@ void PmergeMe::mergeInsertSort()
     
     std::list<int> sorted = this->_list;
     startList = std::clock();
-    // sortList();
     sortList(this->_list, this->_nElements);
     endList = std::clock();
     sorted.sort();
@@ -168,11 +166,10 @@ void PmergeMe::mergeInsertSort()
     else
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
 
-    
     startVector = std::clock();
     // sortList(this->_vector, this->_nElements);
     endVector = std::clock();
-    this->_timeList = (endList - startList) / double(CLOCKS_PER_SEC) * 1000;
-    this->_timeVector = (endVector - startVector) / double(CLOCKS_PER_SEC) * 1000;
+    this->_timeList = double(endList - startList) / CLOCKS_PER_SEC;
+    this->_timeVector = double(endVector - startVector) / CLOCKS_PER_SEC;
     std::cout << this->_timeList << std::endl;
 }

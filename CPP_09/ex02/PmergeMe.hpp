@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 17:15:01 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 17:29:57 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define PMERGEME_HPP
 # include <iostream>
 # include <iomanip>
+# include <algorithm>
 # include <string>
 # include <sstream>
 # include <list>
 # include <vector>
 # include <ctime>
-# include <iomanip>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
