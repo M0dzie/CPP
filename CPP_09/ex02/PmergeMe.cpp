@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 14:13:43 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:41:28 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,10 @@ void PmergeMe::sortList()
         if (i + 1 >= (this->_nElements / 2))
             break;
         if (*split[i].rbegin() > *split[i + 1].rbegin())
+        {
             std::swap(split[i], split[i + 1]);
+            i = -1;
+        }
     }
 
     std::cout << YELLOW << BOLD << "After sort of highest values" << RESET << std::endl;
@@ -171,15 +174,15 @@ void PmergeMe::mergeInsertSort()
 {
     clock_t startList, endList, startVector, endVector;
     
-    startList = std::clock();
     std::list<int> sorted = this->_list;
-    sorted.sort();
+    startList = std::clock();
     sortList();
+    endList = std::clock();
+    sorted.sort();
     if (this->_list == sorted)
         std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
     else
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
-    endList = std::clock();
 
     
     startVector = std::clock();
