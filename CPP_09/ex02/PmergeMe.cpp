@@ -6,11 +6,12 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/15 15:19:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/20 09:31:41 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <iomanip>
 
 PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), _timeVector(0)
 {
@@ -24,6 +25,7 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), 
     std::cout << BLACK << "After :  " << RESET;
     this->displayList(this->_list);
 
+    std::cout << std::fixed << std::setprecision(5);
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
     BLACK << " elements with std::list : " << RESET << this->_timeList << " us" << std::endl;
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
@@ -92,7 +94,7 @@ void PmergeMe::mergeInsertSort()
     clock_t startList, endList, startVector, endVector;
     startList = std::clock();
     // sortList;
-    sleep(1);
+    this->_list.sort();
     endList = std::clock();
 
     
