@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 14:06:38 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:14:15 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ void PmergeMe::mergeInsertSort()
     microSec = end.tv_usec - start.tv_usec;
     this->_timeList = (sec / 1000000) + microSec;
     
+    std::cout << BLACK << "Merge-insertion sort works ? : ";
     sorted.sort();
     if (this->_list == sorted)
         std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
