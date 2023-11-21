@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 13:29:27 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:02:39 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ template<typename T>
 static void sort(T &container, int &nElements)
 {
     std::deque<std::pair<int, int> > pair;
-    std::deque<int> tmp;
+    std::deque<int> lowest, highest;
     int last = 0;
 
 // Keep track of the last elements if the nb of elements is odd
@@ -144,32 +144,26 @@ static void sort(T &container, int &nElements)
         it = itNext;
     }
 
-// Sort the pairs of elements by their highest values
+// Put the lowest value in first place, and the highest in second
     for (size_t i = 0; i < pair.size(); i++)
         if (pair[i].first > pair[i].second)
             std::swap(pair[i].first, pair[i].second);
-    for (size_t i = 0; i < pair.size(); i++)
-    {
-        if (i + 1 == pair.size())
-            break;
-        if (pair[i].second > pair[i + 1].second)
-        {
-            std::swap(pair[i], pair[i + 1]);
-            i = -1;
-        }
-    }
         
 // Insert all the highest values of pairs in the main chain and tmp
     container.clear();
     for (size_t i = 0; i < pair.size(); i++)
     {
-        container.push_back(pair[i].second);
-        tmp.push_back(pair[i].first);
+        highest.push_back(pair[i].second);
+        lowest.push_back(pair[i].first);
     }
 
+// Sort highest and add it to container
+    std::sort(highest.begin(), highest.end());
+    container.insert(container.begin(), highest.begin(), highest.end());
+
 // Insert now the lowest values
-    for (size_t i = 0; i < tmp.size(); i++)
-        container.insert(std::lower_bound(container.begin(), container.end(), tmp[i]), tmp[i]);
+    for (size_t i = 0; i < lowest.size(); i++)
+        container.insert(std::lower_bound(container.begin(), container.end(), lowest[i]), lowest[i]);
 
 // Add saved elements in case of odd nb of elements
     if (nElements % 2 != 0)
@@ -196,7 +190,7 @@ void PmergeMe::mergeInsertSort()
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
 
     gettimeofday(&start, NULL);
-    // sort(this->_vector, this->_nElements);
+    sort(this->_vector, this->_nElements);
     gettimeofday(&end, NULL);
     sec = end.tv_sec - start.tv_sec;
     microSec = end.tv_usec - start.tv_usec;
