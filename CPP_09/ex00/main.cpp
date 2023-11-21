@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:29:56 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/13 11:27:21 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 16:22:52 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void displayErrorMessage(std::string const &msg)
 
 static bool isValidFile(char const *argv)
 {
-    std::ifstream file;
+    std::fstream file;
 
     file.open(argv);
     if (file)
