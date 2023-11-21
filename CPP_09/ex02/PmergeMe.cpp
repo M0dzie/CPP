@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 11:40:26 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:27:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,15 @@ void PmergeMe::displayList(std::list<int> list, bool before)
 }
 
 template<typename T>
-static void sort(T &container)
+static void sort(T &container, int &nElements)
 {
     std::deque<std::pair<int, int> > pair;
     std::deque<int> tmp;
+    int last = 0;
+
+// Keep track of the last elements if the nb of elements is odd
+    if (!nElements % 2)
+        last = container.back();
 
 // Split the container in nElements / 2 pairs of 2 elements
     for (typename T::iterator it = container.begin(); it != container.end(); ++it)
@@ -138,9 +143,6 @@ static void sort(T &container)
         pair.push_back(std::make_pair(*it, *itNext));
         it = itNext;
     }
-
-    for (size_t i = 0; i < pair.size(); i++)
-        std::cout << pair[i].first << " and " << pair[i].second << std::endl;
 
 // Sort the pairs of elements by their highest values
     for (size_t i = 0; i < pair.size(); i++)
@@ -156,9 +158,6 @@ static void sort(T &container)
             i = 0;
         }
     }
-
-    for (size_t i = 0; i < pair.size(); i++)
-        std::cout << pair[i].first << " and " << pair[i].second << std::endl;
         
 // Insert all the highest values of pairs in the main chain and tmp
     container.clear();
@@ -170,9 +169,11 @@ static void sort(T &container)
 
 // Insert now the lowest values
     for (size_t i = 0; i < tmp.size(); i++)
-    {
-        
-    }
+        container.insert(std::lower_bound(container.begin(), container.end(), tmp[i]), tmp[i]);
+
+// Add saved elements in case of odd nb of elements
+    if (!nElements % 2)
+        container.insert(std::lower_bound(container.begin(), container.end(), last), last);
 }
 
 void PmergeMe::mergeInsertSort()
@@ -182,7 +183,7 @@ void PmergeMe::mergeInsertSort()
 
     std::list<int> sorted = this->_list;
     gettimeofday(&start, NULL);
-    sort(this->_list);
+    sort(this->_list, this->_nElements);
     gettimeofday(&end, NULL);
     sec = end.tv_sec - start.tv_sec;
     microSec = end.tv_usec - start.tv_usec;
@@ -194,7 +195,7 @@ void PmergeMe::mergeInsertSort()
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
 
     gettimeofday(&start, NULL);
-    // sort(this->_vector);
+    // sort(this->_vector, this->_nElements);
     gettimeofday(&end, NULL);
     sec = end.tv_sec - start.tv_sec;
     microSec = end.tv_usec - start.tv_usec;
