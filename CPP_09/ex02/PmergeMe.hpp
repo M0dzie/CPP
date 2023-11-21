@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 11:11:33 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:32:47 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <list>
 # include <vector>
 # include <deque>
-# include <ctime>
-# include <sys/time.h>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"

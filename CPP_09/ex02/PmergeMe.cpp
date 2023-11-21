@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 14:14:15 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:32:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), 
     this->displayList(this->_list, false);
 
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::list : " << RESET << this->_timeList<< " us" << std::endl;
+    BLACK << " elements with std::list : " << RESET << this->_timeList * 1e6 << " us" << std::endl;
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::vector : " << RESET << this->_timeVector << " us"  << std::endl;
+    BLACK << " elements with std::vector : " << RESET << this->_timeVector * 1e6 << " us"  << std::endl;
 }
 
 PmergeMe::PmergeMe(PmergeMe const &rhs) : _nElements(rhs._nElements), _timeList(rhs._timeList), _timeVector(rhs._timeVector), _list(rhs._list), _vector(rhs._vector) {}
@@ -172,16 +172,13 @@ static void sort(T &container, int &nElements)
 
 void PmergeMe::mergeInsertSort()
 {
-    struct timeval start, end;
-    long sec, microSec;
+    clock_t startList, endList, startVector, endVector;
 
     std::list<int> sorted = this->_list;
-    gettimeofday(&start, NULL);
+    startList = clock();
     sort(this->_list, this->_nElements);
-    gettimeofday(&end, NULL);
-    sec = end.tv_sec - start.tv_sec;
-    microSec = end.tv_usec - start.tv_usec;
-    this->_timeList = (sec / 1000000) + microSec;
+    endList = clock();
+    this->_timeList = (double)(endList - startList) / CLOCKS_PER_SEC;
     
     std::cout << BLACK << "Merge-insertion sort works ? : ";
     sorted.sort();
@@ -190,10 +187,8 @@ void PmergeMe::mergeInsertSort()
     else
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
 
-    gettimeofday(&start, NULL);
+    startVector = clock();
     sort(this->_vector, this->_nElements);
-    gettimeofday(&end, NULL);
-    sec = end.tv_sec - start.tv_sec;
-    microSec = end.tv_usec - start.tv_usec;
-    this->_timeVector = (sec / 1000000) + microSec;
+    endVector = clock();
+    this->_timeVector = (double)(endVector - startVector) / CLOCKS_PER_SEC;
 }
