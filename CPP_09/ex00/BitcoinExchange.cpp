@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 16:14:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 16:38:59 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static bool haveWrongChar(std::string value)
     return false;
 }
 
-static bool isDateValid(std::string date)
+static bool isDateValid(std::string date, bool input)
 {
     struct tm tm;
     if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
@@ -84,6 +84,10 @@ static bool isDateValid(std::string date)
     issM >> m;
     std::istringstream issD(date.substr(8));
     issD >> d;
+    if (input && issD.str().size() != 3)
+        return false;
+    if (!input && issD.str().size() != 2)
+        return false;
     if (y < 2009 || y > 2023)
         return false;
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
@@ -115,7 +119,7 @@ bool BitcoinExchange::isDataBaseCorrect()
             return false;
         std::string value = date.substr(pos + 1);
         date.resize(date.size() - value.size() - 1);
-        if (!isDateValid(date))
+        if (!isDateValid(date, false))
             throw BitcoinExchange::InvalidDateDataBase();
         if (haveWrongChar(value))
             throw BitcoinExchange::InvalidExchangeRate();
@@ -150,7 +154,7 @@ void BitcoinExchange::displayInput(std::string const &input)
         }
         std::string value = date.substr(pos + 1);
         date.resize(date.size() - value.size() - 1);
-        if (!isDateValid(date))
+        if (!isDateValid(date, true))
         {
             displayErrorMessage("bad input => " + date);
             continue;
