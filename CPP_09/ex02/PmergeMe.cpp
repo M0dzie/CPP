@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 18:42:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:12:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ PmergeMe::PmergeMe(int argc, char **argv) : _nElements(argc - 1), _timeList(0), 
     this->fillContainer(argv);
     
     std::cout << BLACK << "Before :  " << RESET;
-    this->displayList(this->_list);
+    this->displayList(this->_list, true);
 
     this->mergeInsertSort();
     
     std::cout << BLACK << "After :   " << RESET;
-    this->displayList(this->_list);
+    this->displayList(this->_list, false);
 
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::list : " << RESET << std::setprecision(8) << this->_timeList * 1e6 << " us" << std::endl;
+    BLACK << " elements with std::list : " << RESET << this->_timeList<< " us" << std::endl;
     std::cout << BLACK << "Time to process a range of " << RESET << this->_nElements << \
-    BLACK << " elements with std::vector : " << RESET << std::setprecision(8) << this->_timeVector * 1e6 << " us"  << std::endl;
+    BLACK << " elements with std::vector : " << RESET << this->_timeVector << " us"  << std::endl;
 }
 
 PmergeMe::PmergeMe(PmergeMe const &rhs) : _nElements(rhs._nElements), _timeList(rhs._timeList), _timeVector(rhs._timeVector), _list(rhs._list), _vector(rhs._vector) {}
@@ -95,123 +95,99 @@ void PmergeMe::fillContainer(char **argv)
         throw PmergeMe::DuplicateNumber();
 }
 
-void PmergeMe::displayList(std::list<int> list)
+void PmergeMe::displayList(std::list<int> list, bool before)
 {
-    for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
-        std::cout << *it << " ";
+    int index = 0;
+
+    if (before)
+    {
+        if (this->_nElements < 5)
+            for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+                std::cout << *it << " ";
+        else
+        {
+            for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+            {
+                if (index == 5)
+                    break;
+                std::cout << *it << " ";
+                index++;
+            }
+            std::cout << "[...]"; 
+        }
+    }
+    else
+        for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+            std::cout << *it << " ";
     std::cout << std::endl;
 }
 
 template<typename T>
-static T getMidIter(T it, int middle)
+static void sort(T &container)
 {
-    for (int i = 0; i < middle; i++)
-        it++;
-    return it;
-}
+    std::deque<std::pair<int, int> > pair;
+    std::deque<int> tmp;
 
-// ---------- Old tech (don't work with vector) ---------- //
-// template<typename T>
-// static void sortList(T &container, int &nElements)
-// {
-//     T split[nElements / 2];
-
-// // Split the container in nElements / 2 pairs of 2 elements
-//     for (int i = 0; i < (nElements / 2); i++)
-//     {
-//         typename T::iterator it = container.begin();
-//         if (it == container.end())
-//             break;
-//         typename T::iterator itNext = it;
-//         ++itNext;
-//         if (*itNext < *it)
-//             std::swap(itNext, it);
-//         split[i].push_back(*it);
-//         split[i].push_back(*itNext);
-//         container.pop_front();
-//         container.pop_front();
-//     }
-
-// // Sort the pairs of elements by their highest values
-//     for (int i = 0; i < (nElements / 2); i++)
-//     {
-//         if (i + 1 >= (nElements / 2))
-//             break;
-//         if (*split[i].rbegin() > *split[i + 1].rbegin())
-//         {
-//             std::swap(split[i], split[i + 1]);
-//             i = -1;
-//         }
-//     }
-
-// // Insert all the highest values of pairs in the main chain
-//     for (int i = 0; i < (nElements / 2); i++)
-//         container.push_back(*split[i].rbegin());
-
-// // Insert now the lowest values
-//     for (int i = 0; i < (nElements / 2); i++)
-//     {
-//         for (typename T::iterator it = container.begin(); it != container.end(); ++it)
-//         {
-//             if (*split[i].begin() > *it)
-//                 continue;
-//             container.insert(it, *split[i].begin());
-//             break;
-//         }
-//     }
-// }
-
-// ---------- Try new tech ---------- //
-template<typename T>
-static void sortList(T &container)
-{
-    if (container.size() > 2)
+// Split the container in nElements / 2 pairs of 2 elements
+    for (typename T::iterator it = container.begin(); it != container.end(); ++it)
     {
-        int middle = container.size() / 2;
-        T firstHalf(container.begin(), getMidIter(container.begin(), middle));
-        T secondHalf(getMidIter(container.begin(), middle), container.end());
-
-        std::cout << BLACK << "First half : " << RESET;
-        for (typename T::iterator it = firstHalf.begin(); it != firstHalf.end(); ++it)
-        {
-            std::cout << *it << std::endl;
-            if (it != firstHalf.end())
-                std::cout << " ";
-        }
-        std::cout << std::endl;
-        std::cout << BLACK << "second half : " << RESET;
-        for (typename T::iterator it = secondHalf.begin(); it != secondHalf.end(); ++it)
-        {
-            std::cout << *it << std::endl;
-            if (it != secondHalf.end())
-                std::cout << " ";
-        }
-        std::cout << std::endl;
-
-        sortList(firstHalf);
-        sortList(secondHalf);
+        typename T::iterator itNext = it;
+        itNext++;
+        if (itNext == container.end())
+            break;
+        pair.push_back(std::make_pair(*it, *itNext));
+        it = itNext;
     }
+
+    for (size_t i = 0; i < pair.size(); i++)
+        std::cout << pair[i].first << " and " << pair[i].second << std::endl;
+
+// Sort the pairs of elements by their highest values
+    for (size_t i = 0; i < pair.size(); i++)
+        if (pair[i].first > pair[i].second)
+            std::swap(pair[i].first, pair[i].second);
+
+    for (size_t i = 0; i < pair.size(); i++)
+        std::cout << pair[i].first << " and " << pair[i].second << std::endl;
+        
+// Insert all the highest values of pairs in the main chain
+    
+
+// Insert now the lowest values
+    // for (int i = 0; i < (nElements / 2); i++)
+    // {
+    //     for (typename T::iterator it = container.begin(); it != container.end(); ++it)
+    //     {
+    //         if (*split[i].begin() > *it)
+    //             continue;
+    //         container.insert(it, *split[i].begin());
+    //         break;
+    //     }
+    // }
 }
 
 void PmergeMe::mergeInsertSort()
 {
-    clock_t startList, endList, startVector, endVector;
-    
+    struct timeval start, end;
+    long sec, microSec;
+
     std::list<int> sorted = this->_list;
-    startList = std::clock();
-    // sortList(this->_list, this->_nElements);
-    sortList(this->_list);
-    endList = std::clock();
+    gettimeofday(&start, NULL);
+    sort(this->_list);
+    gettimeofday(&end, NULL);
+    sec = end.tv_sec - start.tv_sec;
+    microSec = end.tv_usec - start.tv_usec;
+    this->_timeList = (sec / 1000000) + microSec;
     sorted.sort();
     if (this->_list == sorted)
         std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
     else
         std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
 
-    startVector = std::clock();
-    // sortList(this->_vector, this->_nElements);
-    endVector = std::clock();
-    this->_timeList = double(endList - startList) / CLOCKS_PER_SEC;
-    this->_timeVector = double(endVector - startVector) / CLOCKS_PER_SEC;
-    std::cout << this->_timeList << std::endl;
+    gettimeofday(&start, NULL);
+    // sort(this->_vector);
+    gettimeofday(&end, NULL);
+    sec = end.tv_sec - start.tv_sec;
+    microSec = end.tv_usec - start.tv_usec;
+    this->_timeVector = (sec / 1000000) + microSec;
 }

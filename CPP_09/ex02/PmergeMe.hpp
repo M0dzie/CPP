@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:06 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/20 17:29:57 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:11:33 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <sstream>
 # include <list>
 # include <vector>
+# include <deque>
 # include <ctime>
+# include <sys/time.h>
 
 # define BLACK "\033[0;30m"
 # define RED "\033[0;31m"
@@ -50,7 +52,7 @@ public:
     ~PmergeMe();
 
     void fillContainer(char **argv);
-    void displayList(std::list<int> list);
+    void displayList(std::list<int> list, bool before);
     void mergeInsertSort();
 
     class NotAValidChar : public std::exception
