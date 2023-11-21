@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 11:12:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:40:26 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,24 +146,33 @@ static void sort(T &container)
     for (size_t i = 0; i < pair.size(); i++)
         if (pair[i].first > pair[i].second)
             std::swap(pair[i].first, pair[i].second);
+    for (size_t i = 0; i < pair.size(); i++)
+    {
+        if (i + 1 == pair.size())
+            break;
+        if (pair[i].second > pair[i + 1].second)
+        {
+            std::swap(pair[i], pair[i + 1]);
+            i = 0;
+        }
+    }
 
     for (size_t i = 0; i < pair.size(); i++)
         std::cout << pair[i].first << " and " << pair[i].second << std::endl;
         
-// Insert all the highest values of pairs in the main chain
-    
+// Insert all the highest values of pairs in the main chain and tmp
+    container.clear();
+    for (size_t i = 0; i < pair.size(); i++)
+    {
+        container.push_back(pair[i].second);
+        tmp.push_back(pair[i].first);
+    }
 
 // Insert now the lowest values
-    // for (int i = 0; i < (nElements / 2); i++)
-    // {
-    //     for (typename T::iterator it = container.begin(); it != container.end(); ++it)
-    //     {
-    //         if (*split[i].begin() > *it)
-    //             continue;
-    //         container.insert(it, *split[i].begin());
-    //         break;
-    //     }
-    // }
+    for (size_t i = 0; i < tmp.size(); i++)
+    {
+        
+    }
 }
 
 void PmergeMe::mergeInsertSort()
