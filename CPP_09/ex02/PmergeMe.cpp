@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 14:02:39 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:06:38 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ static void sort(T &container, int &nElements)
         pair.push_back(std::make_pair(*it, *itNext));
         it = itNext;
     }
+    container.clear();
 
 // Put the lowest value in first place, and the highest in second
     for (size_t i = 0; i < pair.size(); i++)
@@ -150,7 +151,6 @@ static void sort(T &container, int &nElements)
             std::swap(pair[i].first, pair[i].second);
         
 // Insert all the highest values of pairs in the main chain and tmp
-    container.clear();
     for (size_t i = 0; i < pair.size(); i++)
     {
         highest.push_back(pair[i].second);
