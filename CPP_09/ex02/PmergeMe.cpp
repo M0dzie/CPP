@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 12:27:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/21 13:29:27 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ static void sort(T &container, int &nElements)
     int last = 0;
 
 // Keep track of the last elements if the nb of elements is odd
-    if (!nElements % 2)
+    if (nElements % 2 != 0)
         last = container.back();
 
 // Split the container in nElements / 2 pairs of 2 elements
@@ -155,7 +155,7 @@ static void sort(T &container, int &nElements)
         if (pair[i].second > pair[i + 1].second)
         {
             std::swap(pair[i], pair[i + 1]);
-            i = 0;
+            i = -1;
         }
     }
         
@@ -172,7 +172,7 @@ static void sort(T &container, int &nElements)
         container.insert(std::lower_bound(container.begin(), container.end(), tmp[i]), tmp[i]);
 
 // Add saved elements in case of odd nb of elements
-    if (!nElements % 2)
+    if (nElements % 2 != 0)
         container.insert(std::lower_bound(container.begin(), container.end(), last), last);
 }
 
@@ -188,6 +188,7 @@ void PmergeMe::mergeInsertSort()
     sec = end.tv_sec - start.tv_sec;
     microSec = end.tv_usec - start.tv_usec;
     this->_timeList = (sec / 1000000) + microSec;
+    
     sorted.sort();
     if (this->_list == sorted)
         std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
