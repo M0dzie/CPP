@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 09:45:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 18:47:51 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void PmergeMe::fillContainer(char **argv)
 {
     for (int i = 1; argv[i]; i++)
     {
+        if (argv[i])
         for (size_t j = 0; argv[i][j]; j++)
         {
             if (!std::isdigit(argv[i][j]) && argv[i][j] != '-')
@@ -84,6 +85,11 @@ void PmergeMe::fillContainer(char **argv)
         }
         std::istringstream iss(argv[i]);
         std::string intMax = argv[i];
+        if (intMax.empty())
+        {
+            this->_nElements--;
+            continue;
+        }
         int value = 0;
         iss >> value;
         if (value < 0 || (value == 2147483647 && intMax.compare("2147483647")))
