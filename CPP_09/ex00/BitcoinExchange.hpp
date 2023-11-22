@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:09 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 16:36:08 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:24:08 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ public:
 		virtual const char *what() const throw();
 	};
 	class InvalidExchangeRate: public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+	class InvalidFormatInput: public std::exception
 	{
 	public:
 		virtual const char *what() const throw();

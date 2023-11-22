@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 16:38:59 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:25:05 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ const char *BitcoinExchange::InvalidDateDataBase::what() const throw()
 const char *BitcoinExchange::InvalidExchangeRate::what() const throw()
 {
     return RED BOLD "Error: " RESET "Invalid exhange_rate in database" RESET;
+}
+
+const char *BitcoinExchange::InvalidFormatInput::what() const throw()
+{
+    return RED BOLD "Error: " RESET "Missing \"date | value\" at the beginning of the file" RESET;
 }
 
 BitcoinExchange::BitcoinExchange(std::string const &input)
@@ -138,12 +143,7 @@ void BitcoinExchange::displayInput(std::string const &input)
 
     std::getline(infile, date);
     if (date != "date | value")
-    {
-        infile.clear();
-        infile.seekg(0);
-    }
-    if (date.empty())
-        return (displayErrorMessage("Empty file."));
+        throw BitcoinExchange::InvalidFormatInput();
     while (std::getline(infile, date))
     {
         size_t pos = date.find("|");
