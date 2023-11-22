@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 12:53:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 13:23:44 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ static bool isDateValid(std::string &date, bool input)
         return false;
     if (!input && issD.str().size() != 2)
         return false;
-    if (date != "date,exchange_rate" && date != "date | value" && date < "2009-01-02")
+    if (date != "date,exchange_rate" && date != "date | value" && date < "2009-01-03")
+        return false;
+    if (y > 2023)
         return false;
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
         return false;
