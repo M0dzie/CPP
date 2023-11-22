@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 12:25:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:51:04 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static bool haveWrongChar(std::string value)
     return false;
 }
 
-static bool isDateValid(std::string date, bool input)
+static bool isDateValid(std::string &date, bool input)
 {
     struct tm tm;
     if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
@@ -93,7 +93,7 @@ static bool isDateValid(std::string date, bool input)
         return false;
     if (!input && issD.str().size() != 2)
         return false;
-    if (y < 2009 || y > 2023)
+    if (date != "date,exchange_rate" && date != "date | value" && date < "2009-01-02")
         return false;
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
         return false;
@@ -156,7 +156,10 @@ void BitcoinExchange::displayInput(std::string const &input)
         date.resize(date.size() - value.size() - 1);
         if (!isDateValid(date, true))
         {
-            displayErrorMessage("bad input => " + date);
+            if (date < "2009-01-03")
+                displayErrorMessage("Bitcoin didn't exist at this date => " + date);
+            else
+                displayErrorMessage("bad input => " + date);
             continue;
         }
         std::istringstream iss(value);
