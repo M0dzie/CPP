@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 12:51:04 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 12:53:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static bool haveWrongChar(std::string value)
     {
         if (value[i] == '.')
             comas++;
-        if (!std::isdigit(value[i]) && value[i] != '.' && !std::isspace(value[i]))
+        if (!std::isdigit(value[i]) && value[i] != 'f' && value[i] != '.' && !std::isspace(value[i]))
             return true;
     }
     if (comas > 1)
