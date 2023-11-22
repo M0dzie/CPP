@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/21 14:32:44 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 09:45:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ static void sort(T &container, int &nElements)
     if (nElements % 2 != 0)
         last = container.back();
 
-// Split the container in nElements / 2 pairs of 2 elements
+// Split the container in pairs of 2 elements
     for (typename T::iterator it = container.begin(); it != container.end(); ++it)
     {
         typename T::iterator itNext = it;
@@ -150,7 +150,7 @@ static void sort(T &container, int &nElements)
         if (pair[i].first > pair[i].second)
             std::swap(pair[i].first, pair[i].second);
         
-// Insert all the highest values of pairs in the main chain and tmp
+// Insert pair of elements in 2 different container
     for (size_t i = 0; i < pair.size(); i++)
     {
         highest.push_back(pair[i].second);
