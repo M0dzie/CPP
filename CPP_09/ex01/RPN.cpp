@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:37:51 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 17:08:05 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 18:36:58 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@ void RPN::doCalculate()
         else if (this->_operator.top() == '*')
             result *= this->_digit.top();
         else
+        {
+            if (this->_digit.top() == 0)
+                return (displayErrorMessage("We can't divide by 0"));
             result /= this->_digit.top();
+        }
         this->_digit.pop();
         this->_operator.pop();
     }

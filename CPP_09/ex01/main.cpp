@@ -6,13 +6,13 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/14 12:43:50 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/22 18:36:19 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-static void displayErrorMessage(std::string const &msg)
+void displayErrorMessage(std::string const &msg)
 {
     std::cerr << RED << BOLD << "Error: " << RESET << msg << std::endl;
 }
