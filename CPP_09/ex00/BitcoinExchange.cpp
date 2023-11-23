@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:30:50 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 16:57:12 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/23 13:54:40 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ static bool haveWrongChar(std::string value)
     return false;
 }
 
-static bool isDateValid(std::string &date, bool input)
+static int isDateValid(std::string &date, bool input)
 {
     struct tm tm;
     if (!strptime(date.c_str(), "%Y-%m-%d", &tm))
-        return false;
+        return 0;
 
     int y, m, d;
     std::istringstream issY(date);
@@ -90,23 +90,23 @@ static bool isDateValid(std::string &date, bool input)
     std::istringstream issD(date.substr(8));
     issD >> d;
     if (input && issD.str().size() != 3)
-        return false;
+        return 0;
     if (!input && issD.str().size() != 2)
-        return false;
+        return 0;
     if (date != "date,exchange_rate" && date != "date | value" && date < "2009-01-03")
-        return false;
+        return 2;
     if (y > 2023)
-        return false;
+        return 0;
     if (d == 31 && (m == 4 || m == 6 || m == 9 || m == 11))
-        return false;
+        return 0;
     if (m == 2)
     {
         if (d > 29)
-            return false;
+            return 0;
         if (d == 29 && ((y % 100) % 4 != 0))
-            return false;
+            return 0;
     }
-    return true;
+    return 1;
 }
 
 bool BitcoinExchange::isDataBaseCorrect()
@@ -156,12 +156,14 @@ void BitcoinExchange::displayInput(std::string const &input)
         }
         std::string value = date.substr(pos + 1);
         date.resize(date.size() - value.size() - 1);
+        if (isDateValid(date, true) == 2)
+        {
+            displayErrorMessage("Bitcoin didn't exist at this date => " + date);
+            continue;
+        }
         if (!isDateValid(date, true))
         {
-            if (date < "2009-01-03")
-                displayErrorMessage("Bitcoin didn't exist at this date => " + date);
-            else
-                displayErrorMessage("bad input => " + date);
+            displayErrorMessage("bad input => " + date);
             continue;
         }
         std::istringstream iss(value);
