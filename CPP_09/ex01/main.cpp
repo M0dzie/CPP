@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/27 10:52:11 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/27 11:51:23 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static bool isValid(std::string const &arg)
             std::istringstream iss(arg.substr(i));
             int digit;
             iss >> digit;
-            if (digit < 0 || digit > 9)
+            if (digit < 0 || digit > 9 || std::isdigit(iss.str().at(1)))
                 return (displayErrorMessage("This program accept only positive digits [0-9]"), false);
             digits++;
         }
@@ -44,7 +44,7 @@ static bool isValid(std::string const &arg)
             return (displayErrorMessage("it's not a valid inverted Polish mathematical expression"), false);
     }
     if (digits - 1 > operators)
-        return (displayErrorMessage("Too many digits for the amount of operators"), false);
+        return (displayErrorMessage("Too many digits for the amount of operators"), false); 
     if (digits - 1 < operators)
         return (displayErrorMessage("Too many operators for the amount of digits"), false);
     return true;
