@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/27 11:51:23 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/27 13:00:17 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static bool isValid(std::string const &arg)
 
     for (size_t i = 0; i < arg.size(); i++)
     {
+        if (i != 0 && (std::isdigit(arg[i - 1]) || isOperator(arg[i - 1])) && !std::isspace(arg[i]))
+            return (displayErrorMessage("it's not a valid inverted Polish mathematical expression"), false);
         if (std::isdigit(arg[i]) || (i != arg.size() - 1 && arg[i] == '-' && std::isdigit(arg[i + 1])))
         {
             std::istringstream iss(arg.substr(i));
             int digit;
             iss >> digit;
-            if (digit < 0 || digit > 9 || std::isdigit(iss.str().at(1)))
+            if (digit < 0 || digit > 9)
                 return (displayErrorMessage("This program accept only positive digits [0-9]"), false);
             digits++;
         }
