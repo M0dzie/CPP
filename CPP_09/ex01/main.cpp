@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:47:34 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 18:36:19 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:52:11 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ static bool isValid(std::string const &arg)
         if (!std::isdigit(arg[i]) && !std::isspace(arg[i]) && !isOperator(arg[i]))
             return (displayErrorMessage("it's not a valid inverted Polish mathematical expression"), false);
     }
-    if (digits - 1 != operators)
-        return (displayErrorMessage("Too many digit for the amount of operators"), false);
+    if (digits - 1 > operators)
+        return (displayErrorMessage("Too many digits for the amount of operators"), false);
+    if (digits - 1 < operators)
+        return (displayErrorMessage("Too many operators for the amount of digits"), false);
     return true;
 }
 
