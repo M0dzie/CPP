@@ -6,7 +6,7 @@
 /*   By: thmeyer <thmeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:56:28 by thmeyer           #+#    #+#             */
-/*   Updated: 2023/11/22 18:47:51 by thmeyer          ###   ########.fr       */
+/*   Updated: 2023/11/27 10:54:53 by thmeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,12 +186,15 @@ void PmergeMe::mergeInsertSort()
     endList = clock();
     this->_timeList = (double)(endList - startList) / CLOCKS_PER_SEC;
     
-    std::cout << BLACK << "Merge-insertion sort works ? : ";
-    sorted.sort();
-    if (this->_list == sorted)
-        std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
-    else
-        std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
+    if (!this->_list.empty())
+    {
+        std::cout << BLACK << "Merge-insertion sort works ? : ";
+        sorted.sort();
+        if (this->_list == sorted)
+            std::cout << GREEN << BOLD << "Success" << RESET << std::endl;
+        else
+            std::cout << RED << BOLD << "Not sort" << RESET << std::endl;
+    }
 
     startVector = clock();
     sort(this->_vector, this->_nElements);
